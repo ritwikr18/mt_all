@@ -1,0 +1,417 @@
+version 2
+run General-0-20251104-11:13:21-9062
+attr configname General
+attr datetime 20251104-11:13:21
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $warmupPeriod=5
+attr iterationvarsf warmupPeriod=5-
+attr measurement $warmupPeriod=5
+attr network SatelliteAlertGrid
+attr processid 9062
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar warmupPeriod 5
+param *.playgroundSizeX 10000m
+param *.playgroundSizeY 10000m
+param *.playgroundSizeZ 600km
+param *.configurator.typename "\"Ipv4NetworkConfigurator\""
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes true
+param *.configurator.addMulticastRoutes true
+param *.configurator.addDefaultRoutes true
+param *.manager.launchConfig "xmldoc(\"my_5km_grid.launchd.xml\")"
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.updateInterval 0.1s
+param *.manager.autoShutdown true
+param *.vehicleInserter.numVehicles 0
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 25deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.satelliteRadioMedium.mediumLimitCache.disableV2VCommunication true
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.pathToTleFile "\"space_Veins-1.txt\""
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2022-02-22-13-42-34\""
+param *.sop.sumoNetXmlFile "xmldoc(\"my_5km_grid_wgs.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 5000m
+param *.sop.mobility.initialY 5000m
+param *.sop.mobility.initialZ 0m
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo*[*].hasIpv4 true
+param *.leo*[*].ipv4.forwarding true
+param *.leo*[*].ipv4.multicastForwarding true
+param *.leo*[*].igmp.typename "\"Igmpv2Router\""
+param *.leo*[*].numApps 1
+param *.leo*[*].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.leo*[*].app[0].interface "\"satNic0\""
+param *.leo*[*].app[0].localPort 4000
+param *.leo*[*].app[0].receiveBroadcast true
+param *.leo*[*].app[0].joinLocalMulticastGroups true
+param *.leo*[*].numLoInterfaces 0
+param *.leo*[*].numSatelliteNics 1
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numSatelliteNics 1
+param *.node[*].numLoInterfaces 0
+param *.node[*].hasIpv4 true
+param *.node[*].useSamac false
+param *.node[*].igmp.typename "\"Igmpv2\""
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 1m
+param *.connectionManager.drawMaxIntfDist false
+param *.wlanRadioMedium.typename "\"Ieee80211DimensionalRadioMedium\""
+param *.**.wlan[*].opMode "\"p\""
+param *.**.wlan[*].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.**.wlan[*].agent.typename "\"\""
+param *.**.wlan[*].radio.typename "\"Ieee80211DimensionalRadio\""
+param *.**.wlan[*].radio.radioMediumModule "\"wlanRadioMedium\""
+param *.**.satNic[0].typename "\"SatelliteInterface\""
+param *.**.satNic[0].mac.typename "\"AckingMac\""
+param *.**.satNic[0].mac.headerLength 32B
+param *.**.satNic[0].mac.fullDuplex true
+param *.**.satNic[0].mac.useAck false
+param *.**.satNic[0].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[0].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[0].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[0].radio.transmitter.communicationRange 10km
+param *.**.satNic[0].radio.transmitter.headerLength 8bit
+param *.**.satNic[0].radio.transmitter.preambleDuration 0s
+param *.leo*[*].satNic[0].mac.bitrate 100Mbps
+param *.node[*].satNic[0].mac.bitrate 10Mbps
+param *.leo*[*].satNic[0].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[0].radio.transmitter.bitrate 10Mbps
+param *.leo*[*].satNic[0].radio.receiver.ignoreInterference false
+param *.node[*].satNic[0].radio.receiver.ignoreInterference true
+param *.node[*].numApps 1
+param *.node[0].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[0].app[0].destAddresses "\"224.0.0.1\""
+param *.node[0].app[0].destPort 4000
+param *.node[0].app[0].localPort 4000
+param *.node[0].app[0].messageLength 50B
+param *.node[0].app[0].packetName "\"Alert\""
+param *.node[0].app[0].receiveBroadcast false
+param *.node[0].app[0].joinLocalMulticastGroups true
+param *.node[0].app[0].startTime 15s
+param *.node[0].app[0].sendInterval 10s
+param *.node[0].app[0].stopTime -1s
+param *.node[1..4].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.node[1..4].app[0].localPort 4000
+param *.node[1..4].app[0].receiveBroadcast true
+param *.node[1..4].app[0].joinLocalMulticastGroups true
+param *.node[1..4].app[0].startTime 5s
+param *.node[1..4].app[0].stopTime -1s
+param *.visualizer.*.radioVisualizer[0].displayRadios true
+param *.visualizer.*.radioVisualizer[0].displayAntennaLobes true
+param *.visualizer.*.radioVisualizer[0].radioFilter "\"*.node[*].satNic[*].radio or *.leo*[*].satNic[*].radio\""
+param *.visualizer.*.mediumVisualizer[0].displaySignals true
+param *.visualizer.*.mediumVisualizer[0].displayTransmissions true
+param *.visualizer.*.mediumVisualizer[0].displayReceptions true
+param *.visualizer.*.mediumVisualizer[0].signalPropagationAnimationSpeed 1.0
+param *.visualizer.*.dataLinkVisualizer[0].displayLinks true
+param *.visualizer.*.dataLinkVisualizer[0].fadeOutMode "\"time\""
+param *.visualizer.*.dataLinkVisualizer[0].fadeOutTime 2s
+param *.visualizer.*.dataLinkVisualizer[0].nodeFilter "\"*.node[*] or *.leo*[*]\""
+param *.visualizer.*.dataLinkVisualizer[0].packetFilter "\"*\""
+param *.visualizer.*.numMobilityVisualizers 3
+param *.visualizer.*.mobilityVisualizer[*].displayMobility true
+param *.visualizer.*.mobilityVisualizer[*].displayPositions true
+param *.visualizer.*.mobilityVisualizer[*].displayOrientations true
+param *.visualizer.*.mobilityVisualizer[*].displayVelocities true
+param *.visualizer.*.mobilityVisualizer[*].displayMovementTrails true
+param *.visualizer.*.mobilityVisualizer[0].moduleFilter "\"*.node[*].mobility\""
+param *.visualizer.*.mobilityVisualizer[1].moduleFilter "\"*.node[*].satNic[*].radio.antenna.mobility\""
+param *.visualizer.*.mobilityVisualizer[1].positionCircleRadius 20
+param *.visualizer.*.mobilityVisualizer[1].positionCircleFillColor "\"yellow\""
+param *.visualizer.*.mobilityVisualizer[1].orientationFillColor "\"yellow\""
+param *.visualizer.*.mobilityVisualizer[2].moduleFilter "\"*.wlan[*].radio.antenna.mobility\""
+param *.visualizer.*.mobilityVisualizer[2].orientationFillColor "\"red\""
+
+vector 0 SatelliteAlertGrid.node[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 1 SatelliteAlertGrid.node[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 2 SatelliteAlertGrid.node[0].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 3 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 4 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 5 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 6 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 7 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 8 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 9 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 10 SatelliteAlertGrid.node[0].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 11 SatelliteAlertGrid.node[0].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 12 SatelliteAlertGrid.node[0].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 13 SatelliteAlertGrid.node[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 14 SatelliteAlertGrid.node[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 SatelliteAlertGrid.node[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 16 SatelliteAlertGrid.node[0].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 17 SatelliteAlertGrid.node[0].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 18 SatelliteAlertGrid.node[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 19 SatelliteAlertGrid.node[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+0	168	15	50
+0	290	25	50
+0	410	35	50
+0	530	45	50
+0	650	55	50
+0	770	65	50
+0	890	75	50
+1	172	15	58
+1	292	25	58
+1	412	35	58
+1	532	45	58
+1	652	55	58
+1	772	65	58
+1	892	75	58
+2	175	15	80
+2	295	25	80
+2	415	35	80
+2	535	45	80
+2	655	55	80
+2	775	65	80
+2	895	75	80
+3	175	15	108
+3	295	25	108
+3	415	35	108
+3	535	45	108
+3	655	55	108
+3	775	65	108
+3	895	75	108
+4	175	15	1
+4	177	15	0
+4	295	25	1
+4	297	25	0
+4	415	35	1
+4	417	35	0
+4	535	45	1
+4	537	45	0
+4	655	55	1
+4	657	55	0
+4	775	65	1
+4	777	65	0
+4	895	75	1
+4	897	75	0
+5	175	15	15
+5	295	25	0
+5	415	35	11
+5	535	45	7
+5	655	55	3
+5	775	65	2
+5	895	75	7
+6	175	15	1
+6	176	15	0
+6	295	25	1
+6	296	25	0
+6	415	35	1
+6	416	35	0
+6	535	45	1
+6	536	45	0
+6	655	55	1
+6	656	55	0
+6	775	65	1
+6	776	65	0
+6	895	75	1
+6	896	75	0
+7	177	15	108
+7	297	25	108
+7	417	35	108
+7	537	45	108
+7	657	55	108
+7	777	65	108
+7	897	75	108
+8	177	15	0
+8	297	25	0
+8	417	35	0
+8	537	45	0
+8	657	55	0
+8	777	65	0
+8	897	75	0
+9	177	15	1
+9	184	15.00012	0
+9	297	25	1
+9	304	25.00012	0
+9	417	35	1
+9	424	35.00012	0
+9	537	45	1
+9	544	45.00012	0
+9	657	55	1
+9	664	55.00012	0
+9	777	65	1
+9	784	65.00012	0
+9	897	75	1
+9	904	75.00012	0
+10	177	15	12000000
+10	297	25	12000000
+10	417	35	12000000
+10	537	45	12000000
+10	657	55	12000000
+10	777	65	12000000
+10	897	75	12000000
+11	177	15	108
+11	297	25	108
+11	417	35	108
+11	537	45	108
+11	657	55	108
+11	777	65	108
+11	897	75	108
+12	177	15	1
+12	184	15.00012	0
+12	297	25	1
+12	304	25.00012	0
+12	417	35	1
+12	424	35.00012	0
+12	537	45	1
+12	544	45.00012	0
+12	657	55	1
+12	664	55.00012	0
+12	777	65	1
+12	784	65.00012	0
+12	897	75	1
+12	904	75.00012	0
+13	178	15	3
+13	185	15.00012	2
+13	298	25	3
+13	305	25.00012	2
+13	418	35	3
+13	425	35.00012	2
+13	538	45	3
+13	545	45.00012	2
+13	658	55	3
+13	665	55.00012	2
+13	778	65	3
+13	785	65.00012	2
+13	898	75	3
+13	905	75.00012	2
+14	178	15	0
+14	185	15.00012	1
+14	298	25	0
+14	305	25.00012	1
+14	418	35	0
+14	425	35.00012	1
+14	538	45	0
+14	545	45.00012	1
+14	658	55	0
+14	665	55.00012	1
+14	778	65	0
+14	785	65.00012	1
+14	898	75	0
+14	905	75.00012	1
+15	178	15	1
+15	179	15	2
+15	184	15.00012	1
+15	185	15.00012	0
+15	298	25	1
+15	299	25	2
+15	304	25.00012	1
+15	305	25.00012	0
+15	418	35	1
+15	419	35	2
+15	424	35.00012	1
+15	425	35.00012	0
+15	538	45	1
+15	539	45	2
+15	544	45.00012	1
+15	545	45.00012	0
+15	658	55	1
+15	659	55	2
+15	664	55.00012	1
+15	665	55.00012	0
+15	778	65	1
+15	779	65	2
+15	784	65.00012	1
+15	785	65.00012	0
+15	898	75	1
+15	899	75	2
+15	904	75.00012	1
+15	905	75.00012	0
+16	184	15.00012	108
+16	304	25.00012	108
+16	424	35.00012	108
+16	544	45.00012	108
+16	664	55.00012	108
+16	784	65.00012	108
+16	904	75.00012	108
+17	184	15.00012	108
+17	304	25.00012	108
+17	424	35.00012	108
+17	544	45.00012	108
+17	664	55.00012	108
+17	784	65.00012	108
+17	904	75.00012	108
+18	184	15.00012	108
+18	304	25.00012	108
+18	424	35.00012	108
+18	544	45.00012	108
+18	664	55.00012	108
+18	784	65.00012	108
+18	904	75.00012	108
+19	184	15.00012	0.00012
+19	304	25.00012	0.00012
+19	424	35.00012	0.00012
+19	544	45.00012	0.00012
+19	664	55.00012	0.00012
+19	784	65.00012	0.00012
+19	904	75.00012	0.00012
+
