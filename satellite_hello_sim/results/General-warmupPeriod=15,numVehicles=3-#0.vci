@@ -1,0 +1,1090 @@
+file 3125514 1762086056                                         
+version 2
+run General-0-20251102-13:20:37-17549
+attr configname General
+attr datetime 20251102-13:20:37
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars "$warmupPeriod=15, $numVehicles=3"
+attr iterationvarsf warmupPeriod=15,numVehicles=3-
+attr measurement "$warmupPeriod=15, $numVehicles=3"
+attr network SatelliteHelloScenario
+attr processid 17549
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar numVehicles 3
+itervar warmupPeriod 15
+param *.playgroundSizeX 1000m
+param *.playgroundSizeY 1000m
+param *.playgroundSizeZ 1000km
+param *.configurator.typename "\"Ipv4NetworkConfigurator\""
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes true
+param *.manager.autoShutdown true
+param *.manager.updateInterval 0.1s
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.launchConfig "xmldoc(\"Null-Island-3by3-grid.launchd.xml\")"
+param *.vehicleInserter.numVehicles 3
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.useOsg false
+param *.visualizer.osgVisualizer.typename "\"\""
+param *.visualizer.*.radioVisualizer[0].displayRadios true
+param *.visualizer.*.radioVisualizer[0].displayAntennaLobes true
+param *.visualizer.*.radioVisualizer[0].radioFilter "\"*.node[*].satNic[0].radio\""
+param *.visualizer.*.dataLinkVisualizer[0].displayLinks true
+param *.visualizer.*.numMobilityVisualizers 3
+param *.visualizer.*.mobilityVisualizer[*].displayMobility true
+param *.visualizer.*.mobilityVisualizer[*].displayPositions true
+param *.visualizer.*.mobilityVisualizer[*].displayOrientations true
+param *.visualizer.*.mobilityVisualizer[*].displayVelocities true
+param *.visualizer.*.mobilityVisualizer[*].displayMovementTrails true
+param *.visualizer.*.mobilityVisualizer[0].moduleFilter "\"*.node[*].mobility *.leo*[*].mobility\""
+param *.visualizer.*.mobilityVisualizer[1].moduleFilter "\"*.node[*].satNic[*].radio.antenna.mobility\""
+param *.visualizer.*.mobilityVisualizer[1].positionCircleRadius 20
+param *.visualizer.*.mobilityVisualizer[1].positionCircleFillColor "\"yellow\""
+param *.visualizer.*.mobilityVisualizer[1].orientationFillColor "\"yellow\""
+param *.visualizer.*.mobilityVisualizer[2].moduleFilter "\"**.wlan[*].radio.antenna.mobility\""
+param *.visualizer.*.mobilityVisualizer[2].orientationFillColor "\"red\""
+param *.sop.sumoNetXmlFile "xmldoc(\"Null-Island-3by3-grid.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 400m
+param *.sop.mobility.initialY 397.49m
+param *.sop.mobility.initialZ 0m
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2024-12-13-10-00-00\""
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo*[*].numApps 1
+param *.leo*[*].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.leo*[*].app[0].interface "\"satNic0\""
+param *.leo*[*].app[0].localPort 5000
+param *.leo*[*].app[0].receiveBroadcast true
+param *.leo*[*].app[0].joinLocalMulticastGroups true
+param *.leo*[*].numLoInterfaces 0
+param *.leo*[*].numSatelliteNics 1
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numApps 1
+param *.node[*].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[*].app[0].destAddresses "\"224.0.0.1\""
+param *.node[*].app[0].startTime "uniform(5.0s, 5.1s)"
+param *.node[*].app[0].packetName "\"Hello\""
+param *.node[*].app[0].destPort 5000
+param *.node[*].app[0].localPort 5000
+param *.node[*].app[0].messageLength 5B
+param *.node[*].app[0].sendInterval 1s
+param *.node[*].app[0].receiveBroadcast true
+param *.node[*].app[0].joinLocalMulticastGroups true
+param *.leo*[*].hasIpv4 true
+param *.node[*].numLoInterfaces 0
+param *.node[*].useSamac false
+param *.node[*].numSatelliteNics 1
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 25deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.**.satNic[0].typename "\"SatelliteInterface\""
+param *.**.satNic[0].mac.typename "\"AckingMac\""
+param *.leo*[*].satNic[0].mac.bitrate 100Mbps
+param *.node[*].satNic[0].mac.bitrate 10Mbps
+param *.**.satNic[0].mac.headerLength 32B
+param *.**.satNic[0].mac.fullDuplex true
+param *.**.satNic[0].mac.useAck false
+param *.**.satNic[0].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[0].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[0].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[0].radio.transmitter.communicationRange 9999999km
+param *.leo*[*].satNic[0].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[0].radio.transmitter.bitrate 10Mbps
+param *.**.satNic[0].radio.transmitter.headerLength 8bit
+param *.**.satNic[0].radio.transmitter.preambleDuration 0s
+param *.leo*[*].satNic[0].radio.receiver.ignoreInterference false
+param *.node[*].satNic[0].radio.receiver.ignoreInterference true
+param *.wlanRadioMedium.typename "\"Ieee80211DimensionalRadioMedium\""
+param *.**.wlan[*].opMode "\"p\""
+param *.**.wlan[*].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.**.wlan[*].agent.typename "\"\""
+param *.**.wlan[*].radio.typename "\"Ieee80211DimensionalRadio\""
+param *.**.wlan[*].radio.radioMediumModule "\"wlanRadioMedium\""
+param *.**.wlan[*].radio.bandName "\"5.9 GHz\""
+param *.**.wlan[*].radio.channelNumber 3
+param *.**.wlan[*].radio.transmitter.power 100mW
+param *.**.wlan[*].radio.bandwidth 10MHz
+param *.**.wlan[*].radio.centerFrequency 5.89GHz
+param *.**.wlan[*].radio.receiver.snirThreshold 0dB
+param *.**.wlan[*].radio.receiver.energyDetection -65dBm
+param *.**.wlan[*].radio.receiver.sensitivity -98dBm
+param *.**.wlan[*].radio.**.modulation "\"QAM-16\""
+param *.**.wlan[*].radio.antenna.mobility.typename "\"AttachedMobility\""
+param *.**.wlan[*].radio.antenna.mobility.mobilityModule "\"^.^.^.^.mobility\""
+param *.**.wlan[*].radio.antenna.mobility.offsetX -2.5m
+param *.**.wlan[*].radio.antenna.mobility.offsetZ 1.5m
+param *.**.wlan[*].radio.antenna.mobility.constraintAreaMinX 0m
+param *.**.wlan[*].radio.antenna.mobility.constraintAreaMaxX 0m
+param *.**.wlan[*].radio.antenna.mobility.constraintAreaMinY 0m
+param *.**.wlan[*].radio.antenna.mobility.constraintAreaMaxY 0m
+param *.**.wlan[*].radio.antenna.mobility.constraintAreaMinZ 0m
+param *.**.wlan[*].radio.antenna.mobility.constraintAreaMaxZ 0m
+param *.satelliteInserter.pathToTleFile "\"starlink_100_tle_run1.txt\""
+
+vector 0 SatelliteHelloScenario.node[2].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 1 SatelliteHelloScenario.node[2].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 2 SatelliteHelloScenario.node[2].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 3 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 4 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 5 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 6 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 7 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 8 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 9 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 10 SatelliteHelloScenario.node[2].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 11 SatelliteHelloScenario.node[2].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 12 SatelliteHelloScenario.node[2].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 13 SatelliteHelloScenario.node[2].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 14 SatelliteHelloScenario.node[2].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 15 SatelliteHelloScenario.node[2].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 16 SatelliteHelloScenario.node[0].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 17 SatelliteHelloScenario.node[1].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 18 SatelliteHelloScenario.node[2].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 19 SatelliteHelloScenario.node[2].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 20 SatelliteHelloScenario.node[2].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 21 SatelliteHelloScenario.node[2].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 22 SatelliteHelloScenario.node[0].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 23 SatelliteHelloScenario.node[0].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 24 SatelliteHelloScenario.node[0].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 25 SatelliteHelloScenario.node[0].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 26 SatelliteHelloScenario.node[0].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 27 SatelliteHelloScenario.node[0].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 28 SatelliteHelloScenario.node[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 29 SatelliteHelloScenario.node[0].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 30 SatelliteHelloScenario.node[0].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 31 SatelliteHelloScenario.node[0].app[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 32 SatelliteHelloScenario.node[0].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+vector 33 SatelliteHelloScenario.node[1].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 34 SatelliteHelloScenario.node[1].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 35 SatelliteHelloScenario.node[1].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 36 SatelliteHelloScenario.node[1].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 37 SatelliteHelloScenario.node[1].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 38 SatelliteHelloScenario.node[1].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 39 SatelliteHelloScenario.node[1].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 40 SatelliteHelloScenario.node[1].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 41 SatelliteHelloScenario.node[1].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 42 SatelliteHelloScenario.node[1].app[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 43 SatelliteHelloScenario.node[1].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+vector 44 SatelliteHelloScenario.node[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 45 SatelliteHelloScenario.node[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 46 SatelliteHelloScenario.node[0].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 47 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 48 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 49 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 50 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 51 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 52 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 53 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 54 SatelliteHelloScenario.node[0].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 55 SatelliteHelloScenario.node[0].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 56 SatelliteHelloScenario.node[0].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 57 SatelliteHelloScenario.node[0].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 58 SatelliteHelloScenario.node[0].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 59 SatelliteHelloScenario.node[0].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 60 SatelliteHelloScenario.node[0].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 61 SatelliteHelloScenario.node[0].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 62 SatelliteHelloScenario.node[0].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 63 SatelliteHelloScenario.node[2].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 64 SatelliteHelloScenario.node[2].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 65 SatelliteHelloScenario.node[2].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 66 SatelliteHelloScenario.node[2].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 67 SatelliteHelloScenario.node[2].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 68 SatelliteHelloScenario.node[2].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 69 SatelliteHelloScenario.node[2].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 70 SatelliteHelloScenario.node[2].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 71 SatelliteHelloScenario.node[2].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 72 SatelliteHelloScenario.node[2].app[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 73 SatelliteHelloScenario.node[2].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+vector 74 SatelliteHelloScenario.node[1].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 75 SatelliteHelloScenario.node[1].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 76 SatelliteHelloScenario.node[1].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 77 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 78 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 79 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 80 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 81 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 82 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 83 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 84 SatelliteHelloScenario.node[1].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 85 SatelliteHelloScenario.node[1].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 86 SatelliteHelloScenario.node[1].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 87 SatelliteHelloScenario.node[1].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 88 SatelliteHelloScenario.node[1].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 89 SatelliteHelloScenario.node[1].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 90 SatelliteHelloScenario.node[1].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 91 SatelliteHelloScenario.node[1].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 92 SatelliteHelloScenario.node[1].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+22	25694 19734 953 31546 15.038526637576 362.084859655987 696 63 63 43848 2762424
+55	45428 9903 971 31507 15.084426574409 362.084426574409 348 63 63 21924 1381212
+46	55331 9903 969 31505 15.084426574409 362.084426574409 348 35 35 12180 426300
+26	65234 19734 953 31546 15.038526637576 362.084859655987 696 35 35 24360 852600
+54	84968 11991 971 31507 15.084426574409 362.084426574409 348 12000000 12000000 4176000000 5.0112e+16
+56	96959 19110 971 31512 15.084426574409 362.084514574409 696 0 1 348 348
+23	116069 19734 953 31546 15.038526637576 362.084859655987 696 63 63 43848 2762424
+25	135803 19734 953 31546 15.038526637576 362.084859655987 696 63 63 43848 2762424
+24	155537 19734 953 31546 15.038526637576 362.084859655987 696 63 63 43848 2762424
+59	175271 9903 976 31512 15.084514574409 362.084514574409 348 63 63 21924 1381212
+61	185174 9903 976 31512 15.084514574409 362.084514574409 348 63 63 21924 1381212
+60	195077 9903 976 31512 15.084514574409 362.084514574409 348 63 63 21924 1381212
+51	204980 9903 971 31507 15.084426574409 362.084426574409 348 63 63 21924 1381212
+52	214883 9555 971 31507 15.084426574409 362.084426574409 348 0 0 0 0
+47	224438 9903 969 31505 15.084426574409 362.084426574409 348 63 63 21924 1381212
+48	234341 19110 969 31507 15.084426574409 362.084426574409 696 0 1 348 348
+62	253451 11643 976 31512 15.084514574409 362.084514574409 348 8.8e-05 8.8e-05 0.030624 2.694912e-06
+53	265094 19110 971 31512 15.084426574409 362.084514574409 696 0 1 348 348
+50	284204 19110 969 31506 15.084426574409 362.084426574409 696 0 1 348 348
+49	303314 9667 969 31505 15.084426574409 362.084426574409 348 0 15 2412 24018
+57	312981 19110 972 31513 15.084426574409 362.084514574409 696 2 3 1740 4524
+16	332091 57185 948 31545 15.038438637576 362.084859655987 2088 0 3 3132 7308
+58	389276 38220 972 31513 15.084426574409 362.084514574409 1392 0 2 1392 2088
+27	427496 19734 956 31549 15.038526637576 362.084859655987 696 13 13 9048 117624
+45	447230 9903 966 31502 15.084426574409 362.084426574409 348 13 13 4524 58812
+28	457133 20322 956 31549 15.038526637576 362.084859655987 696 1 696 242556 112626836
+29	477455 19038 957 31550 15.038526637576 362.084859655987 696 5 5 3480 17400
+32	496493 20250 957 31550 15.038526637576 362.084859655987 696 10 357 127716 30459860
+31	516743 27387 957 31550 15.038526637576 362.084859655987 696 8.8010786e-05 0.000135766921 0.064412582635 6.0209343390033e-06
+30	544130 59092 957 31499 0.1 362 3620 0 800 277600 222080000
+44	603222 9555 965 31501 15.084426574409 362.084426574409 348 5 5 1740 8700
+vector 93 SatelliteHelloScenario.node[3].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 94 SatelliteHelloScenario.node[3].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 95 SatelliteHelloScenario.node[3].satNic[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 96 SatelliteHelloScenario.node[3].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 97 SatelliteHelloScenario.node[3].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 98 SatelliteHelloScenario.node[3].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 99 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 100 SatelliteHelloScenario.node[3].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 101 SatelliteHelloScenario.node[3].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 102 SatelliteHelloScenario.node[3].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 103 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 104 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 105 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 106 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 107 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 108 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 109 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 110 SatelliteHelloScenario.node[3].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 111 SatelliteHelloScenario.node[3].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 112 SatelliteHelloScenario.node[3].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 113 SatelliteHelloScenario.node[3].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 114 SatelliteHelloScenario.node[3].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 115 SatelliteHelloScenario.node[3].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 116 SatelliteHelloScenario.node[3].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 117 SatelliteHelloScenario.node[3].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 118 SatelliteHelloScenario.node[3].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 119 SatelliteHelloScenario.node[3].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 120 SatelliteHelloScenario.node[3].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 121 SatelliteHelloScenario.node[3].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 122 SatelliteHelloScenario.node[3].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 123 SatelliteHelloScenario.node[3].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 124 SatelliteHelloScenario.node[3].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 125 SatelliteHelloScenario.node[3].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 126 SatelliteHelloScenario.node[3].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 127 SatelliteHelloScenario.node[3].app[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 128 SatelliteHelloScenario.node[3].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+63	620060 22907 979 36384 15.084515041163 417.084814066797 806 63 63 50778 3199014
+11	642967 11498 945 36350 15.038438170822 417.038438170822 403 63 63 25389 1599507
+2	654465 11095 943 36348 15.038438170822 417.038438170822 403 35 35 14105 493675
+67	665560 22907 979 36384 15.084515041163 417.084814066797 806 35 35 28210 987350
+10	688467 13916 945 36350 15.038438170822 417.038438170822 403 12000000 12000000 4836000000 5.8032e+16
+12	702383 22190 945 36355 15.038438170822 417.038526170822 806 0 1 403 403
+64	724573 22907 979 36384 15.084515041163 417.084814066797 806 63 63 50778 3199014
+66	747480 22907 979 36384 15.084515041163 417.084814066797 806 63 63 50778 3199014
+65	770387 22907 979 36384 15.084515041163 417.084814066797 806 63 63 50778 3199014
+18	793294 11498 950 36355 15.038526170822 417.038526170822 403 63 63 25389 1599507
+20	804792 11498 950 36355 15.038526170822 417.038526170822 403 63 63 25389 1599507
+19	816290 11498 950 36355 15.038526170822 417.038526170822 403 63 63 25389 1599507
+7	827788 11095 945 36350 15.038438170822 417.038438170822 403 63 63 25389 1599507
+8	838883 10692 945 36350 15.038438170822 417.038438170822 403 0 0 0 0
+3	849575 11095 943 36348 15.038438170822 417.038438170822 403 63 63 25389 1599507
+4	860670 21384 943 36350 15.038438170822 417.038438170822 806 0 1 403 403
+21	882054 13513 950 36355 15.038526170822 417.038526170822 403 8.8e-05 8.8e-05 0.035464 3.120832e-06
+9	895567 21384 945 36355 15.038438170822 417.038526170822 806 0 1 403 403
+6	916951 21384 943 36349 15.038438170822 417.038438170822 806 0 1 403 403
+5	938335 10836 943 36348 15.038438170822 417.038438170822 403 0 15 2844 28510
+13	949171 22190 946 36356 15.038438170822 417.038526170822 806 2 3 2015 5239
+14	971361 66392 946 36383 15.038438170822 417.084814066797 2418 0 3 3627 8463
+15	1037753 44380 946 36356 15.038438170822 417.038526170822 1612 0 2 1612 2418
+68	1082133 22907 982 36387 15.084515041163 417.084814066797 806 13 13 10478 136214
+1	1105040 11095 940 36345 15.038438170822 417.038438170822 403 13 13 5239 68107
+69	1116135 23605 982 36387 15.084515041163 417.084814066797 806 1 806 325221 174860491
+70	1139740 22101 983 36388 15.084515041163 417.084814066797 806 5 5 4030 20150
+73	1161841 23468 983 36388 15.084515041163 417.084814066797 806 0 412 150376 38680050
+72	1185309 31744 983 36388 15.084515041163 417.084814066797 806 8.8010786e-05 0.000316760524 0.074381448687 6.9759238072984e-06
+71	1217053 68552 983 36388 0.1 417 4170 0 800 322000 240160000
+0	1285605 10692 939 36344 15.038438170822 417.038438170822 403 5 5 2015 10075
+vector 129 SatelliteHelloScenario.node[4].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 130 SatelliteHelloScenario.node[4].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 131 SatelliteHelloScenario.node[4].satNic[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 132 SatelliteHelloScenario.node[4].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 133 SatelliteHelloScenario.node[4].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 134 SatelliteHelloScenario.node[4].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 135 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 136 SatelliteHelloScenario.node[4].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 137 SatelliteHelloScenario.node[4].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 138 SatelliteHelloScenario.node[4].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 139 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 140 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 141 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 142 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 143 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 144 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 145 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 146 SatelliteHelloScenario.node[4].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 147 SatelliteHelloScenario.node[4].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 148 SatelliteHelloScenario.node[4].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 149 SatelliteHelloScenario.node[4].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 150 SatelliteHelloScenario.node[4].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 151 SatelliteHelloScenario.node[4].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 152 SatelliteHelloScenario.node[4].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 153 SatelliteHelloScenario.node[4].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 154 SatelliteHelloScenario.node[4].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 155 SatelliteHelloScenario.node[4].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 156 SatelliteHelloScenario.node[4].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 157 SatelliteHelloScenario.node[4].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 158 SatelliteHelloScenario.node[4].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 159 SatelliteHelloScenario.node[4].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 160 SatelliteHelloScenario.node[4].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 161 SatelliteHelloScenario.node[4].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 162 SatelliteHelloScenario.node[4].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 163 SatelliteHelloScenario.node[4].app[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 164 SatelliteHelloScenario.node[4].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+33	1303587 24685 959 39092 15.038528298055 447.70008936124 868 63 63 54684 3445092
+85	1328272 12389 996 39107 15.084725173726 448.084725173726 434 63 63 27342 1722546
+76	1340661 12397 994 39105 15.084725173726 448.084725173726 434 35 35 15190 531650
+37	1353058 24685 959 39092 15.038528298055 447.70008936124 868 35 35 30380 1063300
+84	1377743 14993 996 39107 15.084725173726 448.084725173726 434 12000000 12000000 5208000000 6.2496e+16
+86	1392736 23911 996 39112 15.084725173726 448.084813173726 868 0 1 434 434
+34	1416647 24685 959 39092 15.038528298055 447.70008936124 868 63 63 54684 3445092
+36	1441332 24685 959 39092 15.038528298055 447.70008936124 868 63 63 54684 3445092
+35	1466017 24685 959 39092 15.038528298055 447.70008936124 868 63 63 54684 3445092
+89	1490702 12390 1001 39112 15.084813173726 448.084813173726 434 63 63 27342 1722546
+91	1503092 12390 1001 39112 15.084813173726 448.084813173726 434 63 63 27342 1722546
+90	1515482 12390 1001 39112 15.084813173726 448.084813173726 434 63 63 27342 1722546
+81	1527872 12389 996 39107 15.084725173726 448.084725173726 434 63 63 27342 1722546
+82	1540261 12900 996 39107 15.084725173726 448.084725173726 434 0 4.5083802e-05 0.002040890773 6.6075904483104e-08
+77	1553161 12397 994 39105 15.084725173726 448.084725173726 434 63 63 27342 1722546
+78	1565558 23918 994 39107 15.084725173726 448.084725173726 868 0 1 434 434
+92	1589476 14560 1001 39112 15.084813173726 448.084813173726 434 8.8e-05 8.8e-05 0.038192 3.360896e-06
+83	1604036 23911 996 39112 15.084725173726 448.084813173726 868 0 1 434 434
+80	1627947 23918 994 39106 15.084725173726 448.084725173726 868 0 1 434 434
+79	1651865 12130 994 39105 15.084725173726 448.084725173726 434 0 15 3363 34841
+87	1663995 23911 997 39113 15.084725173726 448.084813173726 868 2 3 2170 5642
+17	1687906 71545 949 39113 15.038440298055 448.084813173726 2604 0 3 3906 9114
+88	1759451 47822 997 39113 15.084725173726 448.084813173726 1736 0 2 1736 2604
+38	1807273 24685 962 39095 15.038528298055 447.70008936124 868 13 13 11284 146692
+75	1831958 12397 991 39102 15.084725173726 448.084725173726 434 13 13 5642 73346
+39	1844355 25445 962 39095 15.038528298055 447.70008936124 868 1 868 377146 218367534
+40	1869800 23817 963 39096 15.038528298055 447.70008936124 868 5 5 4340 21700
+43	1893617 25236 963 39096 15.038528298055 447.70008936124 868 0 412 153011 38843885
+42	1918853 34147 963 39096 15.038528298055 447.70008936124 868 8.8011126e-05 0.000316958139 0.077953001557 7.062024909361e-06
+41	1953000 73835 963 39096 0.1 447.7 4477 0 800 346800 250080000
+74	2026835 11963 990 39101 15.084725173726 448.084725173726 434 5 5 2170 10850
+vector 165 SatelliteHelloScenario.node[5].wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 166 SatelliteHelloScenario.node[5].wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr source radioChannelChanged
+attr title "Radio channel, vector"
+vector 167 SatelliteHelloScenario.node[5].satNic[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 168 SatelliteHelloScenario.node[5].wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 169 SatelliteHelloScenario.node[5].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 170 SatelliteHelloScenario.node[5].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 171 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr title "contention window, vector"
+vector 172 SatelliteHelloScenario.node[5].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 173 SatelliteHelloScenario.node[5].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 174 SatelliteHelloScenario.node[5].wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from upper layer, vector(packetBytes)"
+vector 175 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.pendingQueue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 176 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 177 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr title "backoff periods, vector"
+vector 178 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(backoffStarted)-count(backoffStopped)
+attr title "backoff active, vector"
+vector 179 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.pendingQueue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 180 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 181 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetEnqueued) - count(packetDequeued)"
+attr title "queue length, vector"
+vector 182 SatelliteHelloScenario.node[5].wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr title "datarates selected, vector"
+vector 183 SatelliteHelloScenario.node[5].wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 184 SatelliteHelloScenario.node[5].wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr interpolationmode sample-hold
+attr source count(frameSequenceStarted)-count(frameSequenceFinished)
+attr title "frame sequence active, vector"
+vector 185 SatelliteHelloScenario.node[5].wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 186 SatelliteHelloScenario.node[5].wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent, vector(packetBytes)"
+vector 187 SatelliteHelloScenario.node[5].wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, vector(packetBytes)"
+vector 188 SatelliteHelloScenario.node[5].wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, vector(packetBytes)"
+vector 189 SatelliteHelloScenario.node[5].wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetDequeued)
+attr title "queueing times, vector"
+vector 190 SatelliteHelloScenario.node[5].wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 191 SatelliteHelloScenario.node[5].wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets received, vector(packetBytes)"
+vector 192 SatelliteHelloScenario.node[5].wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, vector(packetBytes)"
+vector 193 SatelliteHelloScenario.node[5].wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, vector(packetBytes)"
+vector 194 SatelliteHelloScenario.node[5].wlan[0].mac packetSentToUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packets sent to upper layer, vector(packetBytes)"
+vector 195 SatelliteHelloScenario.node[5].udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 196 SatelliteHelloScenario.node[5].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 197 SatelliteHelloScenario.node[5].app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 198 SatelliteHelloScenario.node[5].app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 199 SatelliteHelloScenario.node[5].app[0] rcvdPkLifetime:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, vector"
+attr unit s
+vector 200 SatelliteHelloScenario.node[5].app[0] rcvdPkSeqNo:vector ETV
+attr interpolationmode none
+attr source appPkSeqNo(packetReceived)
+attr title "received packet sequence number, vector"
+93	2046088 9338 31559 52489 362.7 599.700088 479 0 3 1192 3098
+94	2055426 17 31559 31559 362.7 362.7 1 3 3 3 9
+95	2055443 51 31559 31559 362.7 362.7 3 0 4 4 16
+96	2055494 35828 31559 52489 362.7 599.700088 1429 0 3 2143 4999
+97	2091322 17 31559 31559 362.7 362.7 1 1 1 1 1
+98	2091339 17 31559 31559 362.7 362.7 1 1 1 1 1
+99	2091356 18 31559 31559 362.7 362.7 1 15 15 15 225
+100	2091374 4284 31560 52476 362.7 599.7 238 5 5 1190 5950
+101	2095658 4522 31564 52478 362.7 599.7 238 13 13 3094 40222
+102	2100180 4522 31567 52481 362.7 599.7 238 35 35 8330 291550
+103	2104702 4522 31567 52481 362.7 599.7 238 63 63 14994 944622
+104	2109224 8573 31567 52483 362.7 599.7 476 0 1 238 238
+105	2117797 4395 31567 52481 362.7 599.7 238 0 15 1950 20680
+106	2122192 8573 31567 52482 362.7 599.7 476 0 1 238 238
+107	2130765 4527 31569 52483 362.700227 599.7 238 63 63 14994 944622
+108	2135292 4296 31569 52483 362.700227 599.7 238 0 0.000227 0.000227 5.1529e-08
+109	2139588 9763 31569 52488 362.700227 599.700088 476 0 1 238 238
+110	2149351 5955 31569 52483 362.700227 599.7 238 12000000 12000000 2856000000 3.4272e+16
+111	2155306 4527 31569 52483 362.700227 599.7 238 63 63 14994 944622
+112	2159833 9763 31569 52488 362.700227 599.700088 476 0 1 238 238
+113	2169596 19526 31570 52489 362.700227 599.700088 952 0 2 952 1428
+114	2189122 5712 31574 52488 362.700315 599.700088 238 63 63 14994 944622
+115	2194834 5712 31574 52488 362.700315 599.700088 238 63 63 14994 944622
+116	2200546 5712 31574 52488 362.700315 599.700088 238 63 63 14994 944622
+117	2206258 6902 31574 52488 362.700315 599.700088 238 8.8e-05 8.8e-05 0.020944 1.843072e-06
+118	2213160 14214 31612 52463 363.038527921314 599.500088283833 476 63 63 29988 1889244
+119	2227374 14214 31612 52463 363.038527921314 599.500088283833 476 63 63 29988 1889244
+120	2241588 14214 31612 52463 363.038527921314 599.500088283833 476 63 63 29988 1889244
+121	2255802 14214 31612 52463 363.038527921314 599.500088283833 476 63 63 29988 1889244
+122	2270016 14214 31612 52463 363.038527921314 599.500088283833 476 35 35 16660 583100
+123	2284230 14214 31615 52466 363.038527921314 599.500088283833 476 13 13 6188 80444
+124	2298444 14582 31615 52466 363.038527921314 599.500088283833 476 1 476 113526 36063426
+125	2313026 13738 31616 52467 363.038527921314 599.500088283833 476 5 5 2380 11900
+126	2326764 106454 31616 52467 0.1 599.5 5995 0 800 190000 93600000
+127	2433218 19380 31616 52467 363.038527921314 599.500088283833 476 8.8018089e-05 0.000289174332 0.042662768921 3.8733195862588e-06
+128	2452598 14470 31616 52467 363.038527921314 599.500088283833 476 0 443 83747 25198845
+129	2467068 7562 36400 52461 417.5 599.500088 369 0 3 917 2383
+130	2474630 18 36400 36400 417.5 417.5 1 3 3 3 9
+131	2474648 54 36400 36400 417.5 417.5 3 0 4 4 16
+132	2474702 28672 36400 52490 417.5 599.700088292652 1099 0 3 1648 3844
+133	2503374 18 36400 36400 417.5 417.5 1 1 1 1 1
+134	2503392 18 36400 36400 417.5 417.5 1 1 1 1 1
+135	2503410 19 36400 36400 417.5 417.5 1 15 15 15 225
+136	2503429 3294 36401 52448 417.5 599.5 183 5 5 915 4575
+137	2506723 3477 36405 52450 417.5 599.5 183 13 13 2379 30927
+138	2510200 3477 36408 52453 417.5 599.5 183 35 35 6405 224175
+139	2513677 3477 36408 52453 417.5 599.5 183 63 63 11529 726327
+140	2517154 6593 36408 52455 417.5 599.5 366 0 1 183 183
+141	2523747 3365 36408 52453 417.5 599.5 183 0 15 1381 14093
+142	2527112 6593 36408 52454 417.5 599.5 366 0 1 183 183
+143	2533705 3482 36410 52455 417.500097 599.5 183 63 63 11529 726327
+144	2537187 3305 36410 52455 417.500097 599.5 183 0 9.7e-05 9.7e-05 9.409e-09
+145	2540492 7508 36410 52460 417.500097 599.500088 366 0 1 183 183
+146	2548000 4580 36410 52455 417.500097 599.5 183 12000000 12000000 2196000000 2.6352e+16
+147	2552580 3482 36410 52455 417.500097 599.5 183 63 63 11529 726327
+148	2556062 7508 36410 52460 417.500097 599.500088 366 0 1 183 183
+149	2563570 15016 36411 52461 417.500097 599.500088 732 0 2 732 1098
+150	2578586 4392 36415 52460 417.500185 599.500088 183 63 63 11529 726327
+151	2582978 4392 36415 52460 417.500185 599.500088 183 63 63 11529 726327
+152	2587370 4392 36415 52460 417.500185 599.500088 183 63 63 11529 726327
+153	2591762 5307 36415 52460 417.500185 599.500088 183 8.8e-05 8.8e-05 0.016104 1.417152e-06
+154	2597069 10939 36446 52491 417.70008919761 599.700088292652 366 63 63 23058 1452654
+155	2608008 10939 36446 52491 417.70008919761 599.700088292652 366 63 63 23058 1452654
+156	2618947 10939 36446 52491 417.70008919761 599.700088292652 366 63 63 23058 1452654
+157	2629886 10939 36446 52491 417.70008919761 599.700088292652 366 63 63 23058 1452654
+158	2640825 10939 36446 52491 417.70008919761 599.700088292652 366 35 35 12810 448350
+159	2651764 10939 36449 52494 417.70008919761 599.700088292652 366 13 13 4758 61854
+160	2662703 11197 36449 52494 417.70008919761 599.700088292652 366 1 366 67161 16409671
+161	2673900 10573 36450 52495 417.70008919761 599.700088292652 366 5 5 1830 9150
+162	2684473 106380 36450 52495 0.1 599.7 5997 0 400 146000 58400000
+163	2790853 14925 36450 52495 417.70008919761 599.700088292652 366 8.8018749e-05 0.000289326134 0.032741618146 2.9691918444292e-06
+164	2805778 11150 36450 52495 417.70008919761 599.700088292652 366 0 443 51462 11251780
+165	2816928 6291 39129 52433 448.3 599.300088 307 0 3 762 1980
+166	2823219 18 39129 39129 448.3 448.3 1 3 3 3 9
+167	2823237 54 39129 39129 448.3 448.3 3 0 4 4 16
+168	2823291 23821 39129 52496 448.3 599.700088764714 913 0 3 1369 3193
+169	2847112 18 39129 39129 448.3 448.3 1 1 1 1 1
+170	2847130 18 39129 39129 448.3 448.3 1 1 1 1 1
+171	2847148 19 39129 39129 448.3 448.3 1 15 15 15 225
+172	2847167 2736 39130 52420 448.3 599.3 152 5 5 760 3800
+173	2849903 2888 39134 52422 448.3 599.3 152 13 13 1976 25688
+174	2852791 2888 39137 52425 448.3 599.3 152 35 35 5320 186200
+175	2855679 2888 39137 52425 448.3 599.3 152 63 63 9576 603288
+176	2858567 5477 39137 52427 448.3 599.3 304 0 1 152 152
+177	2864044 2803 39137 52425 448.3 599.3 152 0 15 1253 13239
+178	2866847 5477 39137 52426 448.3 599.3 304 0 1 152 152
+179	2872324 2893 39139 52427 448.300201 599.3 152 63 63 9576 603288
+180	2875217 2748 39139 52427 448.300201 599.3 152 0 0.000201 0.000201 4.0401e-08
+181	2877965 6237 39139 52432 448.300201 599.300088 304 0 1 152 152
+182	2884202 3805 39139 52427 448.300201 599.3 152 12000000 12000000 1824000000 2.1888e+16
+183	2888007 2893 39139 52427 448.300201 599.3 152 63 63 9576 603288
+184	2890900 6237 39139 52432 448.300201 599.300088 304 0 1 152 152
+185	2897137 12474 39140 52433 448.300201 599.300088 608 0 2 608 912
+186	2909611 3648 39144 52432 448.300289 599.300088 152 63 63 9576 603288
+187	2913259 3648 39144 52432 448.300289 599.300088 152 63 63 9576 603288
+188	2916907 3648 39144 52432 448.300289 599.300088 152 63 63 9576 603288
+189	2920555 4408 39144 52432 448.300289 599.300088 152 8.8e-05 8.8e-05 0.013376 1.177088e-06
+190	2924963 9087 39175 52497 448.500088322068 599.700088764714 304 63 63 19152 1206576
+191	2934050 9087 39175 52497 448.500088322068 599.700088764714 304 63 63 19152 1206576
+192	2943137 9087 39175 52497 448.500088322068 599.700088764714 304 63 63 19152 1206576
+193	2952224 9087 39175 52497 448.500088322068 599.700088764714 304 63 63 19152 1206576
+194	2961311 9087 39175 52497 448.500088322068 599.700088764714 304 35 35 10640 372400
+195	2970398 9087 39178 52500 448.500088322068 599.700088764714 304 13 13 3952 51376
+196	2979485 9283 39178 52500 448.500088322068 599.700088764714 304 1 304 46360 9411080
+197	2988768 8783 39179 52501 448.500088322068 599.700088764714 304 5 5 1520 7600
+198	2997551 106256 39179 52501 0.1 599.7 5997 0 400 121200 48480000
+199	3103807 12398 39179 52501 448.500088322068 599.700088764714 304 8.8023166e-05 8.9704231e-05 0.027033584903 2.4040669694738e-06
+200	3116205 9308 39179 52501 448.500088322068 599.700088764714 304 31 237 40736 6273800
+
