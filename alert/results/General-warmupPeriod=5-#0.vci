@@ -1,0 +1,394 @@
+file 61052 1762764371                                           
+version 2
+run General-0-20251110-09:44:02-8194
+attr configname General
+attr datetime 20251110-09:44:02
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $warmupPeriod=5
+attr iterationvarsf warmupPeriod=5-
+attr measurement $warmupPeriod=5
+attr network SatelliteAlertGrid
+attr processid 8194
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar warmupPeriod 5
+param *.playgroundSizeX 10000m
+param *.playgroundSizeY 10000m
+param *.playgroundSizeZ 800km
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.configurator.typename "\"Ipv4NetworkConfigurator\""
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes true
+param *.configurator.addMulticastRoutes true
+param *.configurator.addDefaultRoutes true
+param *.manager.launchConfig "xmldoc(\"my_5km_grid.launchd.xml\")"
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.updateInterval 0.1s
+param *.manager.autoShutdown true
+param *.vehicleInserter.numVehicles 0
+param *.sop.sumoNetXmlFile "xmldoc(\"my_5km_grid_wgs.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 5000m
+param *.sop.mobility.initialY 5000m
+param *.sop.mobility.initialZ 0m
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.pathToTleFile "\"space_Veins-1.txt\""
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2022-02-22-13-42-34\""
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 5deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo[*].nl.typename "\"compat.CompatIpv4Layer\""
+param *.leo*[*].hasIpv4 true
+param *.leo*[*].forwarding true
+param *.leo*[*].multicastForwarding true
+param *.leo*[*].igmp.typename "\"Igmpv2Router\""
+param **.routingTable.routes "xmldoc(\"mroutes.xml\")"
+param *.leo*[*].numApps 1
+param *.leo*[*].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.leo*[*].app[0].interface "\"satNic0\""
+param *.leo*[*].app[0].localPort 4000
+param *.leo*[*].app[0].receiveBroadcast true
+param *.leo*[*].app[0].joinLocalMulticastGroups true
+param *.leo*[*].numLoInterfaces 1
+param *.leo*[*].numSatelliteNics 2
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numSatelliteNics 1
+param *.node[*].numLoInterfaces 0
+param *.node[*].hasIpv4 true
+param *.node[*].useSamac false
+param *.node[*].nl.typename "\"compat.CompatIpv4Layer\""
+param *.node[*].forwarding false
+param *.node[*].multicastForwarding false
+param *.**.satNic[*].typename "\"SatelliteInterface\""
+param *.**.satNic[*].mac.typename "\"AckingMac\""
+param *.**.satNic[*].mac.headerLength 32B
+param *.**.satNic[*].mac.fullDuplex true
+param *.**.satNic[*].mac.useAck false
+param *.**.satNic[*].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[*].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[*].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[*].radio.transmitter.communicationRange 1000km
+param *.**.satNic[*].radio.transmitter.headerLength 8bit
+param *.**.satNic[*].radio.transmitter.preambleDuration 0
+param *.node[*].numApps 1
+param *.node[0].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[0].app[0].destAddresses "\"239.1.1.1\""
+param *.node[0].app[0].destPort 4000
+param *.node[0].app[0].localPort 4000
+param *.node[0].app[0].messageLength 50B
+param *.node[0].app[0].packetName "\"Alert\""
+param *.node[0].app[0].receiveBroadcast false
+param *.node[0].app[0].joinLocalMulticastGroups true
+param *.node[0].app[0].startTime 7s
+param *.node[0].app[0].sendInterval 10s
+param *.node[0].app[0].stopTime -1s
+param *.node[*].numWlanInterfaces 0
+param *.node[1..4].igmp.typename "\"Igmpv2Host\""
+param *.node[1..4].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.node[1..4].app[0].localPort 4000
+param *.node[1..4].app[0].receiveBroadcast true
+param *.node[1..4].app[0].joinLocalMulticastGroups true
+param *.node[1..4].app[0].startTime 2s
+param *.node[1..4].app[0].multicastInterface "\"satNic0\""
+param *.leo*[*].satNic[*].mac.bitrate 100Mbps
+param *.node[*].satNic[*].mac.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[*].radio.transmitter.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.receiver.ignoreInterference false
+param *.node[*].satNic[*].radio.receiver.ignoreInterference true
+param *.visualizer.*.radioVisualizer[0].displayRadios false
+param *.visualizer.*.mediumVisualizer[0].displaySignals false
+param *.visualizer.*.dataLinkVisualizer[0].displayLinks false
+param *.visualizer.*.packetRouteVisualizer[0].displayRoutes false
+param *.wlanRadioMedium.typename "\"Ieee80211DimensionalRadioMedium\""
+param *.**.wlan[*].opMode "\"p\""
+param *.**.wlan[*].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.**.wlan[*].agent.typename "\"\""
+param *.**.wlan[*].radio.typename "\"Ieee80211DimensionalRadio\""
+param *.**.wlan[*].radio.radioMediumModule "\"wlanRadioMedium\""
+
+vector 0 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLat:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLat
+vector 1 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLon:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLon
+vector 2 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordAlt:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordAlt
+vector 3 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordX:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordX
+vector 4 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordY:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordY
+vector 5 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordZ
+vector 6 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordX:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordX
+vector 7 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordY:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordY
+vector 8 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordZ
+vector 9 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordX:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordX
+vector 10 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordY:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordY
+vector 11 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordZ
+vector 12 SatelliteAlertGrid.node[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 13 SatelliteAlertGrid.node[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 14 SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 15 SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 SatelliteAlertGrid.node[0].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 SatelliteAlertGrid.node[0].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 SatelliteAlertGrid.node[0].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 20 SatelliteAlertGrid.node[0].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 21 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio myReceptionState ETV
+vector 22 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio myReceptionState ETV
+vector 24 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 25 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 26 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 27 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 28 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 29 SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 30 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 31 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 32 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 33 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 34 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 35 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 36 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 37 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 38 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 39 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 40 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 41 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 42 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 43 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 44 SatelliteAlertGrid.node[0].satNic[0].radio myReceptionState ETV
+vector 45 SatelliteAlertGrid.node[0].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 46 SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 47 SatelliteAlertGrid.node[0].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 48 SatelliteAlertGrid.node[2].satNic[0].radio myReceptionState ETV
+vector 49 SatelliteAlertGrid.node[2].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 50 SatelliteAlertGrid.node[4].satNic[0].radio myReceptionState ETV
+vector 51 SatelliteAlertGrid.node[4].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 52 SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 53 SatelliteAlertGrid.node[2].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 54 SatelliteAlertGrid.node[3].satNic[0].radio myReceptionState ETV
+vector 55 SatelliteAlertGrid.node[3].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 56 SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 57 SatelliteAlertGrid.node[4].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 58 SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 59 SatelliteAlertGrid.node[3].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 60 SatelliteAlertGrid.node[1].satNic[0].radio myReceptionState ETV
+vector 61 SatelliteAlertGrid.node[1].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 62 SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 63 SatelliteAlertGrid.node[1].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+0	17187 3070 85 1578 5 120 116 -5.295866915806 1.8301037524297 -201.07369750365 847.98448459144
+1	20257 3128 85 1578 5 120 116 -1.6449684924915 0.45594250548104 -68.785962296809 84.144846892413
+2	23385 2936 85 1578 5 120 116 352009.66179446 353068.15310296 40889237.650943 14413198627206
+3	26321 2952 85 1578 5 120 116 6699890.9462939 6730360.1629634 779803597.88082 5.2421957138767e+15
+4	29273 3035 85 1578 5 120 116 -192407.51637149 53528.764175108 -8062173.2177164 1155372386883.4
+5	32308 3025 85 1578 5 120 116 -617357.61946366 213570.42670504 -23453307.881163 11536050009127
+6	35333 3067 85 1578 5 120 116 -723975.02656619 -480931.16222699 -69976860.795532 42794596471825
+7	38400 2979 85 1578 5 120 116 -208296.41871494 622594.91304609 24063807.957276 11785529087176
+8	41379 2943 85 1578 5 120 116 284814.2986716 331917.26309831 36816985.454028 11708827633449
+9	44322 3067 85 1578 5 120 116 -718975.02656619 -475931.16222699 -69396860.795532 42097727863870
+10	47389 3095 85 1578 5 120 116 -203296.41871494 627594.91304609 24643807.957276 12029067166749
+11	50484 3059 85 1578 5 120 116 284814.2986716 331917.26309831 36816985.454028 11708827633449
+12	53543 162 107 1530 7 117 12 50 50 600 30000
+13	53705 162 112 1533 7 117 12 58 58 696 40368
+14	53867 162 114 1535 7 117 12 78 78 936 73008
+15	54029 162 114 1535 7 117 12 78 78 936 73008
+16	54191 300 114 1535 7 117 24 0 1 12 12
+17	54491 162 114 1535 7 117 12 78 78 936 73008
+18	54653 150 114 1535 7 117 12 0 0 0 0
+19	54803 174 114 1535 7 117 12 110 110 1320 145200
+20	54977 396 115 1537 7 117.0000888 24 1 2 36 60
+21	55373 692 117 1540 7.003263158504 117.002141961878 24 8.88e-05 3 36.0010656 108.00000009463
+22	56065 608 117 1540 7.003263158504 117.002141961878 24 1 3 48 120
+23	56673 735 118 1541 7.003263158504 117.002141961878 26 4.88e-06 3 38.00107048 112.00000009465
+24	57408 644 118 1541 7.003263158504 117.002141961878 26 1 3 51 125
+25	58052 328 121 1542 7.003351958504 117.002141961878 12 110 110 1320 145200
+26	58380 316 121 1542 7.003351958504 117.002141961878 12 78 78 936 73008
+27	58696 328 122 1543 7.003351958504 117.002141961878 12 110 110 1320 145200
+28	59024 316 122 1543 7.003351958504 117.002141961878 12 78 78 936 73008
+29	59340 632 123 1545 7.003351958504 117.002141961878 24 78 78 1872 146016
+30	59972 16 426 426 31.25 31.25 1 28 28 28 784
+31	59988 16 426 426 31.25 31.25 1 28 28 28 784
+32	60004 30 426 426 31.25 31.25 2 0 1 1 1
+33	60034 16 426 426 31.25 31.25 1 28 28 28 784
+34	60050 15 426 426 31.25 31.25 1 0 0 0 0
+35	60065 16 426 426 31.25 31.25 1 60 60 60 3600
+36	60081 16 427 427 31.25 31.25 1 28 28 28 784
+37	60097 16 427 427 31.25 31.25 1 28 28 28 784
+38	60113 30 427 427 31.25 31.25 2 0 1 1 1
+39	60143 16 427 427 31.25 31.25 1 28 28 28 784
+40	60159 15 427 427 31.25 31.25 1 0 0 0 0
+41	60174 16 427 427 31.25 31.25 1 60 60 60 3600
+42	60190 36 428 430 31.25 31.25000488 2 1 2 3 5
+43	60226 36 429 431 31.25 31.25000488 2 1 2 3 5
+44	60262 57 432 434 31.252831536926 31.252836416926 2 4.88e-06 3 3.00000488 9.0000000000238
+45	60319 50 432 434 31.252831536926 31.252836416926 2 1 3 4 10
+46	60369 26 436 436 31.252836416926 31.252836416926 1 60 60 60 3600
+47	60395 26 436 436 31.252836416926 31.252836416926 1 28 28 28 784
+48	60421 55 439 443 31.25284723826 31.25285211826 2 4.88e-06 3 3.00000488 9.0000000000238
+49	60476 48 439 443 31.25284723826 31.25285211826 2 1 3 4 10
+50	60524 57 441 450 31.252851818473 31.252856698473 2 4.88e-06 3 3.00000488 9.0000000000238
+51	60581 50 441 450 31.252851818473 31.252856698473 2 1 3 4 10
+52	60631 25 445 445 31.25285211826 31.25285211826 1 60 60 60 3600
+53	60656 25 445 445 31.25285211826 31.25285211826 1 28 28 28 784
+54	60681 57 448 455 31.252856088269 31.252860968269 2 4.88e-06 3 3.00000488 9.0000000000238
+55	60738 50 448 455 31.252856088269 31.252860968269 2 1 3 4 10
+56	60788 26 452 452 31.252856698473 31.252856698473 1 60 60 60 3600
+57	60814 26 452 452 31.252856698473 31.252856698473 1 28 28 28 784
+58	60840 26 457 457 31.252860968269 31.252860968269 1 60 60 60 3600
+59	60866 26 457 457 31.252860968269 31.252860968269 1 28 28 28 784
+60	60892 57 460 462 31.252873293246 31.252878173246 2 4.88e-06 3 3.00000488 9.0000000000238
+61	60949 50 460 462 31.252873293246 31.252878173246 2 1 3 4 10
+62	60999 26 464 464 31.252878173246 31.252878173246 1 60 60 60 3600
+63	61025 26 464 464 31.252878173246 31.252878173246 1 28 28 28 784
+

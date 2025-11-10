@@ -1,0 +1,2833 @@
+version 2
+run General-0-20251110-09:44:02-8194
+attr configname General
+attr datetime 20251110-09:44:02
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $warmupPeriod=5
+attr iterationvarsf warmupPeriod=5-
+attr measurement $warmupPeriod=5
+attr network SatelliteAlertGrid
+attr processid 8194
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar warmupPeriod 5
+param *.playgroundSizeX 10000m
+param *.playgroundSizeY 10000m
+param *.playgroundSizeZ 800km
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.configurator.typename "\"Ipv4NetworkConfigurator\""
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes true
+param *.configurator.addMulticastRoutes true
+param *.configurator.addDefaultRoutes true
+param *.manager.launchConfig "xmldoc(\"my_5km_grid.launchd.xml\")"
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.updateInterval 0.1s
+param *.manager.autoShutdown true
+param *.vehicleInserter.numVehicles 0
+param *.sop.sumoNetXmlFile "xmldoc(\"my_5km_grid_wgs.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 5000m
+param *.sop.mobility.initialY 5000m
+param *.sop.mobility.initialZ 0m
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.pathToTleFile "\"space_Veins-1.txt\""
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2022-02-22-13-42-34\""
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 5deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo[*].nl.typename "\"compat.CompatIpv4Layer\""
+param *.leo*[*].hasIpv4 true
+param *.leo*[*].forwarding true
+param *.leo*[*].multicastForwarding true
+param *.leo*[*].igmp.typename "\"Igmpv2Router\""
+param **.routingTable.routes "xmldoc(\"mroutes.xml\")"
+param *.leo*[*].numApps 1
+param *.leo*[*].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.leo*[*].app[0].interface "\"satNic0\""
+param *.leo*[*].app[0].localPort 4000
+param *.leo*[*].app[0].receiveBroadcast true
+param *.leo*[*].app[0].joinLocalMulticastGroups true
+param *.leo*[*].numLoInterfaces 1
+param *.leo*[*].numSatelliteNics 2
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numSatelliteNics 1
+param *.node[*].numLoInterfaces 0
+param *.node[*].hasIpv4 true
+param *.node[*].useSamac false
+param *.node[*].nl.typename "\"compat.CompatIpv4Layer\""
+param *.node[*].forwarding false
+param *.node[*].multicastForwarding false
+param *.**.satNic[*].typename "\"SatelliteInterface\""
+param *.**.satNic[*].mac.typename "\"AckingMac\""
+param *.**.satNic[*].mac.headerLength 32B
+param *.**.satNic[*].mac.fullDuplex true
+param *.**.satNic[*].mac.useAck false
+param *.**.satNic[*].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[*].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[*].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[*].radio.transmitter.communicationRange 1000km
+param *.**.satNic[*].radio.transmitter.headerLength 8bit
+param *.**.satNic[*].radio.transmitter.preambleDuration 0
+param *.node[*].numApps 1
+param *.node[0].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[0].app[0].destAddresses "\"239.1.1.1\""
+param *.node[0].app[0].destPort 4000
+param *.node[0].app[0].localPort 4000
+param *.node[0].app[0].messageLength 50B
+param *.node[0].app[0].packetName "\"Alert\""
+param *.node[0].app[0].receiveBroadcast false
+param *.node[0].app[0].joinLocalMulticastGroups true
+param *.node[0].app[0].startTime 7s
+param *.node[0].app[0].sendInterval 10s
+param *.node[0].app[0].stopTime -1s
+param *.node[*].numWlanInterfaces 0
+param *.node[1..4].igmp.typename "\"Igmpv2Host\""
+param *.node[1..4].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.node[1..4].app[0].localPort 4000
+param *.node[1..4].app[0].receiveBroadcast true
+param *.node[1..4].app[0].joinLocalMulticastGroups true
+param *.node[1..4].app[0].startTime 2s
+param *.node[1..4].app[0].multicastInterface "\"satNic0\""
+param *.leo*[*].satNic[*].mac.bitrate 100Mbps
+param *.node[*].satNic[*].mac.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[*].radio.transmitter.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.receiver.ignoreInterference false
+param *.node[*].satNic[*].radio.receiver.ignoreInterference true
+param *.visualizer.*.radioVisualizer[0].displayRadios false
+param *.visualizer.*.mediumVisualizer[0].displaySignals false
+param *.visualizer.*.dataLinkVisualizer[0].displayLinks false
+param *.visualizer.*.packetRouteVisualizer[0].displayRoutes false
+param *.wlanRadioMedium.typename "\"Ieee80211DimensionalRadioMedium\""
+param *.**.wlan[*].opMode "\"p\""
+param *.**.wlan[*].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.**.wlan[*].agent.typename "\"\""
+param *.**.wlan[*].radio.typename "\"Ieee80211DimensionalRadio\""
+param *.**.wlan[*].radio.radioMediumModule "\"wlanRadioMedium\""
+
+scalar SatelliteAlertGrid.manager roiArea 0
+scalar SatelliteAlertGrid.wlanRadioMedium.propagation "Arrival computation count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "transmission count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "signal send count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "reception computation count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "interference computation count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "reception decision computation count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "listening decision computation count" 0
+scalar SatelliteAlertGrid.wlanRadioMedium "reception cache hit" -nan
+attr unit %
+scalar SatelliteAlertGrid.wlanRadioMedium "interference cache hit" -nan
+attr unit %
+scalar SatelliteAlertGrid.wlanRadioMedium "noise cache hit" -nan
+attr unit %
+scalar SatelliteAlertGrid.wlanRadioMedium "snir cache hit" -nan
+attr unit %
+scalar SatelliteAlertGrid.wlanRadioMedium "reception decision cache hit" -nan
+attr unit %
+scalar SatelliteAlertGrid.wlanRadioMedium "reception result cache hit" -nan
+attr unit %
+scalar SatelliteAlertGrid.satelliteRadioMedium.propagation "Arrival computation count" 86
+scalar SatelliteAlertGrid.satelliteRadioMedium "transmission count" 16
+scalar SatelliteAlertGrid.satelliteRadioMedium "signal send count" 34
+scalar SatelliteAlertGrid.satelliteRadioMedium "reception computation count" 36
+scalar SatelliteAlertGrid.satelliteRadioMedium "interference computation count" 136
+scalar SatelliteAlertGrid.satelliteRadioMedium "reception decision computation count" 29
+scalar SatelliteAlertGrid.satelliteRadioMedium "listening decision computation count" 73
+scalar SatelliteAlertGrid.satelliteRadioMedium "reception cache hit" 84.68085106383
+attr unit %
+scalar SatelliteAlertGrid.satelliteRadioMedium "interference cache hit" 66.666666666667
+attr unit %
+scalar SatelliteAlertGrid.satelliteRadioMedium "noise cache hit" 0
+attr unit %
+scalar SatelliteAlertGrid.satelliteRadioMedium "snir cache hit" 50
+attr unit %
+scalar SatelliteAlertGrid.satelliteRadioMedium "reception decision cache hit" 50
+attr unit %
+scalar SatelliteAlertGrid.satelliteRadioMedium "reception result cache hit" 0
+attr unit %
+scalar SatelliteAlertGrid.globalStatistics numTotalCars:count 0
+scalar SatelliteAlertGrid.globalStatistics numRemovedCars:count 0
+scalar SatelliteAlertGrid.globalStatistics numCurrentCars:count 0
+scalar SatelliteAlertGrid.leoSatellite[51472].lo[0].lo rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].lo[0].lo rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].lo[0].lo passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].lo[0].lo passedUpPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropNoRouteFound:count 24
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 1872
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SatelliteAlertGrid.leoSatellite[51472].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SatelliteAlertGrid.leoSatellite[51472].app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SatelliteAlertGrid.leoSatellite[51472].app[0] endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPopped:count 1
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPopped:sum(packetBytes) 28
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueingTime:histogram
+field count 1
+field mean 0
+field stddev -nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPushed:count 1
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPushed:sum(packetBytes) 28
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromLl:count 12
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromLl:sum(packetBytes) 1320
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac sentDownPk:count 1
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac sentDownPk:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromHl:count 1
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromHl:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac passedUpPk:count 12
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac passedUpPk:sum(packetBytes) 936
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio totalBusyTime 0.0010656
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio totalBusyTimeRatio 9.2660869565217e-06
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio receptionState:count 24
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio transmissionState:count 2
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio packetErrorRate:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio bitErrorRate:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio symbolErrorRate:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPopped:count 1
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPopped:sum(packetBytes) 28
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueingTime:histogram
+field count 1
+field mean 0
+field stddev -nan
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	1
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPushed:count 1
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPushed:sum(packetBytes) 28
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromLl:count 12
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromLl:sum(packetBytes) 1320
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac sentDownPk:count 1
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac sentDownPk:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromHl:count 1
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromHl:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac passedUpPk:count 12
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac passedUpPk:sum(packetBytes) 936
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio totalBusyTime 0.00107048
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio totalBusyTimeRatio 9.3085217391304e-06
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio receptionState:count 26
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio transmissionState:count 2
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio packetErrorRate:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio bitErrorRate:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+statistic SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio symbolErrorRate:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wlanPacketEndToEndDelay:min nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wlanPacketEndToEndDelay:max nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wlanPacketEndToEndDelay:avg -nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics registeredVehiclesPerSchedule:min nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics registeredVehiclesPerSchedule:max nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics registeredVehiclesPerSchedule:avg -nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics vehAppLat:min nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics vehAppLat:max nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics vehAppLat:avg -nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics vehAppRtt:min nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics vehAppRtt:max nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics vehAppRtt:avg -nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics receivedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics missedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_missedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics receivedSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sendSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_sendSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics receivedWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_receivedWlanSchedules
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sendWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_sendWlanSchedules
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics receivedWlanPackets:count 0
+attr source space_veins_vehicleStatistics_receivedWlanPackets
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sendWlanPackets:count 0
+attr source space_veins_vehicleStatistics_sendWlanPackets
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics receivedSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_receivedSatellitePackets
+scalar SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sendSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_sendSatellitePackets
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SatelliteAlertGrid.node[0].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SatelliteAlertGrid.node[0].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[0].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].udp packetSent:count 12
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.node[0].udp packetSent:sum(packetBytes) 696
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SatelliteAlertGrid.node[0].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SatelliteAlertGrid.node[0].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SatelliteAlertGrid.node[0].app[0] "packets sent" 12
+scalar SatelliteAlertGrid.node[0].app[0] "packets received" 0
+scalar SatelliteAlertGrid.node[0].app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[0].app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[0].app[0] rcvdPkLifetime:stats
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "received packet lifetime, stats"
+attr unit s
+scalar SatelliteAlertGrid.node[0].app[0] packetSent:count 12
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.node[0].app[0] packetSent:sum(packetBytes) 600
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPopped:count 12
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPopped:sum(packetBytes) 936
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[0].satNic[0].mac.queue queueingTime:histogram
+field count 12
+field mean 0
+field stddev 0
+field min 0
+field max 0
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	-0.5	0
+bin	-0.48	0
+bin	-0.46	0
+bin	-0.44	0
+bin	-0.42	0
+bin	-0.4	0
+bin	-0.38	0
+bin	-0.36	0
+bin	-0.34	0
+bin	-0.32	0
+bin	-0.3	0
+bin	-0.28	0
+bin	-0.26	0
+bin	-0.24	0
+bin	-0.22	0
+bin	-0.2	0
+bin	-0.18	0
+bin	-0.16	0
+bin	-0.14	0
+bin	-0.12	0
+bin	-0.1	0
+bin	-0.08	0
+bin	-0.06	0
+bin	-0.04	0
+bin	-0.02	0
+bin	0	12
+bin	0.02	0
+bin	0.04	0
+bin	0.06	0
+bin	0.08	0
+bin	0.1	0
+bin	0.12	0
+bin	0.14	0
+bin	0.16	0
+bin	0.18	0
+bin	0.2	0
+bin	0.22	0
+bin	0.24	0
+bin	0.26	0
+bin	0.28	0
+bin	0.3	0
+bin	0.32	0
+bin	0.34	0
+bin	0.36	0
+bin	0.38	0
+bin	0.4	0
+bin	0.42	0
+bin	0.44	0
+bin	0.46	0
+bin	0.48	0
+bin	0.5	0
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue queueLength:max 1
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue queueLength:timeavg 0
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPushed:count 12
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPushed:sum(packetBytes) 936
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromLl:count 1
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromLl:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac sentDownPk:count 12
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac sentDownPk:sum(packetBytes) 1320
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromHl:count 12
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromHl:sum(packetBytes) 936
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac passedUpPk:count 1
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac passedUpPk:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[0].satNic[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].radio totalBusyTime 4.88e-06
+scalar SatelliteAlertGrid.node[0].satNic[0].radio totalBusyTimeRatio 4.2434782608696e-08
+scalar SatelliteAlertGrid.node[0].satNic[0].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.node[0].satNic[0].radio transmissionState:count 24
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.node[0].satNic[0].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.node[0].satNic[0].radio packetErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[0].satNic[0].radio bitErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[0].satNic[0].radio symbolErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar SatelliteAlertGrid.node[0].vehicleStatistics wlanPacketEndToEndDelay:min nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[0].vehicleStatistics wlanPacketEndToEndDelay:max nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[0].vehicleStatistics wlanPacketEndToEndDelay:avg -nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[0].vehicleStatistics registeredVehiclesPerSchedule:min nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[0].vehicleStatistics registeredVehiclesPerSchedule:max nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[0].vehicleStatistics registeredVehiclesPerSchedule:avg -nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[0].vehicleStatistics vehAppLat:min nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[0].vehicleStatistics vehAppLat:max nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[0].vehicleStatistics vehAppLat:avg -nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[0].vehicleStatistics vehAppRtt:min nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[0].vehicleStatistics vehAppRtt:max nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[0].vehicleStatistics vehAppRtt:avg -nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[0].vehicleStatistics receivedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[0].vehicleStatistics missedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_missedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[0].vehicleStatistics receivedSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[0].vehicleStatistics sendSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_sendSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[0].vehicleStatistics receivedWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_receivedWlanSchedules
+scalar SatelliteAlertGrid.node[0].vehicleStatistics sendWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_sendWlanSchedules
+scalar SatelliteAlertGrid.node[0].vehicleStatistics receivedWlanPackets:count 0
+attr source space_veins_vehicleStatistics_receivedWlanPackets
+scalar SatelliteAlertGrid.node[0].vehicleStatistics sendWlanPackets:count 0
+attr source space_veins_vehicleStatistics_sendWlanPackets
+scalar SatelliteAlertGrid.node[0].vehicleStatistics receivedSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_receivedSatellitePackets
+scalar SatelliteAlertGrid.node[0].vehicleStatistics sendSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_sendSatellitePackets
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SatelliteAlertGrid.node[1].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SatelliteAlertGrid.node[1].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[1].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.node[1].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SatelliteAlertGrid.node[1].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SatelliteAlertGrid.node[1].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SatelliteAlertGrid.node[1].app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[1].app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[1].app[0] endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[1].satNic[0].mac.queue queueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue queueLength:timeavg -nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromLl:count 1
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromLl:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac sentDownPk:count 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac sentDownPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac passedUpPk:count 1
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac passedUpPk:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[1].satNic[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].radio totalBusyTime 4.88e-06
+scalar SatelliteAlertGrid.node[1].satNic[0].radio totalBusyTimeRatio 4.2434782608696e-08
+scalar SatelliteAlertGrid.node[1].satNic[0].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.node[1].satNic[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.node[1].satNic[0].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.node[1].satNic[0].radio packetErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[1].satNic[0].radio bitErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[1].satNic[0].radio symbolErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar SatelliteAlertGrid.node[1].vehicleStatistics wlanPacketEndToEndDelay:min nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[1].vehicleStatistics wlanPacketEndToEndDelay:max nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[1].vehicleStatistics wlanPacketEndToEndDelay:avg -nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[1].vehicleStatistics registeredVehiclesPerSchedule:min nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[1].vehicleStatistics registeredVehiclesPerSchedule:max nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[1].vehicleStatistics registeredVehiclesPerSchedule:avg -nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[1].vehicleStatistics vehAppLat:min nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[1].vehicleStatistics vehAppLat:max nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[1].vehicleStatistics vehAppLat:avg -nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[1].vehicleStatistics vehAppRtt:min nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[1].vehicleStatistics vehAppRtt:max nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[1].vehicleStatistics vehAppRtt:avg -nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[1].vehicleStatistics receivedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[1].vehicleStatistics missedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_missedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[1].vehicleStatistics receivedSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[1].vehicleStatistics sendSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_sendSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[1].vehicleStatistics receivedWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_receivedWlanSchedules
+scalar SatelliteAlertGrid.node[1].vehicleStatistics sendWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_sendWlanSchedules
+scalar SatelliteAlertGrid.node[1].vehicleStatistics receivedWlanPackets:count 0
+attr source space_veins_vehicleStatistics_receivedWlanPackets
+scalar SatelliteAlertGrid.node[1].vehicleStatistics sendWlanPackets:count 0
+attr source space_veins_vehicleStatistics_sendWlanPackets
+scalar SatelliteAlertGrid.node[1].vehicleStatistics receivedSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_receivedSatellitePackets
+scalar SatelliteAlertGrid.node[1].vehicleStatistics sendSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_sendSatellitePackets
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SatelliteAlertGrid.node[2].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SatelliteAlertGrid.node[2].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[2].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.node[2].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SatelliteAlertGrid.node[2].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SatelliteAlertGrid.node[2].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SatelliteAlertGrid.node[2].app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[2].app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[2].app[0] endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[2].satNic[0].mac.queue queueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue queueLength:timeavg -nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromLl:count 1
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromLl:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac sentDownPk:count 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac sentDownPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac passedUpPk:count 1
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac passedUpPk:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[2].satNic[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].radio totalBusyTime 4.88e-06
+scalar SatelliteAlertGrid.node[2].satNic[0].radio totalBusyTimeRatio 4.2434782608696e-08
+scalar SatelliteAlertGrid.node[2].satNic[0].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.node[2].satNic[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.node[2].satNic[0].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.node[2].satNic[0].radio packetErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[2].satNic[0].radio bitErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[2].satNic[0].radio symbolErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar SatelliteAlertGrid.node[2].vehicleStatistics wlanPacketEndToEndDelay:min nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[2].vehicleStatistics wlanPacketEndToEndDelay:max nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[2].vehicleStatistics wlanPacketEndToEndDelay:avg -nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[2].vehicleStatistics registeredVehiclesPerSchedule:min nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[2].vehicleStatistics registeredVehiclesPerSchedule:max nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[2].vehicleStatistics registeredVehiclesPerSchedule:avg -nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[2].vehicleStatistics vehAppLat:min nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[2].vehicleStatistics vehAppLat:max nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[2].vehicleStatistics vehAppLat:avg -nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[2].vehicleStatistics vehAppRtt:min nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[2].vehicleStatistics vehAppRtt:max nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[2].vehicleStatistics vehAppRtt:avg -nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[2].vehicleStatistics receivedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[2].vehicleStatistics missedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_missedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[2].vehicleStatistics receivedSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[2].vehicleStatistics sendSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_sendSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[2].vehicleStatistics receivedWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_receivedWlanSchedules
+scalar SatelliteAlertGrid.node[2].vehicleStatistics sendWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_sendWlanSchedules
+scalar SatelliteAlertGrid.node[2].vehicleStatistics receivedWlanPackets:count 0
+attr source space_veins_vehicleStatistics_receivedWlanPackets
+scalar SatelliteAlertGrid.node[2].vehicleStatistics sendWlanPackets:count 0
+attr source space_veins_vehicleStatistics_sendWlanPackets
+scalar SatelliteAlertGrid.node[2].vehicleStatistics receivedSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_receivedSatellitePackets
+scalar SatelliteAlertGrid.node[2].vehicleStatistics sendSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_sendSatellitePackets
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SatelliteAlertGrid.node[3].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SatelliteAlertGrid.node[3].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[3].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.node[3].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SatelliteAlertGrid.node[3].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SatelliteAlertGrid.node[3].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SatelliteAlertGrid.node[3].app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[3].app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[3].app[0] endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[3].satNic[0].mac.queue queueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue queueLength:timeavg -nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromLl:count 1
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromLl:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac sentDownPk:count 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac sentDownPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac passedUpPk:count 1
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac passedUpPk:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[3].satNic[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].radio totalBusyTime 4.88e-06
+scalar SatelliteAlertGrid.node[3].satNic[0].radio totalBusyTimeRatio 4.2434782608696e-08
+scalar SatelliteAlertGrid.node[3].satNic[0].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.node[3].satNic[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.node[3].satNic[0].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.node[3].satNic[0].radio packetErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[3].satNic[0].radio bitErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[3].satNic[0].radio symbolErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar SatelliteAlertGrid.node[3].vehicleStatistics wlanPacketEndToEndDelay:min nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[3].vehicleStatistics wlanPacketEndToEndDelay:max nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[3].vehicleStatistics wlanPacketEndToEndDelay:avg -nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[3].vehicleStatistics registeredVehiclesPerSchedule:min nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[3].vehicleStatistics registeredVehiclesPerSchedule:max nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[3].vehicleStatistics registeredVehiclesPerSchedule:avg -nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[3].vehicleStatistics vehAppLat:min nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[3].vehicleStatistics vehAppLat:max nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[3].vehicleStatistics vehAppLat:avg -nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[3].vehicleStatistics vehAppRtt:min nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[3].vehicleStatistics vehAppRtt:max nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[3].vehicleStatistics vehAppRtt:avg -nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[3].vehicleStatistics receivedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[3].vehicleStatistics missedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_missedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[3].vehicleStatistics receivedSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[3].vehicleStatistics sendSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_sendSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[3].vehicleStatistics receivedWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_receivedWlanSchedules
+scalar SatelliteAlertGrid.node[3].vehicleStatistics sendWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_sendWlanSchedules
+scalar SatelliteAlertGrid.node[3].vehicleStatistics receivedWlanPackets:count 0
+attr source space_veins_vehicleStatistics_receivedWlanPackets
+scalar SatelliteAlertGrid.node[3].vehicleStatistics sendWlanPackets:count 0
+attr source space_veins_vehicleStatistics_sendWlanPackets
+scalar SatelliteAlertGrid.node[3].vehicleStatistics receivedSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_receivedSatellitePackets
+scalar SatelliteAlertGrid.node[3].vehicleStatistics sendSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_sendSatellitePackets
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropAddressResolutionFailed:count 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, count"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropAddressResolutionFailed:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsAddressResolutionFailed(packetDropped)
+attr title "packet drop: address resolution failed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropHopLimitReached:count 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, count"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropHopLimitReached:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsHopLimitReached(packetDropped)
+attr title "packet drop: hop limit reached, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropForwardingDisabled:count 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, count"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropForwardingDisabled:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsForwardingDisabled(packetDropped)
+attr title "packet drop: forwarding disabled, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropNoInterfaceFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, count"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropNoInterfaceFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoInterfaceFound(packetDropped)
+attr title "packet drop: no interface found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropNoRouteFound:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, count"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropNoRouteFound:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropUndefined:count 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, count"
+scalar SatelliteAlertGrid.node[4].ipv4.ip packetDropUndefined:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpResolutionFailed:count 0
+attr title "ARP failed resolutions, count"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpResolutionCompleted:count 0
+attr title "ARP completed resolutions, count"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpResolutionInitiated:count 0
+attr title "ARP initiated resolutions, count"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpReplySent:count 0
+attr source arpReplySent
+attr title "ARP replies sent, count"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpReplySent:sum(packetBytes) 0
+attr source arpReplySent
+attr title "ARP replies sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpRequestSent:count 0
+attr source arpRequestSent
+attr title "ARP request sent, count"
+scalar SatelliteAlertGrid.node[4].ipv4.arp arpRequestSent:sum(packetBytes) 0
+attr source arpRequestSent
+attr title "ARP request sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].udp packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[4].udp packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].udp packetSent:count 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, count"
+scalar SatelliteAlertGrid.node[4].udp packetSent:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].udp passedUpPk:count 0
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, count"
+scalar SatelliteAlertGrid.node[4].udp droppedPkWrongPort:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+scalar SatelliteAlertGrid.node[4].udp droppedPkBadChecksum:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+scalar SatelliteAlertGrid.node[4].app[0] packetReceived:count 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, count"
+scalar SatelliteAlertGrid.node[4].app[0] packetReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[4].app[0] endToEndDelay:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetPopped:count 0
+attr interpolationmode none
+attr title "packet popped, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetPopped:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet popped, sum(packetBytes)"
+statistic SatelliteAlertGrid.node[4].satNic[0].mac.queue queueingTime:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, histogram"
+attr unit s
+bin	-inf	0
+bin	0	0
+bin	1	0
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue queueLength:max nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, max"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue queueLength:timeavg -nan
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, timeavg"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetPushed:count 0
+attr interpolationmode none
+attr title "packet pushed, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetPushed:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packet pushed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetDropQueueOverflow:count 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetDropQueueOverflow:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsQueueOverflow(packetDropped)
+attr title "packet drops: queue overflow, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetRemoved:count 0
+attr interpolationmode none
+attr title "packets removed, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac.queue packetRemoved:sum(packetBytes) 0
+attr interpolationmode none
+attr title "packets removed, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromLl:count 1
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromLl:sum(packetBytes) 60
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac sentDownPk:count 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac sentDownPk:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromHl:count 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromHl:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac passedUpPk:count 1
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac passedUpPk:sum(packetBytes) 28
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac packetDropIncorrectlyReceived:count 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac packetDropIncorrectlyReceived:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac packetDropInterfaceDown:count 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac packetDropInterfaceDown:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsInterfaceDown(packetDropped)
+attr title "packet drop: interface down, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac packetDropNotAddressedToUs:count 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac packetDropNotAddressedToUs:sum(packetBytes) 0
+attr interpolationmode none
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, sum(packetBytes)"
+scalar SatelliteAlertGrid.node[4].satNic[0].mac linkBroken:count 0
+attr interpolationmode none
+attr source linkBroken
+attr title "link break, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].radio totalBusyTime 4.88e-06
+scalar SatelliteAlertGrid.node[4].satNic[0].radio totalBusyTimeRatio 4.2434782608696e-08
+scalar SatelliteAlertGrid.node[4].satNic[0].radio radioMode:count 0
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].radio receptionState:count 2
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, count"
+scalar SatelliteAlertGrid.node[4].satNic[0].radio transmissionState:count 0
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, count"
+statistic SatelliteAlertGrid.node[4].satNic[0].radio minSnir:histogram
+field count 0
+field mean -nan
+field stddev nan
+field min nan
+field max nan
+field sum 0
+field sqrsum 0
+attr source minimumSnir(packetSentToUpper)
+attr title "Min SNIR, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	0
+statistic SatelliteAlertGrid.node[4].satNic[0].radio packetErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source packetErrorRate(packetSentToUpper)
+attr title "Packet error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[4].satNic[0].radio bitErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source bitErrorRate(packetSentToUpper)
+attr title "Bit error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+statistic SatelliteAlertGrid.node[4].satNic[0].radio symbolErrorRate:histogram
+field count 1
+field mean 1
+field stddev -nan
+field min 1
+field max 1
+field sum 1
+field sqrsum 1
+attr source symbolErrorRate(packetSentToUpper)
+attr title "Symbol error rate, histogram"
+bin	-inf	0
+bin	0	0
+bin	1	1
+bin	2	0
+scalar SatelliteAlertGrid.node[4].vehicleStatistics wlanPacketEndToEndDelay:min nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[4].vehicleStatistics wlanPacketEndToEndDelay:max nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[4].vehicleStatistics wlanPacketEndToEndDelay:avg -nan
+attr source space_veins_vehicleStatistics_wlanPacketEndToEndDelay
+scalar SatelliteAlertGrid.node[4].vehicleStatistics registeredVehiclesPerSchedule:min nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[4].vehicleStatistics registeredVehiclesPerSchedule:max nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[4].vehicleStatistics registeredVehiclesPerSchedule:avg -nan
+attr source space_veins_vehicleStatistics_registeredVehiclesPerSchedule
+scalar SatelliteAlertGrid.node[4].vehicleStatistics vehAppLat:min nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[4].vehicleStatistics vehAppLat:max nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[4].vehicleStatistics vehAppLat:avg -nan
+attr source space_veins_vehicleStatistics_applLayerSatelliteLatency
+scalar SatelliteAlertGrid.node[4].vehicleStatistics vehAppRtt:min nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[4].vehicleStatistics vehAppRtt:max nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[4].vehicleStatistics vehAppRtt:avg -nan
+attr source space_veins_vehicleStatistics_applLayerRoundTripTime
+scalar SatelliteAlertGrid.node[4].vehicleStatistics receivedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[4].vehicleStatistics missedSatelliteRegistrationAcks:count 0
+attr source space_veins_vehicleStatistics_missedSatelliteRegistrationAcks
+scalar SatelliteAlertGrid.node[4].vehicleStatistics receivedSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_receivedSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[4].vehicleStatistics sendSatelliteRegistrationMessages:count 0
+attr source space_veins_vehicleStatistics_sendSatelliteRegistrationMessages
+scalar SatelliteAlertGrid.node[4].vehicleStatistics receivedWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_receivedWlanSchedules
+scalar SatelliteAlertGrid.node[4].vehicleStatistics sendWlanSchedules:count 0
+attr source space_veins_vehicleStatistics_sendWlanSchedules
+scalar SatelliteAlertGrid.node[4].vehicleStatistics receivedWlanPackets:count 0
+attr source space_veins_vehicleStatistics_receivedWlanPackets
+scalar SatelliteAlertGrid.node[4].vehicleStatistics sendWlanPackets:count 0
+attr source space_veins_vehicleStatistics_sendWlanPackets
+scalar SatelliteAlertGrid.node[4].vehicleStatistics receivedSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_receivedSatellitePackets
+scalar SatelliteAlertGrid.node[4].vehicleStatistics sendSatellitePackets:count 0
+attr source space_veins_vehicleStatistics_sendSatellitePackets
+

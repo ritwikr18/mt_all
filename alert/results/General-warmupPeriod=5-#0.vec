@@ -1,0 +1,2073 @@
+version 2
+run General-0-20251110-09:44:02-8194
+attr configname General
+attr datetime 20251110-09:44:02
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $warmupPeriod=5
+attr iterationvarsf warmupPeriod=5-
+attr measurement $warmupPeriod=5
+attr network SatelliteAlertGrid
+attr processid 8194
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar warmupPeriod 5
+param *.playgroundSizeX 10000m
+param *.playgroundSizeY 10000m
+param *.playgroundSizeZ 800km
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.configurator.typename "\"Ipv4NetworkConfigurator\""
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes true
+param *.configurator.addMulticastRoutes true
+param *.configurator.addDefaultRoutes true
+param *.manager.launchConfig "xmldoc(\"my_5km_grid.launchd.xml\")"
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.updateInterval 0.1s
+param *.manager.autoShutdown true
+param *.vehicleInserter.numVehicles 0
+param *.sop.sumoNetXmlFile "xmldoc(\"my_5km_grid_wgs.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 5000m
+param *.sop.mobility.initialY 5000m
+param *.sop.mobility.initialZ 0m
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.pathToTleFile "\"space_Veins-1.txt\""
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2022-02-22-13-42-34\""
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 5deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo[*].nl.typename "\"compat.CompatIpv4Layer\""
+param *.leo*[*].hasIpv4 true
+param *.leo*[*].forwarding true
+param *.leo*[*].multicastForwarding true
+param *.leo*[*].igmp.typename "\"Igmpv2Router\""
+param **.routingTable.routes "xmldoc(\"mroutes.xml\")"
+param *.leo*[*].numApps 1
+param *.leo*[*].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.leo*[*].app[0].interface "\"satNic0\""
+param *.leo*[*].app[0].localPort 4000
+param *.leo*[*].app[0].receiveBroadcast true
+param *.leo*[*].app[0].joinLocalMulticastGroups true
+param *.leo*[*].numLoInterfaces 1
+param *.leo*[*].numSatelliteNics 2
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numSatelliteNics 1
+param *.node[*].numLoInterfaces 0
+param *.node[*].hasIpv4 true
+param *.node[*].useSamac false
+param *.node[*].nl.typename "\"compat.CompatIpv4Layer\""
+param *.node[*].forwarding false
+param *.node[*].multicastForwarding false
+param *.**.satNic[*].typename "\"SatelliteInterface\""
+param *.**.satNic[*].mac.typename "\"AckingMac\""
+param *.**.satNic[*].mac.headerLength 32B
+param *.**.satNic[*].mac.fullDuplex true
+param *.**.satNic[*].mac.useAck false
+param *.**.satNic[*].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[*].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[*].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[*].radio.transmitter.communicationRange 1000km
+param *.**.satNic[*].radio.transmitter.headerLength 8bit
+param *.**.satNic[*].radio.transmitter.preambleDuration 0
+param *.node[*].numApps 1
+param *.node[0].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[0].app[0].destAddresses "\"239.1.1.1\""
+param *.node[0].app[0].destPort 4000
+param *.node[0].app[0].localPort 4000
+param *.node[0].app[0].messageLength 50B
+param *.node[0].app[0].packetName "\"Alert\""
+param *.node[0].app[0].receiveBroadcast false
+param *.node[0].app[0].joinLocalMulticastGroups true
+param *.node[0].app[0].startTime 7s
+param *.node[0].app[0].sendInterval 10s
+param *.node[0].app[0].stopTime -1s
+param *.node[*].numWlanInterfaces 0
+param *.node[1..4].igmp.typename "\"Igmpv2Host\""
+param *.node[1..4].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.node[1..4].app[0].localPort 4000
+param *.node[1..4].app[0].receiveBroadcast true
+param *.node[1..4].app[0].joinLocalMulticastGroups true
+param *.node[1..4].app[0].startTime 2s
+param *.node[1..4].app[0].multicastInterface "\"satNic0\""
+param *.leo*[*].satNic[*].mac.bitrate 100Mbps
+param *.node[*].satNic[*].mac.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[*].radio.transmitter.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.receiver.ignoreInterference false
+param *.node[*].satNic[*].radio.receiver.ignoreInterference true
+param *.visualizer.*.radioVisualizer[0].displayRadios false
+param *.visualizer.*.mediumVisualizer[0].displaySignals false
+param *.visualizer.*.dataLinkVisualizer[0].displayLinks false
+param *.visualizer.*.packetRouteVisualizer[0].displayRoutes false
+param *.wlanRadioMedium.typename "\"Ieee80211DimensionalRadioMedium\""
+param *.**.wlan[*].opMode "\"p\""
+param *.**.wlan[*].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.**.wlan[*].agent.typename "\"\""
+param *.**.wlan[*].radio.typename "\"Ieee80211DimensionalRadio\""
+param *.**.wlan[*].radio.radioMediumModule "\"wlanRadioMedium\""
+
+vector 0 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLat:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLat
+vector 1 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLon:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLon
+vector 2 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordAlt:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordAlt
+vector 3 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordX:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordX
+vector 4 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordY:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordY
+vector 5 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordZ
+vector 6 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordX:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordX
+vector 7 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordY:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordY
+vector 8 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordZ
+vector 9 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordX:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordX
+vector 10 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordY:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordY
+vector 11 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordZ
+vector 12 SatelliteAlertGrid.node[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 13 SatelliteAlertGrid.node[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 14 SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 15 SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 SatelliteAlertGrid.node[0].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 SatelliteAlertGrid.node[0].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 SatelliteAlertGrid.node[0].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 20 SatelliteAlertGrid.node[0].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 21 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio myReceptionState ETV
+vector 22 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio myReceptionState ETV
+vector 24 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 25 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 26 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 27 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 28 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 29 SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropNoRouteFound:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsNoRouteFound(packetDropped)
+attr title "packet drop: no route found, vector(packetBytes)"
+vector 30 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 31 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 32 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 33 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 34 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 35 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 36 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 37 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 38 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 39 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 40 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 41 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 42 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 43 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 44 SatelliteAlertGrid.node[0].satNic[0].radio myReceptionState ETV
+vector 45 SatelliteAlertGrid.node[0].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 46 SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 47 SatelliteAlertGrid.node[0].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 48 SatelliteAlertGrid.node[2].satNic[0].radio myReceptionState ETV
+vector 49 SatelliteAlertGrid.node[2].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 50 SatelliteAlertGrid.node[4].satNic[0].radio myReceptionState ETV
+vector 51 SatelliteAlertGrid.node[4].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 52 SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 53 SatelliteAlertGrid.node[2].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 54 SatelliteAlertGrid.node[3].satNic[0].radio myReceptionState ETV
+vector 55 SatelliteAlertGrid.node[3].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 56 SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 57 SatelliteAlertGrid.node[4].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 58 SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 59 SatelliteAlertGrid.node[3].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 60 SatelliteAlertGrid.node[1].satNic[0].radio myReceptionState ETV
+vector 61 SatelliteAlertGrid.node[1].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 62 SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 63 SatelliteAlertGrid.node[1].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+0	85	5	-5.295866915806
+0	96	6	-5.2339410023113
+0	108	7	-5.1720139696069
+0	135	8	-5.1100858293389
+0	146	9	-5.0481565931455
+0	157	10	-4.9862262726587
+0	168	11	-4.924294879507
+0	179	12	-4.8623624253108
+0	190	13	-4.8004289216859
+0	201	14	-4.7384943802428
+0	212	15	-4.6765588125861
+0	223	16	-4.6146222303146
+0	235	17	-4.5526846450227
+0	260	18	-4.4907460682988
+0	271	19	-4.4288065117251
+0	282	20	-4.3668659868822
+0	293	21	-4.304924505342
+0	304	22	-4.2429820786737
+0	315	23	-4.1810387184403
+0	326	24	-4.1190944361998
+0	337	25	-4.0571492435074
+0	348	26	-3.9952031519125
+0	360	27	-3.9332561729589
+0	385	28	-3.8713083181882
+0	396	29	-3.8093595991355
+0	407	30	-3.7474100273327
+0	418	31	-3.6854596143076
+0	475	32	-3.623508371583
+0	486	33	-3.5615563106774
+0	497	34	-3.4996034431069
+0	508	35	-3.4376497803828
+0	519	36	-3.3756953340117
+0	531	37	-3.3137401154978
+0	556	38	-3.2517841363403
+0	567	39	-3.1898274080356
+0	578	40	-3.1278699420769
+0	589	41	-3.0659117499525
+0	600	42	-3.0039528431483
+0	611	43	-2.9419932331473
+0	622	44	-2.8800329314284
+0	633	45	-2.8180719494681
+0	644	46	-2.7561102987389
+0	656	47	-2.6941479907099
+0	681	48	-2.6321850368494
+0	692	49	-2.5702214486206
+0	703	50	-2.5082572374851
+0	714	51	-2.4462924149016
+0	725	52	-2.3843269923256
+0	736	53	-2.3223609812106
+0	747	54	-2.2603943930079
+0	758	55	-2.1984272391655
+0	769	56	-2.1364595311291
+0	781	57	-2.0744912803422
+0	806	58	-2.0125224982479
+0	817	59	-1.9505531962853
+0	828	60	-1.8885833858914
+0	839	61	-1.826613078501
+0	850	62	-1.7646422855493
+0	861	63	-1.7026710184673
+0	872	64	-1.640699288684
+0	883	65	-1.5787271076295
+0	894	66	-1.5167544867293
+0	906	67	-1.4547814374093
+0	931	68	-1.3928079710932
+0	942	69	-1.3308340992033
+0	953	70	-1.2688598331604
+0	964	71	-1.2068851843846
+0	975	72	-1.1449101642947
+0	986	73	-1.0829347843084
+0	997	74	-1.0209590558426
+0	1008	75	-0.95898299031174
+0	1019	76	-0.8970065991329
+0	1031	77	-0.83502989371902
+0	1056	78	-0.77305288548314
+0	1067	79	-0.71107558583835
+0	1078	80	-0.64909800619692
+0	1089	81	-0.58712015797065
+0	1100	82	-0.52514205257115
+0	1111	83	-0.46316370140914
+0	1122	84	-0.40118511589491
+0	1133	85	-0.33920630743937
+0	1144	86	-0.2772272874534
+0	1156	87	-0.21524806734628
+0	1181	88	-0.15326865852997
+0	1192	89	-0.091289072413825
+0	1203	90	-0.029309320409063
+0	1214	91	0.03267058607302
+0	1225	92	0.094650635622141
+0	1236	93	0.15663081682511
+0	1247	94	0.21861111827114
+0	1258	95	0.28059152854633
+0	1269	96	0.34257203623733
+0	1281	97	0.40455262993034
+0	1306	98	0.4665332982108
+0	1317	99	0.52851402966262
+0	1328	100	0.59049481286878
+0	1339	101	0.65247563641228
+0	1350	102	0.71445648887407
+0	1361	103	0.77643735883419
+0	1372	104	0.83841823487147
+0	1383	105	0.90039910556315
+0	1394	106	0.9623799594858
+0	1406	107	1.0243607852146
+0	1431	108	1.0863415713224
+0	1442	109	1.1483223063815
+0	1453	110	1.2103029789601
+0	1464	111	1.2722835776274
+0	1475	112	1.3342640909503
+0	1486	113	1.396244507493
+0	1497	114	1.4582248158175
+0	1508	115	1.5202050044852
+0	1519	116	1.5821850620536
+0	1531	117	1.6441649770802
+0	1556	118	1.7061447381177
+0	1567	119	1.7681243337176
+0	1578	120	1.8301037524297
+1	85	5	-1.6449684924915
+1	96	6	-1.6265637595097
+1	108	7	-1.6081633922402
+1	135	8	-1.5897673373417
+1	146	9	-1.5713755415061
+1	157	10	-1.5529879514621
+1	168	11	-1.5346045139791
+1	179	12	-1.5162251758566
+1	190	13	-1.4978498839349
+1	201	14	-1.4794785850846
+1	212	15	-1.4611112262155
+1	223	16	-1.4427477542673
+1	235	17	-1.4243881162139
+1	260	18	-1.4060322590644
+1	271	19	-1.3876801298604
+1	282	20	-1.3693316756739
+1	293	21	-1.3509868436091
+1	304	22	-1.3326455808017
+1	315	23	-1.3143078344167
+1	326	24	-1.2959735516533
+1	337	25	-1.277642679737
+1	348	26	-1.2593151659226
+1	360	27	-1.240990957497
+1	385	28	-1.2226700017715
+1	396	29	-1.2043522460895
+1	407	30	-1.1860376378175
+1	418	31	-1.167726124354
+1	475	32	-1.1494176531199
+1	486	33	-1.1311121715625
+1	497	34	-1.1128096271577
+1	508	35	-1.0945099674062
+1	519	36	-1.076213139831
+1	531	37	-1.0579190919795
+1	556	38	-1.0396277714266
+1	567	39	-1.0213391257656
+1	578	40	-1.0030531026181
+1	589	41	-0.98476964962378
+1	600	42	-0.96648871444475
+1	611	43	-0.94821024476866
+1	622	44	-0.9299341882987
+1	633	45	-0.91166049276454
+1	644	46	-0.8933891059101
+1	656	47	-0.87511997550437
+1	681	48	-0.85685304933249
+1	692	49	-0.83858827519759
+1	703	50	-0.82032560092435
+1	714	51	-0.80206497435496
+1	725	52	-0.78380634334684
+1	736	53	-0.76554965577421
+1	747	54	-0.7472948595333
+1	758	55	-0.72904190252593
+1	769	56	-0.71079073268242
+1	781	57	-0.69254129793928
+1	806	58	-0.67429354625087
+1	817	59	-0.65604742558449
+1	828	60	-0.63780288392317
+1	839	61	-0.61955986926498
+1	850	62	-0.60131832961403
+1	861	63	-0.58307821299472
+1	872	64	-0.56483946744037
+1	883	65	-0.5466020409923
+1	894	66	-0.52836588170993
+1	906	67	-0.5101309376577
+1	931	68	-0.49189715691522
+1	942	69	-0.47366448756808
+1	953	70	-0.45543287771083
+1	964	71	-0.43720227545164
+1	975	72	-0.41897262890133
+1	986	73	-0.40074388618425
+1	997	74	-0.38251599542855
+1	1008	75	-0.36428890476875
+1	1019	76	-0.34606256235021
+1	1031	77	-0.32783691632287
+1	1056	78	-0.30961191484071
+1	1067	79	-0.29138750606299
+1	1078	80	-0.2731636381576
+1	1089	81	-0.25494025929202
+1	1100	82	-0.23671731764252
+1	1111	83	-0.21849476138412
+1	1122	84	-0.20027253869963
+1	1133	85	-0.18205059777107
+1	1144	86	-0.1638288867828
+1	1156	87	-0.14560735392419
+1	1181	88	-0.12738594738173
+1	1192	89	-0.10916461534681
+1	1203	90	-0.090943306008429
+1	1214	91	-0.072721967556255
+1	1225	92	-0.054500548176819
+1	1236	93	-0.036278996065504
+1	1247	94	-0.018057259402417
+1	1258	95	0.00016471362405054
+1	1269	96	0.018386974829858
+1	1281	97	0.036609576035748
+1	1306	98	0.054832569066167
+1	1317	99	0.073056005746006
+1	1328	100	0.091279937902923
+1	1339	101	0.10950441737614
+1	1350	102	0.1277294960051
+1	1361	103	0.14595522563271
+1	1372	104	0.16418165811245
+1	1383	105	0.18240884529897
+1	1394	106	0.20063683905768
+1	1406	107	0.21886569126123
+1	1431	108	0.23709545378728
+1	1442	109	0.2553261785213
+1	1453	110	0.27355791735964
+1	1464	111	0.29179072220818
+1	1475	112	0.31002464497831
+1	1486	113	0.32825973759637
+1	1497	114	0.34649605199319
+1	1508	115	0.36473364011668
+1	1519	116	0.38297255391837
+1	1531	117	0.4012128453716
+1	1556	118	0.41945456645172
+1	1567	119	0.4376977691534
+1	1578	120	0.45594250548104
+2	85	5	353068.15310296
+2	96	6	353056.59696793
+2	108	7	353045.08121765
+2	135	8	353033.60588154
+2	146	9	353022.1709888
+2	157	10	353010.7765684
+2	168	11	352999.4226491
+2	179	12	352988.10925946
+2	190	13	352976.8364278
+2	201	14	352965.60418221
+2	212	15	352954.4125506
+2	223	16	352943.26156063
+2	235	17	352932.15123976
+2	260	18	352921.08161521
+2	271	19	352910.052714
+2	282	20	352899.06456293
+2	293	21	352888.11718856
+2	304	22	352877.21061727
+2	315	23	352866.34487517
+2	326	24	352855.5199882
+2	337	25	352844.73598205
+2	348	26	352833.9928822
+2	360	27	352823.2907139
+2	385	28	352812.6295022
+2	396	29	352802.00927191
+2	407	30	352791.43004764
+2	418	31	352780.89185376
+2	475	32	352770.39471442
+2	486	33	352759.93865358
+2	497	34	352749.52369494
+2	508	35	352739.149862
+2	519	36	352728.81717804
+2	531	37	352718.52566611
+2	556	38	352708.27534906
+2	567	39	352698.06624948
+2	578	40	352687.89838979
+2	589	41	352677.77179214
+2	600	42	352667.6864785
+2	611	43	352657.64247057
+2	622	44	352647.63978989
+2	633	45	352637.67845773
+2	644	46	352627.75849517
+2	656	47	352617.87992303
+2	681	48	352608.04276196
+2	692	49	352598.24703234
+2	703	50	352588.49275435
+2	714	51	352578.77994796
+2	725	52	352569.1086329
+2	736	53	352559.47882868
+2	747	54	352549.89055459
+2	758	55	352540.34382971
+2	769	56	352530.83867287
+2	781	57	352521.37510271
+2	806	58	352511.95313763
+2	817	59	352502.5727958
+2	828	60	352493.23409518
+2	839	61	352483.93705352
+2	850	62	352474.68168831
+2	861	63	352465.46801687
+2	872	64	352456.29605624
+2	883	65	352447.16582327
+2	894	66	352438.07733459
+2	906	67	352429.0306066
+2	931	68	352420.02565547
+2	942	69	352411.06249715
+2	953	70	352402.14114738
+2	964	71	352393.26162167
+2	975	72	352384.42393528
+2	986	73	352375.62810331
+2	997	74	352366.87414057
+2	1008	75	352358.16206168
+2	1019	76	352349.49188103
+2	1031	77	352340.8636128
+2	1056	78	352332.27727093
+2	1067	79	352323.73286914
+2	1078	80	352315.23042092
+2	1089	81	352306.76993956
+2	1100	82	352298.3514381
+2	1111	83	352289.97492938
+2	1122	84	352281.64042599
+2	1133	85	352273.34794033
+2	1144	86	352265.09748454
+2	1156	87	352256.88907056
+2	1181	88	352248.7227101
+2	1192	89	352240.59841465
+2	1203	90	352232.51619548
+2	1214	91	352224.47606361
+2	1225	92	352216.47802987
+2	1236	93	352208.52210485
+2	1247	94	352200.60829891
+2	1258	95	352192.73662221
+2	1269	96	352184.90708466
+2	1281	97	352177.11969595
+2	1306	98	352169.37446557
+2	1317	99	352161.67140276
+2	1328	100	352154.01051654
+2	1339	101	352146.39181573
+2	1350	102	352138.81530889
+2	1361	103	352131.28100437
+2	1372	104	352123.78891032
+2	1383	105	352116.33903464
+2	1394	106	352108.931385
+2	1406	107	352101.56596887
+2	1431	108	352094.24279348
+2	1442	109	352086.96186585
+2	1453	110	352079.72319275
+2	1464	111	352072.52678076
+2	1475	112	352065.3726362
+2	1486	113	352058.2607652
+2	1497	114	352051.19117365
+2	1508	115	352044.16386721
+2	1519	116	352037.17885134
+2	1531	117	352030.23613124
+2	1556	118	352023.33571192
+2	1567	119	352016.47759814
+2	1578	120	352009.66179446
+3	85	5	6699890.9462939
+3	96	6	6700604.0277789
+3	108	7	6701308.6857306
+3	135	8	6702004.9192102
+3	146	9	6702692.7272897
+3	157	10	6703372.1090521
+3	168	11	6704043.0635911
+3	179	12	6704705.5900114
+3	190	13	6705359.6874285
+3	201	14	6706005.3549688
+3	212	15	6706642.5917695
+3	223	16	6707271.3969788
+3	235	17	6707891.7697556
+3	260	18	6708503.7092697
+3	271	19	6709107.214702
+3	282	20	6709702.285244
+3	293	21	6710288.9200982
+3	304	22	6710867.118478
+3	315	23	6711436.8796076
+3	326	24	6711998.2027221
+3	337	25	6712551.0870676
+3	348	26	6713095.5319008
+3	360	27	6713631.5364896
+3	385	28	6714159.1001127
+3	396	29	6714678.2220595
+3	407	30	6715188.9016305
+3	418	31	6715691.138137
+3	475	32	6716184.9309012
+3	486	33	6716670.2792562
+3	497	34	6717147.1825459
+3	508	35	6717615.6401253
+3	519	36	6718075.6513602
+3	531	37	6718527.2156271
+3	556	38	6718970.3323137
+3	567	39	6719405.0008184
+3	578	40	6719831.2205505
+3	589	41	6720248.9909304
+3	600	42	6720658.3113892
+3	611	43	6721059.1813689
+3	622	44	6721451.6003225
+3	633	45	6721835.5677138
+3	644	46	6722211.0830177
+3	656	47	6722578.1457198
+3	681	48	6722936.7553167
+3	692	49	6723286.9113158
+3	703	50	6723628.6132355
+3	714	51	6723961.8606052
+3	725	52	6724286.6529651
+3	736	53	6724602.9898662
+3	747	54	6724910.8708706
+3	758	55	6725210.2955513
+3	769	56	6725501.263492
+3	781	57	6725783.7742876
+3	806	58	6726057.8275437
+3	817	59	6726323.422877
+3	828	60	6726580.5599149
+3	839	61	6726829.2382958
+3	850	62	6727069.4576691
+3	861	63	6727301.2176951
+3	872	64	6727524.5180449
+3	883	65	6727739.3584007
+3	894	66	6727945.7384554
+3	906	67	6728143.6579129
+3	931	68	6728333.1164882
+3	942	69	6728514.1139069
+3	953	70	6728686.6499059
+3	964	71	6728850.7242326
+3	975	72	6729006.3366457
+3	986	73	6729153.4869147
+3	997	74	6729292.1748198
+3	1008	75	6729422.4001524
+3	1019	76	6729544.1627147
+3	1031	77	6729657.4623199
+3	1056	78	6729762.2987921
+3	1067	79	6729858.6719663
+3	1078	80	6729946.5816884
+3	1089	81	6730026.0278153
+3	1100	82	6730097.0102147
+3	1111	83	6730159.5287655
+3	1122	84	6730213.5833571
+3	1133	85	6730259.1738903
+3	1144	86	6730296.3002764
+3	1156	87	6730324.962438
+3	1181	88	6730345.1603084
+3	1192	89	6730356.8938318
+3	1203	90	6730360.1629634
+3	1214	91	6730354.9676695
+3	1225	92	6730341.3079271
+3	1236	93	6730319.1837241
+3	1247	94	6730288.5950596
+3	1258	95	6730249.5419433
+3	1269	96	6730202.0243961
+3	1281	97	6730146.0424497
+3	1306	98	6730081.5961467
+3	1317	99	6730008.6855407
+3	1328	100	6729927.3106963
+3	1339	101	6729837.4716888
+3	1350	102	6729739.1686047
+3	1361	103	6729632.4015413
+3	1372	104	6729517.1706067
+3	1383	105	6729393.4759202
+3	1394	106	6729261.3176118
+3	1406	107	6729120.6958226
+3	1431	108	6728971.6107045
+3	1442	109	6728814.0624204
+3	1453	110	6728648.0511442
+3	1464	111	6728473.5770606
+3	1475	112	6728290.6403652
+3	1486	113	6728099.2412647
+3	1497	114	6727899.3799766
+3	1508	115	6727691.0567294
+3	1519	116	6727474.2717625
+3	1531	117	6727249.0253262
+3	1556	118	6727015.3176817
+3	1567	119	6726773.1491013
+3	1578	120	6726522.519868
+4	85	5	-192407.51637149
+4	96	6	-190273.84993075
+4	108	7	-188140.03882688
+4	135	8	-186006.08461205
+4	146	9	-183871.98883803
+4	157	10	-181737.75305662
+4	168	11	-179603.37882026
+4	179	12	-177468.86768078
+4	190	13	-175334.22119068
+4	201	14	-173199.44090204
+4	212	15	-171064.52836751
+4	223	16	-168929.48513939
+4	235	17	-166794.31277009
+4	260	18	-164659.01281238
+4	271	19	-162523.58681904
+4	282	20	-160388.03634276
+4	293	21	-158252.36293635
+4	304	22	-156116.56815271
+4	315	23	-153980.65354468
+4	326	24	-151844.62066559
+4	337	25	-149708.47106842
+4	348	26	-147572.20630626
+4	360	27	-145435.8279326
+4	385	28	-143299.33750054
+4	396	29	-141162.73656376
+4	407	30	-139026.02667541
+4	418	31	-136889.20938938
+4	475	32	-134752.28625908
+4	486	33	-132615.25883803
+4	497	34	-130478.12868015
+4	508	35	-128340.8973394
+4	519	36	-126203.56636947
+4	531	37	-124066.13732418
+4	556	38	-121928.6117578
+4	567	39	-119790.9912241
+4	578	40	-117653.27727755
+4	589	41	-115515.47147211
+4	600	42	-113377.57536193
+4	611	43	-111239.59050162
+4	622	44	-109101.51844524
+4	633	45	-106963.36074757
+4	644	46	-104825.11896276
+4	656	47	-102686.79464564
+4	681	48	-100548.38935073
+4	692	49	-98409.904632511
+4	703	50	-96271.34204588
+4	714	51	-94132.703145755
+4	725	52	-91993.989486841
+4	736	53	-89855.202623868
+4	747	54	-87716.344112264
+4	758	55	-85577.415506271
+4	769	56	-83438.418361692
+4	781	57	-81299.354233324
+4	806	58	-79160.224676373
+4	817	59	-77021.031245941
+4	828	60	-74881.775497398
+4	839	61	-72742.458986354
+4	850	62	-70603.083267657
+4	861	63	-68463.649897116
+4	872	64	-66324.160430223
+4	883	65	-64184.616422089
+4	894	66	-62045.019428689
+4	906	67	-59905.37100538
+4	931	68	-57765.672708133
+4	942	69	-55625.926092522
+4	953	70	-53486.132714115
+4	964	71	-51346.294129074
+4	975	72	-49206.411892927
+4	986	73	-47066.487561888
+4	997	74	-44926.522691774
+4	1008	75	-42786.51883835
+4	1019	76	-40646.477557918
+4	1031	77	-38506.400406623
+4	1056	78	-36366.288940449
+4	1067	79	-34226.144715409
+4	1078	80	-32085.969288001
+4	1089	81	-29945.764214189
+4	1100	82	-27805.531050536
+4	1111	83	-25665.271353084
+4	1122	84	-23524.986678464
+4	1133	85	-21384.678582935
+4	1144	86	-19244.348622809
+4	1156	87	-17103.99835482
+4	1181	88	-14963.629335239
+4	1192	89	-12823.24312085
+4	1203	90	-10682.841268139
+4	1214	91	-8542.425333708
+4	1225	92	-6401.9968738791
+4	1236	93	-4261.5574461554
+4	1247	94	-2121.1086064384
+4	1258	95	19.348088153123
+4	1269	96	2159.8110807141
+4	1281	97	4300.2788145531
+4	1306	98	6440.7497330129
+4	1317	99	8581.2222790363
+4	1328	100	10721.694895386
+4	1339	101	12862.166025628
+4	1350	102	15002.634112743
+4	1361	103	17143.09759946
+4	1372	104	19283.554929038
+4	1383	105	21424.004544107
+4	1394	106	23564.444887746
+4	1406	107	25704.874403015
+4	1431	108	27845.291532641
+4	1442	109	29985.694719298
+4	1453	110	32126.08240591
+4	1464	111	34266.453035443
+4	1475	112	36406.805050387
+4	1486	113	38547.1368938
+4	1497	114	40687.447008038
+4	1508	115	42827.733836176
+4	1519	116	44967.995820375
+4	1531	117	47108.23140397
+4	1556	118	49248.439029089
+4	1567	119	51388.617138637
+4	1578	120	53528.764175108
+5	85	5	-617357.61946366
+5	96	6	-610157.47460718
+5	108	7	-602956.5287897
+5	135	8	-595754.79146038
+5	146	9	-588552.27206931
+5	157	10	-581348.98006764
+5	168	11	-574144.92490793
+5	179	12	-566940.11604353
+5	190	13	-559734.56292904
+5	201	14	-552528.27502012
+5	212	15	-545321.26177348
+5	223	16	-538113.53264681
+5	235	17	-530905.09709896
+5	260	18	-523695.96458972
+5	271	19	-516486.14457975
+5	282	20	-509275.64653114
+5	293	21	-502064.47990652
+5	304	22	-494852.65416974
+5	315	23	-487640.17878549
+5	326	24	-480427.06321937
+5	337	25	-473213.31693811
+5	348	26	-465998.94940925
+5	360	27	-458783.9701011
+5	385	28	-451568.38848316
+5	396	29	-444352.21402554
+5	407	30	-437135.45619935
+5	418	31	-429918.12447659
+5	475	32	-422700.22832999
+5	486	33	-415481.77723312
+5	497	34	-408262.78066051
+5	508	35	-401043.24808743
+5	519	36	-393823.18898982
+5	531	37	-386602.61284459
+5	556	38	-379381.52912925
+5	567	39	-372159.94732217
+5	578	40	-364937.87690248
+5	589	41	-357715.3273499
+5	600	42	-350492.30814497
+5	611	43	-343268.828769
+5	622	44	-336044.89870386
+5	633	45	-328820.52743222
+5	644	46	-321595.72443729
+5	656	47	-314370.49920288
+5	681	48	-307144.86121374
+5	692	49	-299918.81995492
+5	703	50	-292692.38491226
+5	714	51	-285465.56557219
+5	725	52	-278238.37142162
+5	736	53	-271010.81194816
+5	747	54	-263782.89663997
+5	758	55	-256554.63498567
+5	769	56	-249326.03647445
+5	781	57	-242097.11059597
+5	806	58	-234867.86684068
+5	817	59	-227638.31469925
+5	828	60	-220408.46366289
+5	839	61	-213178.3232232
+5	850	62	-205947.90287252
+5	861	63	-198717.21210338
+5	872	64	-191486.26040872
+5	883	65	-184255.05728218
+5	894	66	-177023.61221751
+5	906	67	-169791.93470903
+5	931	68	-162560.0342514
+5	942	69	-155327.92033963
+5	953	70	-148095.60246904
+5	964	71	-140863.0901354
+5	975	72	-133630.39283476
+5	986	73	-126397.5200635
+5	997	74	-119164.48131833
+5	1008	75	-111931.28609605
+5	1019	76	-104697.94389418
+5	1031	77	-97464.464210108
+5	1056	78	-90230.856541552
+5	1067	79	-82997.130386568
+5	1078	80	-75763.295243405
+5	1089	81	-68529.360610527
+5	1100	82	-61295.335986628
+5	1111	83	-54061.230870526
+5	1122	84	-46827.0547612
+5	1133	85	-39592.817157882
+5	1144	86	-32358.527559967
+5	1156	87	-25124.19546681
+5	1181	88	-17889.830378193
+5	1192	89	-10655.441793699
+5	1203	90	-3421.0392132066
+5	1214	91	3813.367863342
+5	1225	92	11047.769936086
+5	1236	93	18282.15750481
+5	1247	94	25516.52106959
+5	1258	95	32750.851130166
+5	1269	96	39985.13818639
+5	1281	97	47219.372738139
+5	1306	98	54453.54528529
+5	1317	99	61687.646327661
+5	1328	100	68921.666365094
+5	1339	101	76155.595897594
+5	1350	102	83389.425425106
+5	1361	103	90623.14544767
+5	1372	104	97856.746465407
+5	1383	105	105090.21897849
+5	1394	106	112323.5534873
+5	1406	107	119556.74049233
+5	1431	108	126789.77049409
+5	1442	109	134022.63399339
+5	1453	110	141255.3214909
+5	1464	111	148487.82348777
+5	1475	112	155720.1304853
+5	1486	113	162952.23298485
+5	1497	114	170184.12148803
+5	1508	115	177415.78649676
+5	1519	116	184647.21851305
+5	1531	117	191878.40803936
+5	1556	118	199109.34557817
+5	1567	119	206340.02163232
+5	1578	120	213570.42670504
+6	85	5	-723975.02656619
+6	96	6	-721904.74203058
+6	108	7	-719833.64420376
+6	135	8	-717761.73455845
+6	146	9	-715689.01456777
+6	157	10	-713615.48570581
+6	168	11	-711541.14944811
+6	179	12	-709466.00727047
+6	190	13	-707390.06065024
+6	201	14	-705313.31106519
+6	212	15	-703235.75999456
+6	223	16	-701157.40891806
+6	235	17	-699078.2593164
+6	260	18	-696998.3126715
+6	271	19	-694917.57046617
+6	282	20	-692836.03418397
+6	293	21	-690753.70530946
+6	304	22	-688670.58532817
+6	315	23	-686586.67572638
+6	326	24	-684501.97799178
+6	337	25	-682416.49361255
+6	348	26	-680330.22407784
+6	360	27	-678243.17087808
+6	385	28	-676155.33550416
+6	396	29	-674066.71944841
+6	407	30	-671977.32420352
+6	418	31	-669887.15126376
+6	475	32	-667796.20212379
+6	486	33	-665704.47827926
+6	497	34	-663611.98122706
+6	508	35	-661518.71246501
+6	519	36	-659424.67349151
+6	531	37	-657329.86580595
+6	556	38	-655234.29090906
+6	567	39	-653137.9503019
+6	578	40	-651040.84548712
+6	589	41	-648942.97796774
+6	600	42	-646844.34924779
+6	611	43	-644744.96083266
+6	622	44	-642644.81422805
+6	633	45	-640543.91094125
+6	644	46	-638442.25247976
+6	656	47	-636339.84035265
+6	681	48	-634236.67606955
+6	692	49	-632132.76114091
+6	703	50	-630028.09707845
+6	714	51	-627922.68539479
+6	725	52	-625816.5276032
+6	736	53	-623709.62521785
+6	747	54	-621601.97975445
+6	758	55	-619493.59272843
+6	769	56	-617384.46565761
+6	781	57	-615274.60005968
+6	806	58	-613163.99745363
+6	817	59	-611052.65935918
+6	828	60	-608940.58729721
+6	839	61	-606827.78278968
+6	850	62	-604714.24735868
+6	861	63	-602599.98252811
+6	872	64	-600484.98982245
+6	883	65	-598369.27076662
+6	894	66	-596252.82688731
+6	906	67	-594135.65971144
+6	931	68	-592017.77076742
+6	942	69	-589899.16158412
+6	953	70	-587779.83369129
+6	964	71	-585659.78862012
+6	975	72	-583539.02790204
+6	986	73	-581417.55307004
+6	997	74	-579295.36565758
+6	1008	75	-577172.46719893
+6	1019	76	-575048.85922977
+6	1031	77	-572924.54328648
+6	1056	78	-570799.52090616
+6	1067	79	-568673.7936268
+6	1078	80	-566547.36298774
+6	1089	81	-564420.23052866
+6	1100	82	-562292.3977907
+6	1111	83	-560163.86631537
+6	1122	84	-558034.63764559
+6	1133	85	-555904.71332482
+6	1144	86	-553774.09489742
+6	1156	87	-551642.78390904
+6	1181	88	-549510.78190575
+6	1192	89	-547378.09043499
+6	1203	90	-545244.71104476
+6	1214	91	-543110.64528406
+6	1225	92	-540975.89470248
+6	1236	93	-538840.46085163
+6	1247	94	-536704.34528243
+6	1258	95	-534567.54954786
+6	1269	96	-532430.07520154
+6	1281	97	-530291.92379778
+6	1306	98	-528153.09689171
+6	1317	99	-526013.5960397
+6	1328	100	-523873.42279922
+6	1339	101	-521732.57872776
+6	1350	102	-519591.06538428
+6	1361	103	-517448.88432887
+6	1372	104	-515306.03712194
+6	1383	105	-513162.52532542
+6	1394	106	-511018.35050162
+6	1406	107	-508873.51421379
+6	1431	108	-506728.01802633
+6	1442	109	-504581.8635046
+6	1453	110	-502435.05221456
+6	1464	111	-500287.58572298
+6	1475	112	-498139.46559802
+6	1486	113	-495990.6934081
+6	1497	114	-493841.27072322
+6	1508	115	-491691.19911353
+6	1519	116	-489540.48015097
+6	1531	117	-487389.11540717
+6	1556	118	-485237.10645583
+6	1567	119	-483084.45487075
+6	1578	120	-480931.16222699
+7	85	5	622594.91304609
+7	96	6	615395.46682886
+7	108	7	608195.21301741
+7	135	8	600994.16106006
+7	146	9	593792.32040603
+7	157	10	586589.70050569
+7	168	11	579386.31081076
+7	179	12	572182.1607738
+7	190	13	564977.25984859
+7	201	14	557771.61749002
+7	212	15	550565.24315401
+7	223	16	543358.14629748
+7	235	17	536150.33637852
+7	260	18	528941.82285616
+7	271	19	521732.61519032
+7	282	20	514522.72284233
+7	293	21	507312.15527412
+7	304	22	500100.92194881
+7	315	23	492889.03233037
+7	326	24	485676.49588369
+7	337	25	478463.32207483
+7	348	26	471249.52037062
+7	360	27	464035.1002387
+7	385	28	456820.07114791
+7	396	29	449604.44256767
+7	407	30	442388.22396848
+7	418	31	435171.42482167
+7	475	32	427954.05459934
+7	486	33	420736.12277442
+7	497	34	413517.63882085
+7	508	35	406298.61221326
+7	519	36	399079.05242702
+7	531	37	391858.96893843
+7	556	38	384638.37122442
+7	567	39	377417.26876278
+7	578	40	370195.67103208
+7	589	41	362973.58751148
+7	600	42	355751.02768097
+7	611	43	348528.00102132
+7	622	44	341304.51701387
+7	633	45	334080.58514076
+7	644	46	326856.2148847
+7	656	47	319631.41572897
+7	681	48	312406.19715785
+7	692	49	305180.56865588
+7	703	50	297954.53970843
+7	714	51	290728.11980145
+7	725	52	283501.31842139
+7	736	53	276274.14505542
+7	747	54	269046.60919123
+7	758	55	261818.72031702
+7	769	56	254590.48792153
+7	781	57	247361.92149403
+7	806	58	240133.03052453
+7	817	59	232903.82450332
+7	828	60	225674.3129212
+7	839	61	218444.50526939
+7	850	62	211214.41103985
+7	861	63	203984.03972475
+7	872	64	196753.40081666
+7	883	65	189522.50380888
+7	894	66	182291.35819479
+7	906	67	175059.97346841
+7	931	68	167828.35912406
+7	942	69	160596.52465643
+7	953	70	153364.47956053
+7	964	71	146132.23333184
+7	975	72	138899.79546611
+7	986	73	131667.17545944
+7	997	74	124434.38280827
+7	1008	75	117201.42700913
+7	1019	76	109968.31755929
+7	1031	77	102735.06395588
+7	1056	78	95501.675696379
+7	1067	79	88268.162278621
+7	1078	80	81034.533200628
+7	1089	81	73800.79796065
+7	1100	82	66566.966057177
+7	1111	83	59333.046988831
+7	1122	84	52099.050254401
+7	1133	85	44864.985352942
+7	1144	86	37630.861783678
+7	1156	87	30396.6890458
+7	1181	88	23162.47663894
+7	1192	89	15928.234062534
+7	1203	90	8693.9708163245
+7	1214	91	1459.6964001275
+7	1225	92	-5774.5796863156
+7	1236	93	-13008.847942901
+7	1247	94	-20243.098869804
+7	1258	95	-27477.322966858
+7	1269	96	-34711.510734001
+7	1281	97	-41945.652671185
+7	1306	98	-49179.739278354
+7	1317	99	-56413.761055385
+7	1328	100	-63647.708502169
+7	1339	101	-70881.572118753
+7	1350	102	-78115.342405115
+7	1361	103	-85349.009861318
+7	1372	104	-92582.564987499
+7	1383	105	-99815.998283843
+7	1394	106	-107049.30025072
+7	1406	107	-114282.46138861
+7	1431	108	-121515.47219802
+7	1442	109	-128748.32317972
+7	1453	110	-135981.00483434
+7	1464	111	-143213.507663
+7	1475	112	-150445.82216694
+7	1486	113	-157677.93884746
+7	1497	114	-164909.84820608
+7	1508	115	-172141.54074467
+7	1519	116	-179373.00696513
+7	1531	117	-186604.23736984
+7	1556	118	-193835.22246116
+7	1567	119	-201065.95274183
+7	1578	120	-208296.41871494
+8	85	5	284814.2986716
+8	96	6	285700.30078554
+8	108	7	286577.91810798
+8	135	8	287447.14957231
+8	146	9	288307.99412279
+8	157	10	289160.45071454
+8	168	11	290004.51831336
+8	179	12	290840.19589603
+8	190	13	291667.48245004
+8	201	14	292486.37697377
+8	212	15	293296.87847638
+8	223	16	294098.9859779
+8	235	17	294892.69850919
+8	260	18	295678.0151119
+8	271	19	296454.93483854
+8	282	20	297223.45675244
+8	293	21	297983.57992779
+8	304	22	298735.3034496
+8	315	23	299478.62641372
+8	326	24	300213.54792684
+8	337	25	300940.06710647
+8	348	26	301658.183081
+8	360	27	302367.89498964
+8	385	28	303069.20198245
+8	396	29	303762.10322031
+8	407	30	304446.597875
+8	418	31	305122.68512908
+8	475	32	305790.36417602
+8	486	33	306449.63422015
+8	497	34	307100.49447657
+8	508	35	307742.94417128
+8	519	36	308376.98254114
+8	531	37	309002.60883389
+8	556	38	309619.82230806
+8	567	39	310228.62223309
+8	578	40	310829.00788924
+8	589	41	311420.97856767
+8	600	42	312004.53357039
+8	611	43	312579.67221022
+8	622	44	313146.39381092
+8	633	45	313704.69770704
+8	644	46	314254.58324406
+8	656	47	314796.04977828
+8	681	48	315329.09667688
+8	692	49	315853.72331793
+8	703	50	316369.92909033
+8	714	51	316877.71339384
+8	725	52	317377.07563913
+8	736	53	317868.01524776
+8	747	54	318350.53165205
+8	758	55	318824.62429537
+8	769	56	319290.29263177
+8	781	57	319747.5361263
+8	806	58	320196.35425486
+8	817	59	320636.7465042
+8	828	60	321068.71237196
+8	839	61	321492.25136665
+8	850	62	321907.36300769
+8	861	63	322314.04682533
+8	872	64	322712.30236073
+8	883	65	323102.12916594
+8	894	66	323483.52680385
+8	906	67	323856.49484827
+8	931	68	324221.03288385
+8	942	69	324577.14050616
+8	953	70	324924.81732166
+8	964	71	325264.06294765
+8	975	72	325594.87701234
+8	986	73	325917.25915483
+8	997	74	326231.20902509
+8	1008	75	326536.726284
+8	1019	76	326833.81060328
+8	1031	77	327122.46166558
+8	1056	78	327402.67916442
+8	1067	79	327674.46280422
+8	1078	80	327937.81230026
+8	1089	81	328192.72737875
+8	1100	82	328439.20777674
+8	1111	83	328677.25324222
+8	1122	84	328906.86353402
+8	1133	85	329128.03842189
+8	1144	86	329340.77768648
+8	1156	87	329545.0811193
+8	1181	88	329740.94852277
+8	1192	89	329928.37971019
+8	1203	90	330107.37450577
+8	1214	91	330277.93274458
+8	1225	92	330440.05427266
+8	1236	93	330593.7389468
+8	1247	94	330738.98663484
+8	1258	95	330875.7972154
+8	1269	96	331004.17057804
+8	1281	97	331124.10662322
+8	1306	98	331235.60526227
+8	1317	99	331338.66641743
+8	1328	100	331433.2900218
+8	1339	101	331519.47601943
+8	1350	102	331597.22436524
+8	1361	103	331666.53502501
+8	1372	104	331727.40797547
+8	1383	105	331779.84320419
+8	1394	106	331823.84070967
+8	1406	107	331859.40050131
+8	1431	108	331886.52259938
+8	1442	109	331905.20703503
+8	1453	110	331915.45385035
+8	1464	111	331917.26309831
+8	1475	112	331910.63484273
+8	1486	113	331895.5691584
+8	1497	114	331872.06613092
+8	1508	115	331840.12585685
+8	1519	116	331799.74844361
+8	1531	117	331750.93400954
+8	1556	118	331693.68268384
+8	1567	119	331627.99460663
+8	1578	120	331553.86992891
+9	85	5	-718975.02656619
+9	96	6	-716904.74203058
+9	108	7	-714833.64420376
+9	135	8	-712761.73455845
+9	146	9	-710689.01456777
+9	157	10	-708615.48570581
+9	168	11	-706541.14944811
+9	179	12	-704466.00727047
+9	190	13	-702390.06065024
+9	201	14	-700313.31106519
+9	212	15	-698235.75999456
+9	223	16	-696157.40891806
+9	235	17	-694078.2593164
+9	260	18	-691998.3126715
+9	271	19	-689917.57046617
+9	282	20	-687836.03418397
+9	293	21	-685753.70530946
+9	304	22	-683670.58532817
+9	315	23	-681586.67572638
+9	326	24	-679501.97799178
+9	337	25	-677416.49361255
+9	348	26	-675330.22407784
+9	360	27	-673243.17087808
+9	385	28	-671155.33550416
+9	396	29	-669066.71944841
+9	407	30	-666977.32420352
+9	418	31	-664887.15126376
+9	475	32	-662796.20212379
+9	486	33	-660704.47827926
+9	497	34	-658611.98122706
+9	508	35	-656518.71246501
+9	519	36	-654424.67349151
+9	531	37	-652329.86580595
+9	556	38	-650234.29090906
+9	567	39	-648137.9503019
+9	578	40	-646040.84548712
+9	589	41	-643942.97796774
+9	600	42	-641844.34924779
+9	611	43	-639744.96083266
+9	622	44	-637644.81422805
+9	633	45	-635543.91094125
+9	644	46	-633442.25247976
+9	656	47	-631339.84035265
+9	681	48	-629236.67606955
+9	692	49	-627132.76114091
+9	703	50	-625028.09707845
+9	714	51	-622922.68539479
+9	725	52	-620816.5276032
+9	736	53	-618709.62521785
+9	747	54	-616601.97975445
+9	758	55	-614493.59272843
+9	769	56	-612384.46565761
+9	781	57	-610274.60005968
+9	806	58	-608163.99745363
+9	817	59	-606052.65935918
+9	828	60	-603940.58729721
+9	839	61	-601827.78278968
+9	850	62	-599714.24735868
+9	861	63	-597599.98252811
+9	872	64	-595484.98982245
+9	883	65	-593369.27076662
+9	894	66	-591252.82688731
+9	906	67	-589135.65971144
+9	931	68	-587017.77076742
+9	942	69	-584899.16158412
+9	953	70	-582779.83369129
+9	964	71	-580659.78862012
+9	975	72	-578539.02790204
+9	986	73	-576417.55307004
+9	997	74	-574295.36565758
+9	1008	75	-572172.46719893
+9	1019	76	-570048.85922977
+9	1031	77	-567924.54328648
+9	1056	78	-565799.52090616
+9	1067	79	-563673.7936268
+9	1078	80	-561547.36298774
+9	1089	81	-559420.23052866
+9	1100	82	-557292.3977907
+9	1111	83	-555163.86631537
+9	1122	84	-553034.63764559
+9	1133	85	-550904.71332482
+9	1144	86	-548774.09489742
+9	1156	87	-546642.78390904
+9	1181	88	-544510.78190575
+9	1192	89	-542378.09043499
+9	1203	90	-540244.71104476
+9	1214	91	-538110.64528406
+9	1225	92	-535975.89470248
+9	1236	93	-533840.46085163
+9	1247	94	-531704.34528243
+9	1258	95	-529567.54954786
+9	1269	96	-527430.07520154
+9	1281	97	-525291.92379778
+9	1306	98	-523153.09689171
+9	1317	99	-521013.5960397
+9	1328	100	-518873.42279922
+9	1339	101	-516732.57872776
+9	1350	102	-514591.06538428
+9	1361	103	-512448.88432887
+9	1372	104	-510306.03712194
+9	1383	105	-508162.52532542
+9	1394	106	-506018.35050162
+9	1406	107	-503873.51421379
+9	1431	108	-501728.01802633
+9	1442	109	-499581.8635046
+9	1453	110	-497435.05221456
+9	1464	111	-495287.58572298
+9	1475	112	-493139.46559802
+9	1486	113	-490990.6934081
+9	1497	114	-488841.27072322
+9	1508	115	-486691.19911353
+9	1519	116	-484540.48015097
+9	1531	117	-482389.11540717
+9	1556	118	-480237.10645583
+9	1567	119	-478084.45487075
+9	1578	120	-475931.16222699
+10	85	5	627594.91304609
+10	96	6	620395.46682886
+10	108	7	613195.21301741
+10	135	8	605994.16106006
+10	146	9	598792.32040603
+10	157	10	591589.70050569
+10	168	11	584386.31081076
+10	179	12	577182.1607738
+10	190	13	569977.25984859
+10	201	14	562771.61749002
+10	212	15	555565.24315401
+10	223	16	548358.14629748
+10	235	17	541150.33637852
+10	260	18	533941.82285616
+10	271	19	526732.61519032
+10	282	20	519522.72284233
+10	293	21	512312.15527412
+10	304	22	505100.92194881
+10	315	23	497889.03233037
+10	326	24	490676.49588369
+10	337	25	483463.32207483
+10	348	26	476249.52037062
+10	360	27	469035.1002387
+10	385	28	461820.07114791
+10	396	29	454604.44256767
+10	407	30	447388.22396848
+10	418	31	440171.42482167
+10	475	32	432954.05459934
+10	486	33	425736.12277442
+10	497	34	418517.63882085
+10	508	35	411298.61221326
+10	519	36	404079.05242702
+10	531	37	396858.96893843
+10	556	38	389638.37122442
+10	567	39	382417.26876278
+10	578	40	375195.67103208
+10	589	41	367973.58751148
+10	600	42	360751.02768097
+10	611	43	353528.00102132
+10	622	44	346304.51701387
+10	633	45	339080.58514076
+10	644	46	331856.2148847
+10	656	47	324631.41572897
+10	681	48	317406.19715785
+10	692	49	310180.56865588
+10	703	50	302954.53970843
+10	714	51	295728.11980145
+10	725	52	288501.31842139
+10	736	53	281274.14505542
+10	747	54	274046.60919123
+10	758	55	266818.72031702
+10	769	56	259590.48792153
+10	781	57	252361.92149403
+10	806	58	245133.03052453
+10	817	59	237903.82450332
+10	828	60	230674.3129212
+10	839	61	223444.50526939
+10	850	62	216214.41103985
+10	861	63	208984.03972475
+10	872	64	201753.40081666
+10	883	65	194522.50380888
+10	894	66	187291.35819479
+10	906	67	180059.97346841
+10	931	68	172828.35912406
+10	942	69	165596.52465643
+10	953	70	158364.47956053
+10	964	71	151132.23333184
+10	975	72	143899.79546611
+10	986	73	136667.17545944
+10	997	74	129434.38280827
+10	1008	75	122201.42700913
+10	1019	76	114968.31755929
+10	1031	77	107735.06395588
+10	1056	78	100501.67569638
+10	1067	79	93268.162278621
+10	1078	80	86034.533200628
+10	1089	81	78800.79796065
+10	1100	82	71566.966057177
+10	1111	83	64333.046988831
+10	1122	84	57099.050254401
+10	1133	85	49864.985352942
+10	1144	86	42630.861783678
+10	1156	87	35396.6890458
+10	1181	88	28162.47663894
+10	1192	89	20928.234062534
+10	1203	90	13693.970816325
+10	1214	91	6459.6964001275
+10	1225	92	-774.57968631556
+10	1236	93	-8008.8479429007
+10	1247	94	-15243.098869804
+10	1258	95	-22477.322966858
+10	1269	96	-29711.510734001
+10	1281	97	-36945.652671185
+10	1306	98	-44179.739278354
+10	1317	99	-51413.761055385
+10	1328	100	-58647.708502169
+10	1339	101	-65881.572118753
+10	1350	102	-73115.342405115
+10	1361	103	-80349.009861318
+10	1372	104	-87582.564987499
+10	1383	105	-94815.998283843
+10	1394	106	-102049.30025072
+10	1406	107	-109282.46138861
+10	1431	108	-116515.47219802
+10	1442	109	-123748.32317972
+10	1453	110	-130981.00483434
+10	1464	111	-138213.507663
+10	1475	112	-145445.82216694
+10	1486	113	-152677.93884746
+10	1497	114	-159909.84820608
+10	1508	115	-167141.54074467
+10	1519	116	-174373.00696513
+10	1531	117	-181604.23736984
+10	1556	118	-188835.22246116
+10	1567	119	-196065.95274183
+10	1578	120	-203296.41871494
+11	85	5	284814.2986716
+11	96	6	285700.30078554
+11	108	7	286577.91810798
+11	135	8	287447.14957231
+11	146	9	288307.99412279
+11	157	10	289160.45071454
+11	168	11	290004.51831336
+11	179	12	290840.19589603
+11	190	13	291667.48245004
+11	201	14	292486.37697377
+11	212	15	293296.87847638
+11	223	16	294098.9859779
+11	235	17	294892.69850919
+11	260	18	295678.0151119
+11	271	19	296454.93483854
+11	282	20	297223.45675244
+11	293	21	297983.57992779
+11	304	22	298735.3034496
+11	315	23	299478.62641372
+11	326	24	300213.54792684
+11	337	25	300940.06710647
+11	348	26	301658.183081
+11	360	27	302367.89498964
+11	385	28	303069.20198245
+11	396	29	303762.10322031
+11	407	30	304446.597875
+11	418	31	305122.68512908
+11	475	32	305790.36417602
+11	486	33	306449.63422015
+11	497	34	307100.49447657
+11	508	35	307742.94417128
+11	519	36	308376.98254114
+11	531	37	309002.60883389
+11	556	38	309619.82230806
+11	567	39	310228.62223309
+11	578	40	310829.00788924
+11	589	41	311420.97856767
+11	600	42	312004.53357039
+11	611	43	312579.67221022
+11	622	44	313146.39381092
+11	633	45	313704.69770704
+11	644	46	314254.58324406
+11	656	47	314796.04977828
+11	681	48	315329.09667688
+11	692	49	315853.72331793
+11	703	50	316369.92909033
+11	714	51	316877.71339384
+11	725	52	317377.07563913
+11	736	53	317868.01524776
+11	747	54	318350.53165205
+11	758	55	318824.62429537
+11	769	56	319290.29263177
+11	781	57	319747.5361263
+11	806	58	320196.35425486
+11	817	59	320636.7465042
+11	828	60	321068.71237196
+11	839	61	321492.25136665
+11	850	62	321907.36300769
+11	861	63	322314.04682533
+11	872	64	322712.30236073
+11	883	65	323102.12916594
+11	894	66	323483.52680385
+11	906	67	323856.49484827
+11	931	68	324221.03288385
+11	942	69	324577.14050616
+11	953	70	324924.81732166
+11	964	71	325264.06294765
+11	975	72	325594.87701234
+11	986	73	325917.25915483
+11	997	74	326231.20902509
+11	1008	75	326536.726284
+11	1019	76	326833.81060328
+11	1031	77	327122.46166558
+11	1056	78	327402.67916442
+11	1067	79	327674.46280422
+11	1078	80	327937.81230026
+11	1089	81	328192.72737875
+11	1100	82	328439.20777674
+11	1111	83	328677.25324222
+11	1122	84	328906.86353402
+11	1133	85	329128.03842189
+11	1144	86	329340.77768648
+11	1156	87	329545.0811193
+11	1181	88	329740.94852277
+11	1192	89	329928.37971019
+11	1203	90	330107.37450577
+11	1214	91	330277.93274458
+11	1225	92	330440.05427266
+11	1236	93	330593.7389468
+11	1247	94	330738.98663484
+11	1258	95	330875.7972154
+11	1269	96	331004.17057804
+11	1281	97	331124.10662322
+11	1306	98	331235.60526227
+11	1317	99	331338.66641743
+11	1328	100	331433.2900218
+11	1339	101	331519.47601943
+11	1350	102	331597.22436524
+11	1361	103	331666.53502501
+11	1372	104	331727.40797547
+11	1383	105	331779.84320419
+11	1394	106	331823.84070967
+11	1406	107	331859.40050131
+11	1431	108	331886.52259938
+11	1442	109	331905.20703503
+11	1453	110	331915.45385035
+11	1464	111	331917.26309831
+11	1475	112	331910.63484273
+11	1486	113	331895.5691584
+11	1497	114	331872.06613092
+11	1508	115	331840.12585685
+11	1519	116	331799.74844361
+11	1531	117	331750.93400954
+11	1556	118	331693.68268384
+11	1567	119	331627.99460663
+11	1578	120	331553.86992891
+12	107	7	50
+12	234	17	50
+12	359	27	50
+12	530	37	50
+12	655	47	50
+12	780	57	50
+12	905	67	50
+12	1030	77	50
+12	1155	87	50
+12	1280	97	50
+12	1405	107	50
+12	1530	117	50
+13	112	7	58
+13	237	17	58
+13	362	27	58
+13	533	37	58
+13	658	47	58
+13	783	57	58
+13	908	67	58
+13	1033	77	58
+13	1158	87	58
+13	1283	97	58
+13	1408	107	58
+13	1533	117	58
+14	114	7	78
+14	239	17	78
+14	364	27	78
+14	535	37	78
+14	660	47	78
+14	785	57	78
+14	910	67	78
+14	1035	77	78
+14	1160	87	78
+14	1285	97	78
+14	1410	107	78
+14	1535	117	78
+15	114	7	78
+15	239	17	78
+15	364	27	78
+15	535	37	78
+15	660	47	78
+15	785	57	78
+15	910	67	78
+15	1035	77	78
+15	1160	87	78
+15	1285	97	78
+15	1410	107	78
+15	1535	117	78
+16	114	7	1
+16	114	7	0
+16	239	17	1
+16	239	17	0
+16	364	27	1
+16	364	27	0
+16	535	37	1
+16	535	37	0
+16	660	47	1
+16	660	47	0
+16	785	57	1
+16	785	57	0
+16	910	67	1
+16	910	67	0
+16	1035	77	1
+16	1035	77	0
+16	1160	87	1
+16	1160	87	0
+16	1285	97	1
+16	1285	97	0
+16	1410	107	1
+16	1410	107	0
+16	1535	117	1
+16	1535	117	0
+17	114	7	78
+17	239	17	78
+17	364	27	78
+17	535	37	78
+17	660	47	78
+17	785	57	78
+17	910	67	78
+17	1035	77	78
+17	1160	87	78
+17	1285	97	78
+17	1410	107	78
+17	1535	117	78
+18	114	7	0
+18	239	17	0
+18	364	27	0
+18	535	37	0
+18	660	47	0
+18	785	57	0
+18	910	67	0
+18	1035	77	0
+18	1160	87	0
+18	1285	97	0
+18	1410	107	0
+18	1535	117	0
+19	114	7	110
+19	239	17	110
+19	364	27	110
+19	535	37	110
+19	660	47	110
+19	785	57	110
+19	910	67	110
+19	1035	77	110
+19	1160	87	110
+19	1285	97	110
+19	1410	107	110
+19	1535	117	110
+20	115	7	2
+20	116	7.0000888	1
+20	240	17	2
+20	241	17.0000888	1
+20	365	27	2
+20	366	27.0000888	1
+20	536	37	2
+20	537	37.0000888	1
+20	661	47	2
+20	662	47.0000888	1
+20	786	57	2
+20	787	57.0000888	1
+20	911	67	2
+20	912	67.0000888	1
+20	1036	77	2
+20	1037	77.0000888	1
+20	1161	87	2
+20	1162	87.0000888	1
+20	1286	97	2
+20	1287	97.0000888	1
+20	1411	107	2
+20	1412	107.0000888	1
+20	1536	117	2
+20	1537	117.0000888	1
+21	117	7.003263158504	3
+21	119	7.003351958504	8.88e-05
+21	242	17.00307717827	3
+21	244	17.00316597827	8.88e-05
+21	367	27.002899733011	3
+21	369	27.002988533011	8.88e-05
+21	538	37.002732507436	3
+21	540	37.002821307436	8.88e-05
+21	663	47.002577510519	3
+21	665	47.002666310519	8.88e-05
+21	788	57.002437097596	3
+21	790	57.002525897596	8.88e-05
+21	913	67.002313942589	3
+21	915	67.002402742589	8.88e-05
+21	1038	77.002210943842	3
+21	1040	77.002299743842	8.88e-05
+21	1163	87.002131040258	3
+21	1165	87.002219840258	8.88e-05
+21	1288	97.002076907456	3
+21	1290	97.002165707456	8.88e-05
+21	1413	107.00205059157	3
+21	1415	107.00213939157	8.88e-05
+21	1538	117.002053161878	3
+21	1540	117.002141961878	8.88e-05
+22	117	7.003263158504	3
+22	119	7.003351958504	1
+22	242	17.00307717827	3
+22	244	17.00316597827	1
+22	367	27.002899733011	3
+22	369	27.002988533011	1
+22	538	37.002732507436	3
+22	540	37.002821307436	1
+22	663	47.002577510519	3
+22	665	47.002666310519	1
+22	788	57.002437097596	3
+22	790	57.002525897596	1
+22	913	67.002313942589	3
+22	915	67.002402742589	1
+22	1038	77.002210943842	3
+22	1040	77.002299743842	1
+22	1163	87.002131040258	3
+22	1165	87.002219840258	1
+22	1288	97.002076907456	3
+22	1290	97.002165707456	1
+22	1413	107.00205059157	3
+22	1415	107.00213939157	1
+22	1538	117.002053161878	3
+22	1540	117.002141961878	1
+23	118	7.003263158504	3
+23	120	7.003351958504	8.88e-05
+23	243	17.00307717827	3
+23	245	17.00316597827	8.88e-05
+23	368	27.002899733011	3
+23	370	27.002988533011	8.88e-05
+23	429	31.25	2
+23	431	31.25000488	4.88e-06
+23	539	37.002732507436	3
+23	541	37.002821307436	8.88e-05
+23	664	47.002577510519	3
+23	666	47.002666310519	8.88e-05
+23	789	57.002437097596	3
+23	791	57.002525897596	8.88e-05
+23	914	67.002313942589	3
+23	916	67.002402742589	8.88e-05
+23	1039	77.002210943842	3
+23	1041	77.002299743842	8.88e-05
+23	1164	87.002131040258	3
+23	1166	87.002219840258	8.88e-05
+23	1289	97.002076907456	3
+23	1291	97.002165707456	8.88e-05
+23	1414	107.00205059157	3
+23	1416	107.00213939157	8.88e-05
+23	1539	117.002053161878	3
+23	1541	117.002141961878	8.88e-05
+24	118	7.003263158504	3
+24	120	7.003351958504	1
+24	243	17.00307717827	3
+24	245	17.00316597827	1
+24	368	27.002899733011	3
+24	370	27.002988533011	1
+24	429	31.25	2
+24	431	31.25000488	1
+24	539	37.002732507436	3
+24	541	37.002821307436	1
+24	664	47.002577510519	3
+24	666	47.002666310519	1
+24	789	57.002437097596	3
+24	791	57.002525897596	1
+24	914	67.002313942589	3
+24	916	67.002402742589	1
+24	1039	77.002210943842	3
+24	1041	77.002299743842	1
+24	1164	87.002131040258	3
+24	1166	87.002219840258	1
+24	1289	97.002076907456	3
+24	1291	97.002165707456	1
+24	1414	107.00205059157	3
+24	1416	107.00213939157	1
+24	1539	117.002053161878	3
+24	1541	117.002141961878	1
+25	121	7.003351958504	110
+25	246	17.00316597827	110
+25	371	27.002988533011	110
+25	542	37.002821307436	110
+25	667	47.002666310519	110
+25	792	57.002525897596	110
+25	917	67.002402742589	110
+25	1042	77.002299743842	110
+25	1167	87.002219840258	110
+25	1292	97.002165707456	110
+25	1417	107.00213939157	110
+25	1542	117.002141961878	110
+26	121	7.003351958504	78
+26	246	17.00316597827	78
+26	371	27.002988533011	78
+26	542	37.002821307436	78
+26	667	47.002666310519	78
+26	792	57.002525897596	78
+26	917	67.002402742589	78
+26	1042	77.002299743842	78
+26	1167	87.002219840258	78
+26	1292	97.002165707456	78
+26	1417	107.00213939157	78
+26	1542	117.002141961878	78
+27	122	7.003351958504	110
+27	247	17.00316597827	110
+27	372	27.002988533011	110
+27	543	37.002821307436	110
+27	668	47.002666310519	110
+27	793	57.002525897596	110
+27	918	67.002402742589	110
+27	1043	77.002299743842	110
+27	1168	87.002219840258	110
+27	1293	97.002165707456	110
+27	1418	107.00213939157	110
+27	1543	117.002141961878	110
+28	122	7.003351958504	78
+28	247	17.00316597827	78
+28	372	27.002988533011	78
+28	543	37.002821307436	78
+28	668	47.002666310519	78
+28	793	57.002525897596	78
+28	918	67.002402742589	78
+28	1043	77.002299743842	78
+28	1168	87.002219840258	78
+28	1293	97.002165707456	78
+28	1418	107.00213939157	78
+28	1543	117.002141961878	78
+29	123	7.003351958504	78
+29	124	7.003351958504	78
+29	248	17.00316597827	78
+29	249	17.00316597827	78
+29	373	27.002988533011	78
+29	374	27.002988533011	78
+29	544	37.002821307436	78
+29	545	37.002821307436	78
+29	669	47.002666310519	78
+29	670	47.002666310519	78
+29	794	57.002525897596	78
+29	795	57.002525897596	78
+29	919	67.002402742589	78
+29	920	67.002402742589	78
+29	1044	77.002299743842	78
+29	1045	77.002299743842	78
+29	1169	87.002219840258	78
+29	1170	87.002219840258	78
+29	1294	97.002165707456	78
+29	1295	97.002165707456	78
+29	1419	107.00213939157	78
+29	1420	107.00213939157	78
+29	1544	117.002141961878	78
+29	1545	117.002141961878	78
+30	426	31.25	28
+31	426	31.25	28
+32	426	31.25	1
+32	426	31.25	0
+33	426	31.25	28
+34	426	31.25	0
+35	426	31.25	60
+36	427	31.25	28
+37	427	31.25	28
+38	427	31.25	1
+38	427	31.25	0
+39	427	31.25	28
+40	427	31.25	0
+41	427	31.25	60
+42	428	31.25	2
+42	430	31.25000488	1
+43	429	31.25	2
+43	431	31.25000488	1
+44	432	31.252831536926	3
+44	434	31.252836416926	4.88e-06
+45	432	31.252831536926	3
+45	434	31.252836416926	1
+46	436	31.252836416926	60
+47	436	31.252836416926	28
+48	439	31.25284723826	3
+48	443	31.25285211826	4.88e-06
+49	439	31.25284723826	3
+49	443	31.25285211826	1
+50	441	31.252851818473	3
+50	450	31.252856698473	4.88e-06
+51	441	31.252851818473	3
+51	450	31.252856698473	1
+52	445	31.25285211826	60
+53	445	31.25285211826	28
+54	448	31.252856088269	3
+54	455	31.252860968269	4.88e-06
+55	448	31.252856088269	3
+55	455	31.252860968269	1
+56	452	31.252856698473	60
+57	452	31.252856698473	28
+58	457	31.252860968269	60
+59	457	31.252860968269	28
+60	460	31.252873293246	3
+60	462	31.252878173246	4.88e-06
+61	460	31.252873293246	3
+61	462	31.252878173246	1
+62	464	31.252878173246	60
+63	464	31.252878173246	28
+
