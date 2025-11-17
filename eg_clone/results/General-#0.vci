@@ -1,0 +1,196 @@
+file 9755 1762889526                                            
+version 2
+run General-0-20251111-20:31:53-6714
+attr configname General
+attr datetime 20251111-20:31:53
+attr experiment General
+attr inifile omnetpp_mygrid.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Satellite5kmGrid
+attr processid 6714
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes false
+param *.configurator.addDefaultRoutes true
+param *.playgroundSizeX 10000m
+param *.playgroundSizeY 10000m
+param *.playgroundSizeZ 1000km
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.launchConfig "xmldoc(\"my_5km_grid.launchd.xml\")"
+param *.manager.autoShutdown true
+param *.manager.updateInterval 0.1s
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.vehicleInserter.numVehicles 0
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.useOsg false
+param *.visualizer.osgVisualizer.typename "\"\""
+param *.visualizer.*.radioVisualizer[0].displayRadios true
+param *.visualizer.*.radioVisualizer[0].displayAntennaLobes true
+param *.visualizer.*.radioVisualizer[0].radioFilter "\"*.node[*].satNic[0].radio\""
+param *.visualizer.*.numMobilityVisualizers 2
+param *.visualizer.*.mobilityVisualizer[*].displayMobility true
+param *.visualizer.*.mobilityVisualizer[*].displayPositions true
+param *.visualizer.*.mobilityVisualizer[*].displayOrientations true
+param *.visualizer.*.mobilityVisualizer[*].displayVelocities true
+param *.visualizer.*.mobilityVisualizer[*].displayMovementTrails true
+param *.visualizer.*.mobilityVisualizer[0].moduleFilter "\"*.node[*].mobility *.leo*[*].mobility\""
+param *.visualizer.*.mobilityVisualizer[1].moduleFilter "\"*.node[*].satNic[*].radio.antenna.mobility\""
+param *.sop.sumoNetXmlFile "xmldoc(\"my_5km_grid_wgs.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 5000m
+param *.sop.mobility.initialY 5000m
+param *.sop.mobility.initialZ 0m
+param *.satelliteInserter.pathToTleFile "\"space_Veins-1.txt\""
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2022-02-22-13-42-34\""
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo*[*].hasIpv4 true
+param *.leo*[*].forwarding true
+param *.leo*[*].multicastForwarding true
+param *.leo*[*].igmp.typename "\"Igmpv2Router\""
+param *.leo*[*].ipv4.arp.typename "\"GlobalArp\""
+param *.leo*[*].numLoInterfaces 0
+param *.leo*[*].numSatelliteNics 1
+param *.leo*[*].numApps 0
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numSatelliteNics 1
+param *.node[*].numLoInterfaces 0
+param *.node[*].hasIpv4 true
+param *.node[*].useSamac false
+param *.node[*].numWlanInterfaces 0
+param *.node[*].forwarding false
+param *.node[*].multicastForwarding false
+param *.node[*].ipv4.arp.typename "\"GlobalArp\""
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 10deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.**.satNic[0].typename "\"SatelliteInterface\""
+param *.leo*[*].satNic[0].mac.typename "\"AckingMac\""
+param *.leo*[*].satNic[0].mac.bitrate 100Mbps
+param *.node[*].satNic[0].mac.typename "\"AckingMac\""
+param *.node[*].satNic[0].mac.bitrate 10Mbps
+param *.**.satNic[0].mac.headerLength 32B
+param *.**.satNic[0].mac.fullDuplex true
+param *.**.satNic[0].mac.useAck false
+param *.**.satNic[0].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[0].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[0].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[0].radio.transmitter.communicationRange 1000km
+param *.leo*[*].satNic[0].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[0].radio.transmitter.bitrate 10Mbps
+param *.**.satNic[0].radio.transmitter.headerLength 8bit
+param *.**.satNic[0].radio.transmitter.preambleDuration 0s
+param *.leo*[*].satNic[0].radio.receiver.ignoreInterference false
+param *.node[*].satNic[0].radio.receiver.ignoreInterference true
+param *.node[*].numApps 1
+param *.node[0].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[0].app[0].interface "\"satNic0\""
+param *.node[0].app[0].destAddresses "\"239.1.1.1\""
+param *.node[0].app[0].destPort 4000
+param *.node[0].app[0].localPort 4000
+param *.node[0].app[0].messageLength 50B
+param *.node[0].app[0].packetName "\"Alert\""
+param *.node[0].app[0].receiveBroadcast false
+param *.node[0].app[0].joinLocalMulticastGroups true
+param *.node[0].app[0].startTime 7s
+param *.node[0].app[0].sendInterval 10s
+param *.node[0].app[0].stopTime -1s
+param *.node[1..4].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.node[1..4].app[0].localPort 4000
+param *.node[1..4].app[0].receiveBroadcast true
+param *.node[1..4].app[0].joinLocalMulticastGroups true
+param *.node[1..4].app[0].multicastInterface "\"satNic0\""
+param *.node[1..4].app[0].startTime 2s
+
+vector 0 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLat:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLat
+vector 1 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLon:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLon
+vector 2 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics wgs84CoordAlt:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordAlt
+vector 3 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordX:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordX
+vector 4 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordY:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordY
+vector 5 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordZ
+vector 6 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordX:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordX
+vector 7 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordY:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordY
+vector 8 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordZ
+vector 9 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics omnetCoordX:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordX
+vector 10 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics omnetCoordY:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordY
+vector 11 Satellite5kmGrid.leoSatellite[51472].vehicleStatistics omnetCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordZ
+vector 12 Satellite5kmGrid.node[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 13 Satellite5kmGrid.node[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 14 Satellite5kmGrid.node[0].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 15 Satellite5kmGrid.node[0].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 Satellite5kmGrid.node[0].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 Satellite5kmGrid.node[0].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 Satellite5kmGrid.node[0].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 Satellite5kmGrid.node[0].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 20 Satellite5kmGrid.node[0].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+0	8759 72 77 100 5 7 3 -5.295866915806 -5.1720139696069 -15.701821887724 82.190073307413
+1	8831 73 77 100 5 7 3 -1.6449684924915 -1.6081633922402 -4.8796956442413 7.9378205011812
+2	8904 70 77 100 5 7 3 353045.08121765 353068.15310296 1059169.8312885 373946910770.09
+3	8974 70 77 100 5 7 3 6699890.9462939 6701308.6857306 20101803.659803 1.3469417113077e+14
+4	9044 73 77 100 5 7 3 -192407.51637149 -188140.03882688 -570821.40512911 108621464533.49
+5	9117 72 77 100 5 7 3 -617357.61946366 -602956.5287897 -1830471.6228605 1116979149739
+6	9189 73 77 100 5 7 3 -723975.02656619 -719833.64420376 -2165713.4128005 1563446770985.4
+7	9262 70 77 100 5 7 3 608195.21301741 622594.91304609 1846185.5928924 1136237423481.7
+8	9332 69 77 100 5 7 3 284814.2986716 286577.91810798 857092.51756512 244870749743.85
+9	9401 73 77 100 5 7 3 -718975.02656619 -714833.64420376 -2150713.4128005 1541864636857.4
+10	9474 73 77 100 5 7 3 613195.21301741 627594.91304609 1861185.5928924 1154774279410.6
+11	9547 72 77 100 5 7 3 284814.2986716 286577.91810798 857092.51756512 244870749743.85
+12	9619 11 99 99 7 7 1 50 50 50 2500
+13	9630 12 104 104 7 7 1 58 58 58 3364
+14	9642 12 106 106 7 7 1 78 78 78 6084
+15	9654 12 106 106 7 7 1 78 78 78 6084
+16	9666 22 106 106 7 7 2 0 1 1 1
+17	9688 12 106 106 7 7 1 78 78 78 6084
+18	9700 11 106 106 7 7 1 0 0 0 0
+19	9711 13 106 106 7 7 1 110 110 110 12100
+20	9724 30 107 108 7 7.0000888 2 1 2 3 5
+

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <!-- apply only to satellites -->
+  <route hosts="**.leo*[*]"
+         destination="0.0.0.0" netmask="0.0.0.0"
+         interface="satNic1" metric="10"/>
+
+  <route hosts="**.leo*[*]"
+         destination="0.0.0.0" netmask="0.0.0.0"
+         interface="satNic0" metric="100"/>
+
+  <!-- if you need per-constellation control, you can split: -->
+  <!-- <route hosts="**.leoSTARLINK[*]" ... /> -->
+  <!-- <route hosts="**.leoIRIDIUM[*]"  ... /> -->
+</config>

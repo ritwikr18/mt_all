@@ -1,0 +1,1003 @@
+version 2
+run General-0-20251116-17:51:49-304247
+attr configname General
+attr datetime 20251116-17:51:49
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars $warmupPeriod=5
+attr iterationvarsf warmupPeriod=5-
+attr measurement $warmupPeriod=5
+attr network SatelliteAlertGrid
+attr processid 304247
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+itervar warmupPeriod 5
+param *.satelliteType "\"mcast.McastSatellite\""
+param *.satelliteInserter.satelliteModuleType "\"mcast.McastSatellite\""
+param **.leo*[*].mcastGroupAddress "\"239.1.1.1\""
+param **.leo*[*].mcastOriginAddress "\"0.0.0.0\""
+param **.leo*[*].mcastOriginNetmask "\"0.0.0.0\""
+param **.leo*[*].mcastInInterface "\"satNic0\""
+param **.leo*[*].mcastOutInterfaces "\"satNic1\""
+param *.playgroundSizeX 10000m
+param *.playgroundSizeY 10000m
+param *.playgroundSizeZ 800km
+param *.physicalEnvironment.ground.typename "\"FlatGround\""
+param *.configurator.typename "\"Ipv4NetworkConfigurator\""
+param *.configurator.assignDisjunctSubnetAddresses true
+param *.configurator.addStaticRoutes true
+param *.configurator.addMulticastRoutes true
+param *.configurator.addDefaultRoutes true
+param **.routingTable.routes "xmldoc(\"mroutes.xml\")"
+param *.manager.launchConfig "xmldoc(\"my_5km_grid.launchd.xml\")"
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.moduleType "\"space_veins.nodes.SatCar\""
+param *.manager.moduleName "\"node\""
+param *.manager.updateInterval 0.1s
+param *.manager.autoShutdown true
+param *.vehicleInserter.numVehicles 0
+param *.sop.sumoNetXmlFile "xmldoc(\"my_5km_grid_wgs.net.xml\")"
+param *.sop.mobility.updateFromDisplayString false
+param *.sop.mobility.initFromDisplayString false
+param *.sop.mobility.initialX 5000m
+param *.sop.mobility.initialY 5000m
+param *.sop.mobility.initialZ 0m
+param *.satelliteInserter.ignoreUnknownSatellites false
+param *.satelliteInserter.pathToTleFile "\"space_Veins-1.txt\""
+param *.satelliteInserter.wall_clock_sim_start_time_utc "\"2022-02-22-13-42-34\""
+param *.satelliteRadioMedium.typename "\"UnitDiskRadioMedium\""
+param *.satelliteRadioMedium.mediumLimitCache.minElevationAngleV2S 5deg
+param *.satelliteRadioMedium.mediumLimitCache.disableS2SCommunication true
+param *.leo*[*].mobility.typename "\"SGP4Mobility\""
+param *.leo*[*].mobility.updateInterval 1s
+param *.leo*[*].mobility.enableCache true
+param *.leo*[*].mobility.precalculationIntervalInMinutes 16
+param *.leo*[*].hasIpv4 true
+param *.leo*[*].forwarding true
+param *.leo*[*].multicastForwarding true
+param *.leo*[*].igmp.typename "\"Igmpv2Router\""
+param *.leo*[*].numApps 1
+param *.leo*[*].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.leo*[*].app[0].interface "\"satNic0\""
+param *.leo*[*].app[0].localPort 4000
+param *.leo*[*].app[0].receiveBroadcast true
+param *.leo*[*].numLoInterfaces 0
+param *.leo*[*].numSatelliteNics 2
+param *.node[*].mobility.typename "\"VeinsInetMobility\""
+param *.node[*].numSatelliteNics 1
+param *.node[*].numLoInterfaces 0
+param *.node[*].hasIpv4 true
+param *.node[*].useSamac false
+param *.node[*].forwarding false
+param *.node[*].multicastForwarding false
+param *.**.satNic[*].typename "\"SatelliteInterface\""
+param *.**.satNic[*].mac.typename "\"AckingMac\""
+param *.**.satNic[*].mac.headerLength 32B
+param *.**.satNic[*].mac.fullDuplex true
+param *.**.satNic[*].mac.useAck false
+param *.**.satNic[*].radio.typename "\"UnitDiskRadio\""
+param *.**.satNic[*].radio.radioMediumModule "\"satelliteRadioMedium\""
+param *.**.satNic[*].radio.antenna.mobilityModule "\"^.^.^.mobility\""
+param *.**.satNic[*].radio.transmitter.communicationRange 1000km
+param *.**.satNic[*].radio.transmitter.headerLength 8bit
+param *.**.satNic[*].radio.transmitter.preambleDuration 0
+param *.leo*[*].satNic[*].mac.bitrate 100Mbps
+param *.node[*].satNic[*].mac.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.transmitter.bitrate 100Mbps
+param *.node[*].satNic[*].radio.transmitter.bitrate 10Mbps
+param *.leo*[*].satNic[*].radio.receiver.ignoreInterference false
+param *.node[*].satNic[*].radio.receiver.ignoreInterference true
+param *.node[*].numApps 1
+param *.node[0].app[0].typename "\"inet.applications.udpapp.UdpBasicApp\""
+param *.node[0].app[0].destAddresses "\"239.1.1.1\""
+param *.node[0].app[0].destPort 4000
+param *.node[0].app[0].localPort 4000
+param *.node[0].app[0].messageLength 50B
+param *.node[0].app[0].packetName "\"Alert\""
+param *.node[0].app[0].receiveBroadcast false
+param *.node[0].app[0].joinLocalMulticastGroups true
+param *.node[0].app[0].startTime 7s
+param *.node[0].app[0].sendInterval 10s
+param *.node[0].app[0].stopTime -1s
+param *.node[*].numWlanInterfaces 0
+param *.node[1..4].igmp.typename "\"Igmpv2Host\""
+param *.node[1..4].app[0].typename "\"inet.applications.udpapp.UdpSink\""
+param *.node[1..4].app[0].localPort 4000
+param *.node[1..4].app[0].receiveBroadcast true
+param *.node[1..4].app[0].joinLocalMulticastGroups true
+param *.node[1..4].app[0].startTime 2s
+param *.node[1..4].app[0].multicastInterface "\"satNic0\""
+param *.visualizer.*.radioVisualizer[0].displayRadios false
+param *.visualizer.*.mediumVisualizer[0].displaySignals false
+param *.visualizer.*.dataLinkVisualizer[0].displayLinks false
+param *.visualizer.*.packetRouteVisualizer[0].displayRoutes false
+param *.wlanRadioMedium.typename "\"Ieee80211DimensionalRadioMedium\""
+param *.**.wlan[*].opMode "\"p\""
+param *.**.wlan[*].mgmt.typename "\"Ieee80211MgmtAdhoc\""
+param *.**.wlan[*].agent.typename "\"\""
+param *.**.wlan[*].radio.typename "\"Ieee80211DimensionalRadio\""
+param *.**.wlan[*].radio.radioMediumModule "\"wlanRadioMedium\""
+
+vector 0 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLat:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLat
+vector 1 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordLon:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordLon
+vector 2 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CoordAlt:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CoordAlt
+vector 3 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordX:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordX
+vector 4 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordY:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordY
+vector 5 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics wgs84CartCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_wgs84CartCoordZ
+vector 6 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordX:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordX
+vector 7 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordY:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordY
+vector 8 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics sopRelativeCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_sopRelativeCoordZ
+vector 9 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordX:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordX
+vector 10 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordY:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordY
+vector 11 SatelliteAlertGrid.leoSatellite[51472].vehicleStatistics omnetCoordZ:vector ETV
+attr source space_veins_vehicleStatistics_omnetCoordZ
+vector 12 SatelliteAlertGrid.node[0].app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 13 SatelliteAlertGrid.node[0].udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 14 SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 15 SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 16 SatelliteAlertGrid.node[0].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 17 SatelliteAlertGrid.node[0].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 18 SatelliteAlertGrid.node[0].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 19 SatelliteAlertGrid.node[0].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 20 SatelliteAlertGrid.node[0].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 21 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio myReceptionState ETV
+vector 22 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 23 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio myReceptionState ETV
+vector 24 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 25 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 26 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 27 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 28 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 29 SatelliteAlertGrid.leoSatellite[51472].ipv4.ip packetDropUndefined:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetDropReasonIsUndefined(packetDropped)
+attr title "packet drop: undefined, vector(packetBytes)"
+vector 30 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 31 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 32 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 33 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 34 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 35 SatelliteAlertGrid.leoSatellite[51472].satNic[1].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 36 SatelliteAlertGrid.leoSatellite[51472].satNic[1].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 37 SatelliteAlertGrid.node[0].satNic[0].radio myReceptionState ETV
+vector 38 SatelliteAlertGrid.node[0].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 39 SatelliteAlertGrid.node[0].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 40 SatelliteAlertGrid.node[0].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 41 SatelliteAlertGrid.node[2].satNic[0].radio myReceptionState ETV
+vector 42 SatelliteAlertGrid.node[2].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 43 SatelliteAlertGrid.node[4].satNic[0].radio myReceptionState ETV
+vector 44 SatelliteAlertGrid.node[4].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 45 SatelliteAlertGrid.node[3].satNic[0].radio myReceptionState ETV
+vector 46 SatelliteAlertGrid.node[3].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 47 SatelliteAlertGrid.node[2].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 48 SatelliteAlertGrid.node[2].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 49 SatelliteAlertGrid.node[4].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 50 SatelliteAlertGrid.node[4].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 51 SatelliteAlertGrid.node[3].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 52 SatelliteAlertGrid.node[3].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 53 SatelliteAlertGrid.node[1].satNic[0].radio myReceptionState ETV
+vector 54 SatelliteAlertGrid.node[1].satNic[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 55 SatelliteAlertGrid.node[1].satNic[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 56 SatelliteAlertGrid.node[1].satNic[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 57 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 58 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPushed:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet pushed, vector(packetBytes)"
+vector 59 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr source "count(packetPushed) - count(packetPopped) - count(packetRemoved) - count(packetDropped)"
+attr title "queue length, vector"
+vector 60 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue packetPopped:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "packet popped, vector(packetBytes)"
+vector 61 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac.queue queueingTime:vector ETV
+attr interpolationmode none
+attr source queueingTime(packetPopped)
+attr title "queueing times, vector"
+attr unit s
+vector 62 SatelliteAlertGrid.leoSatellite[51472].satNic[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 63 SatelliteAlertGrid.leoSatellite[51472].satNic[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+0	85	5	-5.295866915806
+0	96	6	-5.2339410023113
+0	108	7	-5.1720139696069
+0	159	8	-5.1100858293389
+0	170	9	-5.0481565931455
+0	181	10	-4.9862262726587
+0	192	11	-4.924294879507
+0	203	12	-4.8623624253108
+0	214	13	-4.8004289216859
+0	225	14	-4.7384943802428
+0	236	15	-4.6765588125861
+0	247	16	-4.6146222303146
+0	259	17	-4.5526846450227
+0	308	18	-4.4907460682988
+0	319	19	-4.4288065117251
+0	330	20	-4.3668659868822
+0	341	21	-4.304924505342
+0	352	22	-4.2429820786737
+0	363	23	-4.1810387184403
+0	374	24	-4.1190944361998
+0	385	25	-4.0571492435074
+0	396	26	-3.9952031519125
+0	408	27	-3.9332561729589
+0	457	28	-3.8713083181882
+0	468	29	-3.8093595991355
+0	479	30	-3.7474100273327
+0	490	31	-3.6854596143076
+0	547	32	-3.623508371583
+0	558	33	-3.5615563106774
+0	569	34	-3.4996034431069
+0	580	35	-3.4376497803828
+0	591	36	-3.3756953340117
+0	603	37	-3.3137401154978
+1	85	5	-1.6449684924915
+1	96	6	-1.6265637595097
+1	108	7	-1.6081633922402
+1	159	8	-1.5897673373417
+1	170	9	-1.5713755415061
+1	181	10	-1.5529879514621
+1	192	11	-1.5346045139791
+1	203	12	-1.5162251758566
+1	214	13	-1.4978498839349
+1	225	14	-1.4794785850846
+1	236	15	-1.4611112262155
+1	247	16	-1.4427477542673
+1	259	17	-1.4243881162139
+1	308	18	-1.4060322590644
+1	319	19	-1.3876801298604
+1	330	20	-1.3693316756739
+1	341	21	-1.3509868436091
+1	352	22	-1.3326455808017
+1	363	23	-1.3143078344167
+1	374	24	-1.2959735516533
+1	385	25	-1.277642679737
+1	396	26	-1.2593151659226
+1	408	27	-1.240990957497
+1	457	28	-1.2226700017715
+1	468	29	-1.2043522460895
+1	479	30	-1.1860376378175
+1	490	31	-1.167726124354
+1	547	32	-1.1494176531199
+1	558	33	-1.1311121715625
+1	569	34	-1.1128096271577
+1	580	35	-1.0945099674062
+1	591	36	-1.076213139831
+1	603	37	-1.0579190919795
+2	85	5	353068.15310296
+2	96	6	353056.59696793
+2	108	7	353045.08121765
+2	159	8	353033.60588154
+2	170	9	353022.1709888
+2	181	10	353010.7765684
+2	192	11	352999.4226491
+2	203	12	352988.10925946
+2	214	13	352976.8364278
+2	225	14	352965.60418221
+2	236	15	352954.4125506
+2	247	16	352943.26156063
+2	259	17	352932.15123976
+2	308	18	352921.08161521
+2	319	19	352910.052714
+2	330	20	352899.06456293
+2	341	21	352888.11718856
+2	352	22	352877.21061727
+2	363	23	352866.34487517
+2	374	24	352855.5199882
+2	385	25	352844.73598205
+2	396	26	352833.9928822
+2	408	27	352823.2907139
+2	457	28	352812.6295022
+2	468	29	352802.00927191
+2	479	30	352791.43004764
+2	490	31	352780.89185376
+2	547	32	352770.39471442
+2	558	33	352759.93865358
+2	569	34	352749.52369494
+2	580	35	352739.149862
+2	591	36	352728.81717804
+2	603	37	352718.52566611
+3	85	5	6699890.9462939
+3	96	6	6700604.0277789
+3	108	7	6701308.6857306
+3	159	8	6702004.9192102
+3	170	9	6702692.7272897
+3	181	10	6703372.1090521
+3	192	11	6704043.0635911
+3	203	12	6704705.5900114
+3	214	13	6705359.6874285
+3	225	14	6706005.3549688
+3	236	15	6706642.5917695
+3	247	16	6707271.3969788
+3	259	17	6707891.7697556
+3	308	18	6708503.7092697
+3	319	19	6709107.214702
+3	330	20	6709702.285244
+3	341	21	6710288.9200982
+3	352	22	6710867.118478
+3	363	23	6711436.8796076
+3	374	24	6711998.2027221
+3	385	25	6712551.0870676
+3	396	26	6713095.5319008
+3	408	27	6713631.5364896
+3	457	28	6714159.1001127
+3	468	29	6714678.2220595
+3	479	30	6715188.9016305
+3	490	31	6715691.138137
+3	547	32	6716184.9309012
+3	558	33	6716670.2792562
+3	569	34	6717147.1825459
+3	580	35	6717615.6401253
+3	591	36	6718075.6513602
+3	603	37	6718527.2156271
+4	85	5	-192407.51637149
+4	96	6	-190273.84993075
+4	108	7	-188140.03882688
+4	159	8	-186006.08461205
+4	170	9	-183871.98883803
+4	181	10	-181737.75305662
+4	192	11	-179603.37882026
+4	203	12	-177468.86768078
+4	214	13	-175334.22119068
+4	225	14	-173199.44090204
+4	236	15	-171064.52836751
+4	247	16	-168929.48513939
+4	259	17	-166794.31277009
+4	308	18	-164659.01281238
+4	319	19	-162523.58681904
+4	330	20	-160388.03634276
+4	341	21	-158252.36293635
+4	352	22	-156116.56815271
+4	363	23	-153980.65354468
+4	374	24	-151844.62066559
+4	385	25	-149708.47106842
+4	396	26	-147572.20630626
+4	408	27	-145435.8279326
+4	457	28	-143299.33750054
+4	468	29	-141162.73656376
+4	479	30	-139026.02667541
+4	490	31	-136889.20938938
+4	547	32	-134752.28625908
+4	558	33	-132615.25883803
+4	569	34	-130478.12868015
+4	580	35	-128340.8973394
+4	591	36	-126203.56636947
+4	603	37	-124066.13732418
+5	85	5	-617357.61946366
+5	96	6	-610157.47460718
+5	108	7	-602956.5287897
+5	159	8	-595754.79146038
+5	170	9	-588552.27206931
+5	181	10	-581348.98006764
+5	192	11	-574144.92490793
+5	203	12	-566940.11604353
+5	214	13	-559734.56292904
+5	225	14	-552528.27502012
+5	236	15	-545321.26177348
+5	247	16	-538113.53264681
+5	259	17	-530905.09709896
+5	308	18	-523695.96458972
+5	319	19	-516486.14457975
+5	330	20	-509275.64653114
+5	341	21	-502064.47990652
+5	352	22	-494852.65416974
+5	363	23	-487640.17878549
+5	374	24	-480427.06321937
+5	385	25	-473213.31693811
+5	396	26	-465998.94940925
+5	408	27	-458783.9701011
+5	457	28	-451568.38848316
+5	468	29	-444352.21402554
+5	479	30	-437135.45619935
+5	490	31	-429918.12447659
+5	547	32	-422700.22832999
+5	558	33	-415481.77723312
+5	569	34	-408262.78066051
+5	580	35	-401043.24808743
+5	591	36	-393823.18898982
+5	603	37	-386602.61284459
+6	85	5	-723975.02656619
+6	96	6	-721904.74203058
+6	108	7	-719833.64420376
+6	159	8	-717761.73455845
+6	170	9	-715689.01456777
+6	181	10	-713615.48570581
+6	192	11	-711541.14944811
+6	203	12	-709466.00727047
+6	214	13	-707390.06065024
+6	225	14	-705313.31106519
+6	236	15	-703235.75999456
+6	247	16	-701157.40891806
+6	259	17	-699078.2593164
+6	308	18	-696998.3126715
+6	319	19	-694917.57046617
+6	330	20	-692836.03418397
+6	341	21	-690753.70530946
+6	352	22	-688670.58532817
+6	363	23	-686586.67572638
+6	374	24	-684501.97799178
+6	385	25	-682416.49361255
+6	396	26	-680330.22407784
+6	408	27	-678243.17087808
+6	457	28	-676155.33550416
+6	468	29	-674066.71944841
+6	479	30	-671977.32420352
+6	490	31	-669887.15126376
+6	547	32	-667796.20212379
+6	558	33	-665704.47827926
+6	569	34	-663611.98122706
+6	580	35	-661518.71246501
+6	591	36	-659424.67349151
+6	603	37	-657329.86580595
+7	85	5	622594.91304609
+7	96	6	615395.46682886
+7	108	7	608195.21301741
+7	159	8	600994.16106006
+7	170	9	593792.32040603
+7	181	10	586589.70050569
+7	192	11	579386.31081076
+7	203	12	572182.1607738
+7	214	13	564977.25984859
+7	225	14	557771.61749002
+7	236	15	550565.24315401
+7	247	16	543358.14629748
+7	259	17	536150.33637852
+7	308	18	528941.82285616
+7	319	19	521732.61519032
+7	330	20	514522.72284233
+7	341	21	507312.15527412
+7	352	22	500100.92194881
+7	363	23	492889.03233037
+7	374	24	485676.49588369
+7	385	25	478463.32207483
+7	396	26	471249.52037062
+7	408	27	464035.1002387
+7	457	28	456820.07114791
+7	468	29	449604.44256767
+7	479	30	442388.22396848
+7	490	31	435171.42482167
+7	547	32	427954.05459934
+7	558	33	420736.12277442
+7	569	34	413517.63882085
+7	580	35	406298.61221326
+7	591	36	399079.05242702
+7	603	37	391858.96893843
+8	85	5	284814.2986716
+8	96	6	285700.30078554
+8	108	7	286577.91810798
+8	159	8	287447.14957231
+8	170	9	288307.99412279
+8	181	10	289160.45071454
+8	192	11	290004.51831336
+8	203	12	290840.19589603
+8	214	13	291667.48245004
+8	225	14	292486.37697377
+8	236	15	293296.87847638
+8	247	16	294098.9859779
+8	259	17	294892.69850919
+8	308	18	295678.0151119
+8	319	19	296454.93483854
+8	330	20	297223.45675244
+8	341	21	297983.57992779
+8	352	22	298735.3034496
+8	363	23	299478.62641372
+8	374	24	300213.54792684
+8	385	25	300940.06710647
+8	396	26	301658.183081
+8	408	27	302367.89498964
+8	457	28	303069.20198245
+8	468	29	303762.10322031
+8	479	30	304446.597875
+8	490	31	305122.68512908
+8	547	32	305790.36417602
+8	558	33	306449.63422015
+8	569	34	307100.49447657
+8	580	35	307742.94417128
+8	591	36	308376.98254114
+8	603	37	309002.60883389
+9	85	5	-718975.02656619
+9	96	6	-716904.74203058
+9	108	7	-714833.64420376
+9	159	8	-712761.73455845
+9	170	9	-710689.01456777
+9	181	10	-708615.48570581
+9	192	11	-706541.14944811
+9	203	12	-704466.00727047
+9	214	13	-702390.06065024
+9	225	14	-700313.31106519
+9	236	15	-698235.75999456
+9	247	16	-696157.40891806
+9	259	17	-694078.2593164
+9	308	18	-691998.3126715
+9	319	19	-689917.57046617
+9	330	20	-687836.03418397
+9	341	21	-685753.70530946
+9	352	22	-683670.58532817
+9	363	23	-681586.67572638
+9	374	24	-679501.97799178
+9	385	25	-677416.49361255
+9	396	26	-675330.22407784
+9	408	27	-673243.17087808
+9	457	28	-671155.33550416
+9	468	29	-669066.71944841
+9	479	30	-666977.32420352
+9	490	31	-664887.15126376
+9	547	32	-662796.20212379
+9	558	33	-660704.47827926
+9	569	34	-658611.98122706
+9	580	35	-656518.71246501
+9	591	36	-654424.67349151
+9	603	37	-652329.86580595
+10	85	5	627594.91304609
+10	96	6	620395.46682886
+10	108	7	613195.21301741
+10	159	8	605994.16106006
+10	170	9	598792.32040603
+10	181	10	591589.70050569
+10	192	11	584386.31081076
+10	203	12	577182.1607738
+10	214	13	569977.25984859
+10	225	14	562771.61749002
+10	236	15	555565.24315401
+10	247	16	548358.14629748
+10	259	17	541150.33637852
+10	308	18	533941.82285616
+10	319	19	526732.61519032
+10	330	20	519522.72284233
+10	341	21	512312.15527412
+10	352	22	505100.92194881
+10	363	23	497889.03233037
+10	374	24	490676.49588369
+10	385	25	483463.32207483
+10	396	26	476249.52037062
+10	408	27	469035.1002387
+10	457	28	461820.07114791
+10	468	29	454604.44256767
+10	479	30	447388.22396848
+10	490	31	440171.42482167
+10	547	32	432954.05459934
+10	558	33	425736.12277442
+10	569	34	418517.63882085
+10	580	35	411298.61221326
+10	591	36	404079.05242702
+10	603	37	396858.96893843
+11	85	5	284814.2986716
+11	96	6	285700.30078554
+11	108	7	286577.91810798
+11	159	8	287447.14957231
+11	170	9	288307.99412279
+11	181	10	289160.45071454
+11	192	11	290004.51831336
+11	203	12	290840.19589603
+11	214	13	291667.48245004
+11	225	14	292486.37697377
+11	236	15	293296.87847638
+11	247	16	294098.9859779
+11	259	17	294892.69850919
+11	308	18	295678.0151119
+11	319	19	296454.93483854
+11	330	20	297223.45675244
+11	341	21	297983.57992779
+11	352	22	298735.3034496
+11	363	23	299478.62641372
+11	374	24	300213.54792684
+11	385	25	300940.06710647
+11	396	26	301658.183081
+11	408	27	302367.89498964
+11	457	28	303069.20198245
+11	468	29	303762.10322031
+11	479	30	304446.597875
+11	490	31	305122.68512908
+11	547	32	305790.36417602
+11	558	33	306449.63422015
+11	569	34	307100.49447657
+11	580	35	307742.94417128
+11	591	36	308376.98254114
+11	603	37	309002.60883389
+12	107	7	50
+12	258	17	50
+12	407	27	50
+12	602	37	50
+13	112	7	58
+13	261	17	58
+13	410	27	58
+13	605	37	58
+14	114	7	78
+14	263	17	78
+14	412	27	78
+14	607	37	78
+15	114	7	78
+15	263	17	78
+15	412	27	78
+15	607	37	78
+16	114	7	1
+16	114	7	0
+16	263	17	1
+16	263	17	0
+16	412	27	1
+16	412	27	0
+16	607	37	1
+16	607	37	0
+17	114	7	78
+17	263	17	78
+17	412	27	78
+17	607	37	78
+18	114	7	0
+18	263	17	0
+18	412	27	0
+18	607	37	0
+19	114	7	110
+19	263	17	110
+19	412	27	110
+19	607	37	110
+20	115	7	2
+20	116	7.0000888	1
+20	264	17	2
+20	265	17.0000888	1
+20	413	27	2
+20	414	27.0000888	1
+20	608	37	2
+20	609	37.0000888	1
+21	117	7.003263158504	3
+21	119	7.003351958504	8.88e-05
+21	266	17.00307717827	3
+21	268	17.00316597827	8.88e-05
+21	415	27.002899733011	3
+21	417	27.002988533011	8.88e-05
+21	610	37.002732507436	3
+21	612	37.002821307436	8.88e-05
+22	117	7.003263158504	3
+22	119	7.003351958504	1
+22	266	17.00307717827	3
+22	268	17.00316597827	1
+22	415	27.002899733011	3
+22	417	27.002988533011	1
+22	610	37.002732507436	3
+22	612	37.002821307436	1
+23	118	7.003263158504	3
+23	120	7.003351958504	8.88e-05
+23	267	17.00307717827	3
+23	269	17.00316597827	8.88e-05
+23	416	27.002899733011	3
+23	418	27.002988533011	8.88e-05
+23	501	31.25	2
+23	503	31.25000488	4.88e-06
+23	611	37.002732507436	3
+23	613	37.002821307436	8.88e-05
+24	118	7.003263158504	3
+24	120	7.003351958504	1
+24	267	17.00307717827	3
+24	269	17.00316597827	1
+24	416	27.002899733011	3
+24	418	27.002988533011	1
+24	501	31.25	2
+24	503	31.25000488	1
+24	611	37.002732507436	3
+24	613	37.002821307436	1
+25	121	7.003351958504	110
+25	270	17.00316597827	110
+25	419	27.002988533011	110
+25	614	37.002821307436	110
+26	121	7.003351958504	78
+26	270	17.00316597827	78
+26	419	27.002988533011	78
+26	614	37.002821307436	78
+27	122	7.003351958504	110
+27	271	17.00316597827	110
+27	420	27.002988533011	110
+27	615	37.002821307436	110
+28	122	7.003351958504	78
+28	271	17.00316597827	78
+28	420	27.002988533011	78
+28	615	37.002821307436	78
+29	124	7.003351958504	78
+29	273	17.00316597827	78
+29	422	27.002988533011	78
+29	617	37.002821307436	78
+30	125	7.003351958504	78
+30	274	17.00316597827	78
+30	423	27.002988533011	78
+30	499	31.25	28
+30	618	37.002821307436	78
+31	125	7.003351958504	78
+31	274	17.00316597827	78
+31	423	27.002988533011	78
+31	499	31.25	28
+31	618	37.002821307436	78
+32	125	7.003351958504	1
+32	125	7.003351958504	0
+32	274	17.00316597827	1
+32	274	17.00316597827	0
+32	423	27.002988533011	1
+32	423	27.002988533011	0
+32	499	31.25	1
+32	499	31.25	0
+32	618	37.002821307436	1
+32	618	37.002821307436	0
+33	125	7.003351958504	78
+33	274	17.00316597827	78
+33	423	27.002988533011	78
+33	499	31.25	28
+33	618	37.002821307436	78
+34	125	7.003351958504	0
+34	274	17.00316597827	0
+34	423	27.002988533011	0
+34	499	31.25	0
+34	618	37.002821307436	0
+35	125	7.003351958504	110
+35	274	17.00316597827	110
+35	423	27.002988533011	110
+35	499	31.25	60
+35	618	37.002821307436	110
+36	126	7.003351958504	2
+36	127	7.003360838504	1
+36	275	17.00316597827	2
+36	276	17.00317485827	1
+36	424	27.002988533011	2
+36	425	27.002997413011	1
+36	501	31.25	2
+36	503	31.25000488	1
+36	619	37.002821307436	2
+36	620	37.002830187436	1
+37	128	7.006615117008	3
+37	129	7.006623997008	8.88e-06
+37	277	17.00624315654	3
+37	278	17.00625203654	8.88e-06
+37	426	27.005888266022	3
+37	427	27.005897146022	8.88e-06
+37	504	31.252831536926	3
+37	506	31.252836416926	4.88e-06
+38	128	7.006615117008	3
+38	129	7.006623997008	1
+38	277	17.00624315654	3
+38	278	17.00625203654	1
+38	426	27.005888266022	3
+38	427	27.005897146022	1
+38	504	31.252831536926	3
+38	506	31.252836416926	1
+39	130	7.006623997008	110
+39	279	17.00625203654	110
+39	428	27.005897146022	110
+39	508	31.252836416926	60
+40	130	7.006623997008	78
+40	279	17.00625203654	78
+40	428	27.005897146022	78
+40	508	31.252836416926	28
+41	132	7.006635619173	3
+41	135	7.006644499173	8.88e-06
+41	281	17.006261780432	3
+41	284	17.006270660432	8.88e-06
+41	430	27.005904869097	3
+41	433	27.005913749097	8.88e-06
+41	511	31.25284723826	3
+41	515	31.25285211826	4.88e-06
+42	132	7.006635619173	3
+42	135	7.006644499173	1
+42	281	17.006261780432	3
+42	284	17.006270660432	1
+42	430	27.005904869097	3
+42	433	27.005913749097	1
+42	511	31.25284723826	3
+42	515	31.25285211826	1
+43	133	7.006637428176	3
+43	138	7.006646308176	8.88e-06
+43	282	17.006264657019	3
+43	287	17.006273537019	8.88e-06
+43	431	27.005908935203	3
+43	436	27.005917815203	8.88e-06
+43	513	31.252851818473	3
+43	522	31.252856698473	4.88e-06
+44	133	7.006637428176	3
+44	138	7.006646308176	1
+44	282	17.006264657019	3
+44	287	17.006273537019	1
+44	431	27.005908935203	3
+44	436	27.005917815203	1
+44	513	31.252851818473	3
+44	522	31.252856698473	1
+45	134	7.006639404605	3
+45	141	7.006648284605	8.88e-06
+45	283	17.006267558709	3
+45	290	17.006276438709	8.88e-06
+45	432	27.005912812851	3
+45	439	27.005921692851	8.88e-06
+45	520	31.252856088269	3
+45	527	31.252860968269	4.88e-06
+46	134	7.006639404605	3
+46	141	7.006648284605	1
+46	283	17.006267558709	3
+46	290	17.006276438709	1
+46	432	27.005912812851	3
+46	439	27.005921692851	1
+46	520	31.252856088269	3
+46	527	31.252860968269	1
+47	136	7.006644499173	110
+47	285	17.006270660432	110
+47	434	27.005913749097	110
+47	517	31.25285211826	60
+48	136	7.006644499173	78
+48	285	17.006270660432	78
+48	434	27.005913749097	78
+48	517	31.25285211826	28
+49	139	7.006646308176	110
+49	288	17.006273537019	110
+49	437	27.005917815203	110
+49	524	31.252856698473	60
+50	139	7.006646308176	78
+50	288	17.006273537019	78
+50	437	27.005917815203	78
+50	524	31.252856698473	28
+51	142	7.006648284605	110
+51	291	17.006276438709	110
+51	440	27.005921692851	110
+51	529	31.252860968269	60
+52	142	7.006648284605	78
+52	291	17.006276438709	78
+52	440	27.005921692851	78
+52	529	31.252860968269	28
+53	144	7.006659923683	3
+53	145	7.006668803683	8.88e-06
+53	293	17.00628680113	3
+53	294	17.00629568113	8.88e-06
+53	442	27.005930626856	3
+53	443	27.005939506856	8.88e-06
+53	532	31.252873293246	3
+53	534	31.252878173246	4.88e-06
+54	144	7.006659923683	3
+54	145	7.006668803683	1
+54	293	17.00628680113	3
+54	294	17.00629568113	1
+54	442	27.005930626856	3
+54	443	27.005939506856	1
+54	532	31.252873293246	3
+54	534	31.252878173246	1
+55	146	7.006668803683	110
+55	295	17.00629568113	110
+55	444	27.005939506856	110
+55	536	31.252878173246	60
+56	146	7.006668803683	78
+56	295	17.00629568113	78
+56	444	27.005939506856	78
+56	536	31.252878173246	28
+57	498	31.25	28
+58	498	31.25	28
+59	498	31.25	1
+59	498	31.25	0
+60	498	31.25	28
+61	498	31.25	0
+62	498	31.25	60
+63	500	31.25	2
+63	502	31.25000488	1
+
