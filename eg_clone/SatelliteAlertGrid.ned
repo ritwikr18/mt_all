@@ -38,19 +38,22 @@ import space_veins.modules.SatelliteObservationPoint.SatelliteObservationPoint;
 network SatelliteAlertGrid
 {
     parameters:
-        double playgroundSizeX @unit(m) = default(10000m); // size of the simulation area in x dimension
-        double playgroundSizeY @unit(m) = default(10000m); // size of the simulation area in y dimension
+        double playgroundSizeX @unit(m) = default(100km); // size of the simulation area in x dimension
+        double playgroundSizeY @unit(m) = default(100km); // size of the simulation area in y dimension
         double playgroundSizeZ @unit(m) = default(600km); // height of the 3D box; must exceed satellite altitude
         string satelliteType = default("space_veins.nodes.Satellite");
-        @display("bgb=1145,703");
-       
+        @display("bgb=1803.93,1001.0663");
+		
+		// for geo satellites
+        int numGeos = default(0);  // 0 = no GEOs by default
+		
     submodules:
         // IPv4 configurator to automatically assign IP addresses and routing tables
         // to all network nodes.  This is required when using INET's Satellite
         // modules so that packets are forwarded correctly between the cars and
         // the satellite.  The configurator is configured in the ini file.
-       
-        
+
+
         configurator: Ipv4NetworkConfigurator {
             @display("p=100,43");
         }
@@ -88,7 +91,7 @@ network SatelliteAlertGrid
             @display("p=727,118");
         }
         // Global statistics collection module.  This module records
-      	//scalar and vector results for satellites and vehicles.
+        //scalar and vector results for satellites and vehicles.
         globalStatistics: GlobalStatistics {
             @display("p=189,315");
         }
@@ -128,6 +131,13 @@ network SatelliteAlertGrid
         leoSPACEBEE[0]: <default(satelliteType)> like INetworkNode {
             @display("p=250,518");
         }
+
+
+        // GEO satellite array (for GEO scenario configs)
+        geo[numGeos]: <default(satelliteType)> like INetworkNode {
+            @display("p=1029.7913,604.66125");
+        }
+
         // Vehicle array.  New vehicles will be added by the TraCI manager at
         // runtime.  The module name 'node' is used by the manager to
         // create additional instances of SatCar as needed.

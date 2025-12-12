@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-11-03 09:35:08 by Eclipse SUMO duarouter Version 1.18.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="my_5km_grid_wgs.net.xml"/>
+        <route-files value="my_5km_grid.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="my_5km_grid.rou.xml"/>
+    </output>
+
+    <report>
+        <ignore-errors value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="v0" depart="1.00">
+        <route edges="A0A1 A1A2 A2B2 B2C2 C2C1"/>
+    </vehicle>
+    <vehicle id="v1" depart="1.00">
+        <route edges="C2C1 C1C0 C0B0 B0A0 A0A1"/>
+    </vehicle>
+    <vehicle id="v2" depart="1.00">
+        <route edges="A2A1 A1B1 B1C1 C1C0 C0B0"/>
+    </vehicle>
+    <vehicle id="v3" depart="1.00">
+        <route edges="C0B0 B0B1 B1B2 B2A2 A2A1"/>
+    </vehicle>
+    <vehicle id="v4" depart="1.00">
+        <route edges="B1B0 B0B1 B1A1"/>
+    </vehicle>
+</routes>
