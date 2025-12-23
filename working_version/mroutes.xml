@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+
+  <!-- Receivers join multicast group 239.1.1.1 -->
+  <multicast-group hosts="node[1] node[2] node[3] node[4]"
+                   address="239.1.1.1"/>
+
+  <!-- Satellites forward group 239.1.1.1.
+       children="*" means: forward towards all known downstream directions
+       (same syntax as the INET multicast example). -->
+ <!-- Apply to all LEO constellation vectors in SatelliteAlertGrid.ned -->
+  <multicast-route hosts="leoSTARLINK[*] leoIRIDIUM[*] leoONEWEB[*] leoORBCOMM[*] leoGLOBALSTAR[*] leoSPACEBEE[*]"
+                   groups="239.1.1.1"
+                   children="*"/>
+
+</config>
